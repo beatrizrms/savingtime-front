@@ -1,0 +1,12 @@
+<ion-view view-title="Saving Time" hide-back-button="true">
+  <ion-nav-buttons side="primary">
+    <a ng-click="settings()" class="button button-icon icon ion-navicon-round"></a>
+  </ion-nav-buttons>
+  <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+    <div class="title-main"><div class="ion-android-restaurant tam-icon"></div></div>
+  </ion-content>
+</ion-view>

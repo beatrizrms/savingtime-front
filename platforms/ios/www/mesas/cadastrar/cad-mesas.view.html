@@ -1,0 +1,21 @@
+<ion-view view-title="Gerenciar Mesas">
+  <ion-content>
+    <div class="title">&nbsp;Preencha para cadastrar uma ou mais mesas: </div>
+    <div class="main-box-checkin">
+
+      <label class="item item-input">
+          <span class="input-label">Numero</span>
+          <input type="tel" ng-model="mesa.numMesa" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+     </label>
+
+      <label class="item item-input">
+          <span class="input-label">Capacidade de Lugares</span>
+          <input type="tel" ng-model="mesa.capacidade" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+     </label>
+
+    <button class="button button-outline button-stable button-checkin" ng-click="cadastrarMesa()">
+      Cadastrar
+    </button>
+  </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,77 @@
+.slider {
+  height: 100%;
+  background: rgb(41,91,171); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+}
+
+.imagem {
+  opacity: 0.6;
+  width: 60%;
+}
+
+.box {
+	width: 90%;
+	height: 90%;
+	margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: white;
+	background-color: transparent;;
+}
+
+.onboarding-title {
+	color: white;
+  opacity: 0.8;
+	font-size: 23px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 30px;
+  line-height: 30px;
+}
+
+.onboarding-text {
+	margin-top: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 16px;
+	color: white;
+	font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+  font-weight: lighter;
+  font-size: x-large;
+}
+
+.scroll-onboarding {
+  position: absolute;
+  max-height: 47%;
+  overflow-y: scroll;
+}
+
+.slider-pager .slider-pager-page {
+	color: rgb(41,91,171);
+}
+
+.slider-pager {
+  bottom:2%;
+  padding-top:3px;
+}
+
+.onboarding-link {
+	color: #5395e6;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.button-onboarding {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+}

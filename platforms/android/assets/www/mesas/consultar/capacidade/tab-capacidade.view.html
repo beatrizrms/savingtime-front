@@ -1,0 +1,49 @@
+<ion-view view-title="Por capacidade" drag-content="false">
+  <ion-nav-buttons side="secondary">
+      <button class="button-clear ion-ios-home white" ng-click="backToMain()">
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+
+  <div class="title">&nbsp;Escolha a quantidade de lugares abaixo</div>
+
+    <div class="item range">
+       <p class="title-range white">   {{quantidade.num}}</p>
+      <i class="icon ion-person white" style="font-size: 18px;"></i>
+      <input type="range" ng-model="quantidade.num" min="1" max="30">
+      <i class="icon ion-ios-people white" ></i>
+    </div>
+
+    <button class="button button-full white button-checkin button-clear" ng-click="pesquisar()">
+      Pesquisar
+    </button>
+
+    <div class="title">{{error}}</div>
+
+
+    <ion-list>
+      <ion-item ng-repeat="data in listmesas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(data)">
+        <div ng-class="isItemShown(data) ? 'item-expand active' : 'item-expand inactive'">
+          <h2 class="white">Mesa: {{data.numMesa}}</h2>
+        </br>
+          <p class="white">Número: {{data.numMesa}}</p>
+          <p class="white">Capacidade: {{data.capacidade}}</p>
+          <p class="white">Status: {{data.status}}</p>
+        </div>
+        <ion-option-button class="button-rose"
+                           ng-click="editMesas({{data.codigo}})">
+        Editar
+        </ion-option-button>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+  </ion-content>
+</ion-view>

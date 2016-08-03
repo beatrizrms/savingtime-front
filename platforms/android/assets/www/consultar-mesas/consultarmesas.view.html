@@ -1,0 +1,19 @@
+<ion-view view-title="Mesas Disponíveis">
+  <ion-content>
+
+    <div class="title-pages">Aqui estão as mesas disponíveis no momento: </div>
+      <ion-list>
+        <ion-item ng-repeat="data in listmesasdisp" class="item item-text-wrap" ng-click="toggleItem(data)">
+          <div ng-class="isItemShown(data) ? 'item-expand active' : 'item-expand inactive'">
+            <h2>Mesa {{data.num}}</h2>
+          </br>
+            <p>Número: {{data.num}}</p>
+            <p>Capacidade: {{data.capacidade}}</p>
+            <div class="my-reserv">
+              <button class="button button-outline button-positive ion-android-person">&nbsp;Alocar</button>
+            <div>
+          </div>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-view>

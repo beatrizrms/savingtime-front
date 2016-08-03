@@ -1,0 +1,14 @@
+<ion-view view-title="Check-in">
+  <ion-content>
+    <div class="title"><div class="ion-person-add tam-icon"></div>Faça o check-in de um cliente que possui reserva: </div>
+    <div class="main-box-checkin">
+      <label class="item item-input">
+        <span class="input-label">Cód. Reserva / Cpf</span>
+        <input type="text" placeholder="8798789" ng-model="busca">
+      </label>
+    <button class="button button-outline button-stable button-checkin" ng-click="buscarReserva(busca)">
+      Efetuar Check-in
+    </button>
+    </div>
+  </ion-content>
+</ion-view>

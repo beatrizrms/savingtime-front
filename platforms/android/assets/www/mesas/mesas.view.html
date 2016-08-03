@@ -1,0 +1,17 @@
+<ion-view view-title="Gerenciar Mesas">
+  <ion-nav-buttons side="secondary">
+      <button class="button-clear ion-ios-home white" ng-click="backToMain()">
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <div class="title-item"><div class=""></div>&nbsp;Escolha uma opção para gerenciar mesas: </div>
+    <ion-list>
+      <ion-item ng-click="cadastrarMesa()" class="item-icon-right"> Cadastrar Mesas
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item ui-sref="tab.todasmesas" class="item-icon-right"> Consultar Mesas
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

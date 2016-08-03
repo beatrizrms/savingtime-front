@@ -1,0 +1,74 @@
+<ion-view view-title="Reserva">
+  <ion-content>
+    <div class="title">Preencha os campos para reservar:</div>
+    <div class="main-box-reserva">
+
+      <label class="item item-input">
+        <span class="input-label">Data</span>
+        <input type="date" ng-model="reserva.dataReserva" required/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Horário</span>
+        <input type="time" ng-model="reserva.horaReserva" required />
+
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Nome do Responsável</span>
+        <input type="text" placeholder="Maria da Silva" ng-model="reserva.responsavel"/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Cpf</span>
+        <input type="tel" ui-mask="999.999.999-99" ng-model="reserva.cpf" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Telephone</span>
+        <input type="tel" ng-model="reserva.telefone" ui-mask="(999) 99999-9999" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="email" placeholder="pessoa@savingtime.com.br" ng-model="reserva.email" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+      </label>
+
+      <label class="item item-input">
+          <span class="input-label">Quant. de pessoas</span>
+          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="reserva.qtPessoas"/>
+     </label>
+
+     <label class="item item-input item-select">
+       <span class="input-label">Tipo de evento</span>
+         <select ng-model="reserva.tipoEvento">
+           <option selected>Jantar Familiar</option>
+           <option>Almoço Familiar</option>
+           <option>Jantar Executivo</option>
+           <option>Almoço Executivo</option>
+           <option>Almoço Trabalho</option>
+         </select>
+    </label>
+
+    <label class="item item-input item-select">
+      <span class="input-label">Pagamento</span>
+        <select ng-model="reserva.pagamento">
+          <option selected>Transferencia - Processando</option>
+          <option>Transferencia - Pago</option>
+          <option>Dinheiro - Pago</option>
+          <option>Cartao de crédito - Pago</option>
+        </select>
+   </label>
+
+     <label class="item item-input item-icon-right" ng-click="addPicture()">
+       <span class="input-label">Anexar comprovante</span>
+       <span class="pink-color">{{anexado}}</span>
+          <i class="icon ion-images"></i>
+      </label>
+
+    <button class="button button-outline button-stable button-checkin" ng-click="cadastrarReserva()">
+      Efetuar Reserva
+    </button>
+    </div>
+  </ion-content>
+</ion-view>

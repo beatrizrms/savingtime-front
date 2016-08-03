@@ -1,0 +1,371 @@
+/* Empty. Add your own CSS if you like */
+
+.main-box-checkin {
+  margin-top: 2em;
+  width: 95%;
+  height: auto;
+  margin: auto;
+}
+
+.title-pages{
+  width: 95%;
+  text-align:center;
+  width: 100%;
+  font-size: 1.2em;
+  color:black;
+  background: white;
+}
+
+.title-range {
+  font-size: 1.2em !important;
+  color:#A1A2A6;
+}
+
+.title-main {
+  font-size: 1.2em !important;
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.2em !important;
+  color: white;
+}
+
+.ain{
+  width: 95%;
+  margin-top: 1em;
+  text-align:center;
+  width: 100%;
+  margin-bottom: 1em;
+  font-size: 1.7em;
+  color:#0c60ee;
+}
+
+.button-checkin {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.button {
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.table-fila{
+  margin-top: 2em;
+  margin: auto;
+  max-width: 95%;
+}
+
+.my-gear {
+  margin: auto;
+  font-size:1.7em;
+  float: right;
+}
+.my-reserv {
+  margin: auto;
+  float: right;
+}
+
+.col {
+  text-align: center;
+}
+
+.tam-icon {
+  font-size: 2em;
+}
+
+.filtro {
+  display:none;
+}
+
+.mostrar {
+  display:block;
+}
+
+.esconder {
+  display:none;
+}
+
+.ionic_datepicker_popup .popup-body .selected_date_full {
+    background-color: #0c60ee !important;
+}
+
+.ionic_datepicker_popup .selected_date {
+    background-color: #0c60ee !important;
+}
+
+.ionic_datepicker_popup .popup-buttons button {
+  background-color: #0c60ee !important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select, .ionic_datepicker_popup .popup-body .year_select {
+  border-bottom: 1px solid #0c60ee !important;
+}
+
+.ionic_datepicker_popup .popup-body .month_select:after, .ionic_datepicker_popup .popup-body .year_select:after {
+  color: #0c60ee !important;
+}
+
+.ionic_datepicker_popup .popup-body .button-clear{
+  color: #0c60ee !important;
+}
+
+/* CORE Item expand */
+.item-expand {
+  position: relative;
+  width: 100%;
+  max-height: 35px;
+  transition: max-height 0.1s ease-out;
+  overflow: hidden;
+}
+
+.item-expand.inactive:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 15px;
+  width: 100%;
+  display: block;
+}
+
+.item-expand.active {
+  max-height: 220px;
+  transition: max-height 0.3s ease-out;
+}
+
+
+/* DEMO */
+.item-expand-footer {
+  color: #0c60ee;
+  margin-top: 1px;
+}
+
+.item-expand-footer i {
+  margin-right: 10px;
+}
+
+ .md-scroll-mask { position: initial;}
+
+ .text-margin {
+   margin-left:45px !important;
+ }
+
+ .clock {
+  position: absolute;
+  font-size: 34px;
+ }
+
+ .gear-fila {
+   margin-top: -52px;
+ }
+
+ .gear-lista {
+   margin-top: -13px;
+ }
+
+ .has-header {
+   background: rgb(41,91,171); /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+ }
+
+ .bar-dark {
+   background-color: rgb(41,91,171) !important;
+ }
+
+
+.item {
+  background: transparent;
+  color: white;
+  : 0.6;
+}
+
+.item-complex .item-content, .item-radio .item-content {
+  background-color: transparent;
+}
+
+.titleitem {
+  background: white;
+  color: rgb(28,20,52);
+}
+
+.title-item {
+  background: white;
+  color: rgb(28,20,52);
+  font-size: 18px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: lighter;
+}
+
+body {
+  color: white;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.pink {
+  background: rgb(192,185,224);
+  background-color: rgb(192,185,224) !important;
+  border-color: white;
+  border: 1px dotted;
+  color: white;
+}
+.pink-color {
+  color: rgb(192,185,224) !important;
+}
+
+.blue-color {
+  color: rgb(124,204,228) !important;
+}
+
+.red {
+  background: rgb(41,91,171); /* For browsers that do not support gradients */
+  border-color: rgb(124,204,228);
+  border: 1px dotted;
+  color: rgb(124,204,228);
+}
+
+.detail {
+  text-align: center;
+  font-weight: 300;
+}
+
+.button-default {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+}
+
+.input-label {
+  color: white;
+}
+
+input[type=tel] {
+  color: white;
+}
+
+input[type=text] {
+  color: white;
+}
+
+input[type=number] {
+  color: white;
+}
+
+input[type=date] {
+  color: white;
+}
+
+input[type=time] {
+  color: white;
+}
+
+input[type=email] {
+  color: white;
+}
+
+.item-select select {
+  background: transparent;
+  color: white;
+}
+
+.white {
+  color: white !important;
+}
+
+.popup-container .popup {
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.popup-head {
+  border:none;
+}
+
+.button.button-positive {
+  border-color: white;
+  background-color: transparent;;
+  color: rgb(41,91,171);
+}
+
+.button.button-positive.active {
+  border-color: white;
+  background-color: transparent;;
+  color: rgb(41,91,171);
+}
+
+.button.button-rose {
+  border-color: white;
+  background-color: rgb(192,185,224);;;
+  color: rgb(41,91,171);
+}
+
+.button.button-rose.active {
+  border-color: white;
+  background-color: rgb(192,185,224);;;
+  color: rgb(41,91,171);
+}
+
+
+.tabs-stable > .tabs, .tabs.tabs-stable {
+  background: rgb(124,204,228);
+  color: white;
+  border:1px solid;
+}
+
+.tabs-positive > .tabs, .tabs.tabs-positive {
+  background: rgb(124,204,228);
+  color: white;
+  border:1px solid;
+}
+
+.popup-title {
+  color:white;
+}
+
+.popup-sub-title {
+  color:white;
+}
+
+.bar {
+  border-style: none;
+  border-top: 0px solid transparent;
+  border-bottom: 0px solid #ddd;
+  background-color: transparent;
+  background-size: 0% 0px;
+}
+
+.stable {
+  color: white;
+}
+
+.button.button-stable.button-outline {
+    border-color: white;
+    background: transparent;
+    color: white;
+}
+
+
+.button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
+  background: white;
+  color:rgb(41,91,171);
+}
+
+.item.activated {
+  background-color: white;
+  color:rgb(41,91,171);
+}

@@ -1,0 +1,48 @@
+<ion-view view-title="Ver Reservas por Data">
+  <ion-nav-buttons side="secondary">
+      <button class="button-clear ion-ios-home white" ng-click="backToMain()">
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+
+  <label class="item item-input">
+    <span class="input-label">Data Inicio</span>
+    <input type="date" ng-model="pesquisa.dataInicio"/>
+  </label>
+
+  <label class="item item-input">
+    <span class="input-label">Data Final</span>
+    <input type="date" ng-model="pesquisa.dataFinal"/>
+  </label>
+
+  <button class="button button-full button-stable button-checkin button-clear" ng-click="pesquisarData()">
+    Pesquisar
+  </button>
+
+
+    <div class="title-pages">{{error}}</div>
+
+    <ion-list>
+      <ion-item ng-repeat="reserva in reservas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(reserva)">
+        <div ng-class="isItemShown(reserva) ? 'item-expand active' : 'item-expand inactive'">
+          <h2 class="white">Reserva no cpf {{reserva.cpf}}</h2>
+          <br/>
+          <p class="white">Data: {{reserva.dataReserva}}</p>
+          <p class="white">Horário: {{reserva.horaReserva}}</p>
+          <p class="white">Responsável: {{reserva.responsavel}}</p>
+          <p class="white">Cpf: {{reserva.cpf}}</p>
+          <p class="white">Telefone: {{reserva.telefone}}</p>
+          <p class="white">Lugares: {{reserva.qtPessoas}}</p>
+          <p class="white">Pagamento: {{reserva.pagamento}}</p>
+          <p class="white">Status: {{reserva.statusReserva}}</p>
+          <p class="white">Tipo Evento: {{reserva.tipoEvento}}</p>
+        </div>
+        <ion-option-button class="button-rose"
+                           ng-click="editarReserva({{reserva}})">
+        Editar
+        </ion-option-button>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

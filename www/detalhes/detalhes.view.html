@@ -1,0 +1,15 @@
+<ion-view view-title="Estabelecimento">
+  <ion-content>
+    <ion-list>
+        <div ng-repeat="data in detalhes track by $index">
+            <ion-item class="item item-icon-right item-icon-left ion-calendar titleitem ion-calendar detail" style="opacity:1.0;">&nbsp;&nbsp;{{data.diaSemana}}
+            </ion-item>
+            <ion-item class="titleitem detail" style="opacity:1.0;">Das {{data.horaAbertura}} ás {{data.horaFechamento}}</ion-item>
+            <ion-item ng-if="data.fechado == 1" class="titleitem pink-color detail" style="opacity:1.0;"> FECHADO </ion-item>
+            <ion-item ng-if="data.fechado == 0" class="titleitem blue-color detail" style="opacity:1.0;">ABERTO </ion-item>
+            <br /><br />
+        </div>
+      </ion-list>
+      </div>
+  </ion-content>
+</ion-view>

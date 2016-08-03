@@ -1,0 +1,78 @@
+<ion-view view-title="Reserva">
+  <ion-content>
+    <div class="main-box-reserva">
+
+        <div class="title-pages"></div>
+
+      <label class="item item-input">
+        <span class="input-label">Data</span>
+        <span class="white">{{reservaedit.dataReserva}}</span>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Horário</span>
+        <span class="white">{{reservaedit.horaReserva}}</span>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Nome do Responsável</span>
+        <input type="text" placeholder="Maria da Silva" ng-model="reservaedit.responsavel"/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Cpf</span>
+        <input type="text" ng-model="reservaedit.cpf" ui-mask="999.999.999-99" ng-model="reserva.cpf" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Telephone</span>
+        <input type="text" ui-mask="(999) 99999-9999"  ng-model="reservaedit.telefone" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="email" placeholder="pessoa@savingtime.com.br" ng-model="reservaedit.email">
+      </label>
+
+      <label class="item item-input">
+          <span class="input-label">Quant. de pessoas</span>
+          <span class="white">{{reservaedit.qtPessoas}}</span>
+     </label>
+
+     <label class="item item-input item-select">
+       <span class="input-label">Tipo de evento</span>
+         <select ng-model="reservaedit.tipoEvento">
+           <option>Jantar Familiar</option>
+           <option>Almoço Familiar</option>
+           <option>Jantar Executivo</option>
+           <option>Almoço Executivo</option>
+           <option>Almoço Trabalho</option>
+           <option>Aniversário</option>
+         </select>
+    </label>
+
+    <label class="item item-input item-select">
+      <span class="input-label">Pagamento</span>
+        <select ng-model="reservaedit.pagamento">
+          <option>Transferencia - Processando</option>
+          <option>Transferencia - Pago</option>
+          <option>Dinheiro - Pago</option>
+          <option>Cartao de crédito - Pago</option>
+        </select>
+   </label>
+
+   <label class="item item-input item-icon-right pink-color" ng-click="addPicture()">
+     <span class="input-label">Anexar novo comprovante</span>
+        <span class="pink-color">{{anexado}}</span>
+          <i class="icon ion-images"></i>
+      </label>
+
+    <button class="button button-full button-positive button-checkin" ng-click="editarReserva()">
+      Editar
+    </button>
+    <button class="button button-full pink" ng-click="cancelarReserva({{reservaedit.codReserva}})">
+      Cancelar Reserva
+      </ion-button>
+    </div>
+  </ion-content>
+</ion-view>

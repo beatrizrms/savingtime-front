@@ -1,0 +1,43 @@
+<ion-view view-title="Por status">
+  <ion-nav-buttons side="secondary">
+      <button class="button-clear ion-ios-home white" ng-click="backToMain()">
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+      <div class="title">&nbsp;Escolha um status para filtrar</div>
+      <label class="item item-input item-select">
+        <span class="input-label">Status</span>
+          <select ng-model="mesa.status" ng-change="pesquisarMesasStatus()">
+            <option ng-repeat="o in statusmesa" ng-selected="{{o==edit.status}}" value="{{o}}">
+               {{o}}
+           </option>
+          </select>
+     </label>
+
+     <div class="title">{{error}}</div>
+
+     <ion-list>
+       <ion-item ng-repeat="data in listmesas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(data)">
+         <div ng-class="isItemShown(data) ? 'item-expand active' : 'item-expand inactive'">
+           <h2 class="white">Mesa: {{data.numMesa}}</h2>
+         </br>
+           <p class="white">Número: {{data.numMesa}}</p>
+           <p class="white">Capacidade: {{data.capacidade}}</p>
+           <p class="white">Status: {{data.status}}</p>
+         </div>
+         <ion-option-button class="button-rose"
+                            ng-click="editMesas({{data.codigo}})">
+         Editar
+         </ion-option-button>
+         <i class="icon ion-chevron-right icon-accessory"></i>
+       </ion-item>
+     </ion-list>
+    </div>
+
+  </ion-content>
+</ion-view>

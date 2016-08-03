@@ -1,0 +1,37 @@
+<ion-view view-title="Disponibilidade">
+  <ion-content>
+    <div class="title">Preencha os campos para descobrir a possibilidade de reserva:</div>
+    <div class="main-box-checkin">
+
+      <label class="item item-input">
+        <span class="input-label">Data</span>
+        <input type="date"/>
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Horário</span>
+        <input type="time" />
+      </label>
+
+      <label class="item item-input">
+          <span class="input-label">Quant. de pessoas</span>
+          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+     </label>
+
+     <label class="item item-input item-select">
+       <span class="input-label">Tipo de evento</span>
+         <select>
+           <option selected>Jantar Familiar</option>
+           <option>Almoço Familiar</option>
+           <option>Jantar Executivo</option>
+           <option>Almoço Executivo</option>
+           <option>Almoço Trabalho</option>
+         </select>
+    </label>
+
+    <button class="button button-outline button-stable button-checkin">
+      Verificar
+    </button>
+    </div>
+  </ion-content>
+</ion-view>
