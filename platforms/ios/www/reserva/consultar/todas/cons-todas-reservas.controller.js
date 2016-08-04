@@ -7,6 +7,7 @@
     ConsTodasReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicLoading', '$ionicNavBarDelegate'];
     function ConsTodasReservasCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicLoading, $ionicNavBarDelegate) {
 
+    var vm = this;
     $ionicLoading.show({
       template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
     });
@@ -37,7 +38,6 @@
 
       $scope.editarReserva = function(reserva) {
         $rootScope.reservaedit = reserva;
-        console.log(reserva);
         $state.go('editar/reserva');
       }
 

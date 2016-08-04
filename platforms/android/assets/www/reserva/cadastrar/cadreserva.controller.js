@@ -14,6 +14,31 @@
                       comprovante: ''
                      };
     $scope.anexado = '';
+    $scope.categoria = false;
+
+
+      $scope.showCategoria = function(quantidade) {
+        $ionicLoading.show();
+        $scope.categoria = false;
+        if(quantidade !== '' && quantidade !== undefined && quantidade !== null)
+        ReservaService.categorias(quantidade)
+          .then(
+            function(data) {
+                console.log(data);
+                if (data.length > 0) {
+                  $scope.categoria = true;
+                  $scope.listcategorias = data;
+                }
+
+                $ionicLoading.hide();
+
+            },
+            function(error) {
+                $scope.showAlert("Tente novamente");
+                $ionicLoading.hide();
+            }
+          );
+      }
 
       $scope.cadastrarReserva = function() {
         $ionicLoading.show({

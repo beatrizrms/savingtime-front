@@ -6,8 +6,29 @@
     EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate'];
     function EditReservaCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate) {
 
-      $scope.editarReserva = function() {
+      console.log($rootScope.reservaedit.qtPessoas)
 
+      ReservaService.categorias($rootScope.reservaedit.qtPessoas)
+        .then(
+          function(data) {
+              console.log(data);
+              if (data.length > 0) {
+                $scope.listcategorias = data;
+              }
+
+              $ionicLoading.hide();
+
+          },
+          function(error) {
+              $scope.showAlert("Tente novamente");
+              $ionicLoading.hide();
+          }
+        );
+
+
+
+      $scope.editarReserva = function() {
+        console.log($scope.reservaedit)
 
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'

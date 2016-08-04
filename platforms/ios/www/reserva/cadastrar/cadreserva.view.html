@@ -42,11 +42,7 @@
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
          <select ng-model="reserva.tipoEvento">
-           <option selected>Jantar Familiar</option>
-           <option>Almoço Familiar</option>
-           <option>Jantar Executivo</option>
-           <option>Almoço Executivo</option>
-           <option>Almoço Trabalho</option>
+           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
 

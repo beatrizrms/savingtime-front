@@ -4,14 +4,38 @@
         .module('checkin.controller', [])
         .controller('CheckinCtrl', CheckinCtrl);
 
-    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate'];
-    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate) {
+    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate', 'ReservaService'];
+    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate, ReservaService) {
 
       $scope.reserva = [];
       $scope.busca = '';
       $scope.checkin = {
         qtPessoas : 1
       };
+      $scope.categoria = false;
+
+      $scope.showCategoria = function(quantidade) {
+        $ionicLoading.show();
+        $scope.categoria = false;
+        if(quantidade !== '' && quantidade !== undefined && quantidade !== null)
+        ReservaService.categorias(quantidade)
+          .then(
+            function(data) {
+                console.log(data);
+                if (data.length > 0) {
+                  $scope.categoria = true;
+                  $scope.listcategorias = data;
+                }
+
+                $ionicLoading.hide();
+
+            },
+            function(error) {
+                $scope.showAlert("Tente novamente");
+                $ionicLoading.hide();
+            }
+          );
+      }
 
       $scope.buscarReserva = function(busca) {
 
@@ -72,6 +96,9 @@
       }
 
       $scope.fazerCheckin = function(checkin) {
+
+        console.log(checkin)
+
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });

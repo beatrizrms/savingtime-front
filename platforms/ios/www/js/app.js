@@ -63,6 +63,8 @@
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
+    $ionicConfigProvider.views.maxCache(0);
+
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
       var datePickerObj = {

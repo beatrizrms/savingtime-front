@@ -15,7 +15,8 @@
             consultarReservasData: consultarReservasData,
             consultarReservasCC: consultarReservasCC,
             editarReserva: editarReserva,
-            cancelarReserva: cancelarReserva
+            cancelarReserva: cancelarReserva,
+            categorias: categorias
         };
 
         return reservasMethods;
@@ -50,6 +51,18 @@
 
           return deferred.promise;
         };
+
+        function categorias(quantidade) {
+          var deferred = $q.defer();
+          $http.get(host + 'atendimentorest/get/tipo/evento/'+quantidade)
+          .success(function(data) {
+            deferred.resolve(data);
+          }).error(function(data) {
+            deferred.reject(data);
+          });
+
+          return deferred.promise;
+        }
 
 
 

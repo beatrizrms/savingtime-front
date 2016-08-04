@@ -1,33 +1,29 @@
 <ion-view view-title="Check-in">
   <ion-content>
-    <div class="title"><div class="ion-person-add tam-icon"></div>Faça o check-in de um cliente que solicitou uma mesa: </div>
+    <div class="title">Faça o check-in de um cliente que solicitou uma mesa: </div>
     <div class="main-box-checkin">
       <label class="item item-input">
         <span class="input-label">Nome do Responsável</span>
-        <input type="text" placeholder="Maria da Silva" ng-model="checkin.responsavel">
+        <input type="text" placeholder="Maria da Silva" ng-model="checkin.responsavel" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Telefone</span>
-        <input type="tel" placeholder="(11) 92222-2222" ng-model="checkin.telefone">
+        <input type="tel" ng-model="checkin.telefone" ui-mask="(999) 99999-9999" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
       </label>
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel"  ng-model="checkin.qtPessoas">
+          <input type="tel"  ng-model="checkin.qtPessoas" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-change="showCategoria(checkin.qtPessoas)" required/>
      </label>
 
-     <label class="item item-input item-select">
+     <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="checkin.tipoEvento">
-           <option selected>Jantar Familiar</option>
-           <option>Almoço Familiar</option>
-           <option>Jantar Executivo</option>
-           <option>Almoço Executivo</option>
-           <option>Almoço Trabalho</option>
+         <select ng-model="checkin.tipoEvento" required>
+           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
 
-    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)">
+    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.tipoEvento">
       Efetuar Check-in
     </button>
     </div>

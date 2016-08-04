@@ -18,11 +18,18 @@
 
 
       $scope.showCategoria = function(quantidade) {
+        $ionicLoading.show();
+        $scope.categoria = false;
+        if(quantidade !== '' && quantidade !== undefined && quantidade !== null)
         ReservaService.categorias(quantidade)
           .then(
             function(data) {
                 console.log(data);
-                $scope.categoria = true;
+                if (data.length > 0) {
+                  $scope.categoria = true;
+                  $scope.listcategorias = data;
+                }
+
                 $ionicLoading.hide();
 
             },

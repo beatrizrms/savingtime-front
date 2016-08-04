@@ -41,13 +41,8 @@
 
      <label class="item item-input item-select">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="reservaedit.tipoEvento">
-           <option>Jantar Familiar</option>
-           <option>Almoço Familiar</option>
-           <option>Jantar Executivo</option>
-           <option>Almoço Executivo</option>
-           <option>Almoço Trabalho</option>
-           <option>Aniversário</option>
+         <select ng-model="reservaedit.tipoEvento" required>
+           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
 
