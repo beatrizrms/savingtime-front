@@ -5,31 +5,28 @@
 
       <label class="item item-input">
         <span class="input-label">Data</span>
-        <input type="date"/>
+        <input type="date" ng-model="disp.data"/>
       </label>
 
       <label class="item item-input">
         <span class="input-label">Horário</span>
-        <input type="time" />
+        <input type="time" ng-model="disp.hora"/>
       </label>
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="disp.quantidade" ng-change="showCategoria(disp.quantidade)"/>
      </label>
 
-     <label class="item item-input item-select">
-       <span class="input-label">Tipo de evento</span>
-         <select>
-           <option selected>Jantar Familiar</option>
-           <option>Almoço Familiar</option>
-           <option>Jantar Executivo</option>
-           <option>Almoço Executivo</option>
-           <option>Almoço Trabalho</option>
-         </select>
-    </label>
 
-    <button class="button button-outline button-stable button-checkin">
+      <label class="item item-input item-select" ng-show="categoria">
+        <span class="input-label">Tipo de evento</span>
+          <select ng-model="disp.tipoEvento">
+            <option ng-repeat="op in listcategorias"selected>{{op}}</option>
+          </select>
+     </label>
+
+    <button class="button button-outline button-stable button-checkin" ng-disabled="!disp.data || !disp.hora || !disp.quantidade || !disp.tipoEvento">
       Verificar
     </button>
     </div>

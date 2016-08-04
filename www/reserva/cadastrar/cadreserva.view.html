@@ -31,7 +31,7 @@
 
       <label class="item item-input">
         <span class="input-label">Email</span>
-        <input type="email" placeholder="pessoa@savingtime.com.br" ng-model="reserva.email" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        <input type="email" placeholder="pessoa@savingtime.com.br" ng-model="reserva.email" />
       </label>
 
       <label class="item item-input">
@@ -42,11 +42,7 @@
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
          <select ng-model="reserva.tipoEvento">
-           <option selected>Jantar Familiar</option>
-           <option>Almoço Familiar</option>
-           <option>Jantar Executivo</option>
-           <option>Almoço Executivo</option>
-           <option>Almoço Trabalho</option>
+           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
 
@@ -66,7 +62,7 @@
           <i class="icon ion-images"></i>
       </label>
 
-    <button class="button button-outline button-stable button-checkin" ng-click="cadastrarReserva()">
+    <button class="button button-outline button-stable button-checkin" ng-click="cadastrarReserva()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.responsavel || !reserva.cpf || !reserva.telefone || !reserva.email ">
       Efetuar Reserva
     </button>
     </div>
