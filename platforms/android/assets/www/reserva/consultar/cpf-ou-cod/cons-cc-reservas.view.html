@@ -19,15 +19,15 @@
         <div ng-class="isItemShown(reserva) ? 'item-expand active' : 'item-expand inactive'">
           <h2 class="white">Reserva no cpf {{reserva.cpf}}</h2>
           <br/>
-          <p class="white">Data: {{reserva.dataReserva}}</p>
-          <p class="white">Horário: {{reserva.horaReserva}}</p>
-          <p class="white">Responsável: {{reserva.responsavel}}</p>
-          <p class="white">Cpf: {{reserva.cpf}}</p>
-          <p class="white">Telefone: {{reserva.telefone}}</p>
-          <p class="white">Lugares: {{reserva.qtPessoas}}</p>
-          <p class="white">Pagamento: {{reserva.pagamento}}</p>
-          <p class="white">Status: {{reserva.statusReserva}}</p>
-          <p class="white">Tipo Evento: {{reserva.tipoEvento}}</p>
+          <p class="white"><b>Data:</b> {{reserva.dataReserva}}</p>
+          <p class="white"><b>Horário:</b> {{reserva.horaReserva}}</p>
+          <p class="white"><b>Responsável:</b> {{reserva.responsavel}}</p>
+          <p class="white"><b>Cpf:</b> {{reserva.cpf}}</p>
+          <p class="white"><b>Telefone:</b> {{reserva.telefone}}</p>
+          <p class="white"><b>Lugares:</b> {{reserva.qtPessoas}}</p>
+          <p class="white"><b>Pagamento:</b> {{reserva.pagamento}}</p>
+          <p class="white"><b>Status:</b> {{reserva.statusReserva}}</p>
+          <p class="white"><b>Tipo Evento:</b> {{reserva.tipoEvento}}</p>
         </div>
         <ion-option-button class="button-rose"
                            ng-click="editarReserva({{reserva}})">

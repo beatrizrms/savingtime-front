@@ -1,11 +1,4 @@
 {
-  "name": "saving-time",
-  "app_id": "",
-  "browsers": [
-    {
-      "platform": "android",
-      "browser": "crosswalk",
-      "version": "12.41.296.5"
-    }
-  ]
+  "name": "savingtime",
+  "app_id": ""
 }

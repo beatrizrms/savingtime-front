@@ -1,5 +1,16 @@
 /* Empty. Add your own CSS if you like */
 
+@font-face {
+    font-family: 'San Fran';
+    src: url("System San Francisco Display Regular.ttf") format("opentype");
+    font-weight: 500;
+}
+
+body{
+    font-family: 'San Fran';
+}
+
+
 .main-box-checkin {
   margin-top: 2em;
   width: 95%;

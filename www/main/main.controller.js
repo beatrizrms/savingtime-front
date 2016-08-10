@@ -11,6 +11,10 @@
         $state.go('settings');
       }
 
+      $scope.help = function() {
+        $state.go('onboarding');
+      }
+
     }
 
 })();

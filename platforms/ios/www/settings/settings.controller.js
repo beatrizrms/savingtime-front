@@ -3,7 +3,7 @@
         .module('settings.controller', [])
         .controller('SettingsCtrl', SettingsCtrl);
 
-    SettingsCtrl.$inject = ['$scope', '$scope', '$state','$ionicPopup', '$rootScope'];
+    SettingsCtrl.$inject = ['$scope', '$scope', '$state','$ionicPopup', '$rootScope', '$ionicLoading'];
     function SettingsCtrl
     ($scope, $scope, $state, $ionicPopup, $rootScope) {
       var myPopup;

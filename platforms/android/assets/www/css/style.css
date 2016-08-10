@@ -214,11 +214,11 @@ body {
 }
 
 .pink {
-  background: rgb(192,185,224);
-  background-color: rgb(192,185,224) !important;
-  border-color: white;
+  background: white;
+  background-color: white !important;
+  border-color: rgb(192,185,224);
   border: 1px dotted;
-  color: white;
+  color: rgb(192,185,224);
 }
 .pink-color {
   color: rgb(192,185,224) !important;
@@ -298,25 +298,24 @@ input[type=email] {
 
 .button.button-positive {
   border-color: white;
-  background-color: transparent;;
+  background-color: white;
   color: rgb(41,91,171);
 }
 
 .button.button-positive.active {
   border-color: white;
-  background-color: transparent;;
-  color: rgb(41,91,171);
+  color: rgb(192,185,224);
 }
 
 .button.button-rose {
   border-color: white;
-  background-color: rgb(192,185,224);;;
-  color: rgb(41,91,171);
+  background-color: white;
+  color: rgb(192,185,224);
 }
 
 .button.button-rose.active {
   border-color: white;
-  background-color: rgb(192,185,224);;;
+  background-color: rgb(192,185,224);
   color: rgb(41,91,171);
 }
 

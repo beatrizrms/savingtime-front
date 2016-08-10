@@ -3,10 +3,12 @@
     var app = angular.module('savingtime', ['ionic',
                                           'ngCordova',
                                           'ui.mask',
-                                        /* Directives */
+                                          'ionic-datepicker',
+
+
                                         /* Controllers */
                                         'main.controller',
-
+                                        // mesas
                                         'mesas.controller',
                                         'cadmesas.controller',
                                         'consmesas.controller',
@@ -14,17 +16,20 @@
                                         'consmesascap.controller',
                                         'consmesastodas.controller',
                                         'editmesas.controller',
-
+                                        // filas - atendimento
                                         'checkin.controller',
                                         'filaatendimento.controller',
                                         'filaespera.controller',
-                                        'consultarmesas.controller',
                                         'gerenciar.controller',
+                                        // disponibilidade
                                         'disponibilidade.controller',
+                                        // relatório
                                         'relatorio.controller',
+                                        // opcoes
                                         'settings.controller',
+                                        // onboarding
                                         'onboarding.controller',
-
+                                        // reserva
                                         'reserva.controller',
                                         'cadreserva.controller',
                                         'constodasreserva.controller',
@@ -33,30 +38,24 @@
                                         'editarreserva.controller',
                                         'detalhes.controller',
 
+
+                                        /* Factories */
                                         'mesas.service',
                                         'reserva.service',
                                         'filas.service',
                                         'checkin.service',
                                         'relatorio.service',
-                                        'detalhes.service',
-
-                                        'ionic-datepicker'
-
-                                        /* Factories */]);
+                                        'detalhes.service'
+                                      ]);
 
 
 	app.run(function($ionicPlatform, $state) {
-
 		document.addEventListener("deviceready", onDeviceReady, false);
 		function onDeviceReady() {
-
-
+      setTimeout(function() {
+         navigator.splashscreen.hide();
+      }, 3000);
 		}
-
-
-    	$ionicPlatform.ready(function() {
-
-    	})
 	});
 
 
@@ -128,13 +127,6 @@
 			url: '/filaatendimento',
 			templateUrl: 'fila/filaatendimento.view.html',
 			controller: 'FilaatendimentoCtrl'
-		})
-
-    .state('consultarmesas', {
-			name: 'consultarmesas',
-			url: '/consultarmesas',
-			templateUrl: 'consultar-mesas/consultarmesas.view.html',
-			controller: 'ConsultarmesasCtrl'
 		})
 
     .state('mesas', {
@@ -287,7 +279,7 @@
 			templateUrl: "detalhes/detalhes.view.html"
 		});
 
-    if(localStorage.getItem('VIU_ONB') == true) {
+    if(JSON.parse(localStorage.getItem('VIU_ONB')) == true) {
       $urlRouterProvider.otherwise('/main');
     } else {
       $urlRouterProvider.otherwise('/onboarding');

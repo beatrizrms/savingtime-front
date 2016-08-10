@@ -13,11 +13,11 @@
         <input type="date" ng-model="relatorio.dataFinal" placeholder="dd/mm/yyyy">
       </label>
 
-    <button class="button button-outline button-stable button-checkin" ng-click="gerarRelatorio(relatorio.dataInicio, relatorio.dataFinal)">
+    <button class="button button-outline button-stable button-checkin" ng-click="gerarRelatorio(relatorio.dataInicio, relatorio.dataFinal)" ng-disabled="!relatorio.dataInicio || !relatorio.dataFinal">
       Gerar Relatório
     </button>
 
-    <button ng-show="showExcel" class="button button-full" ng-click="downloadExcel()">
+    <!--<button ng-show="showExcel" class="button button-full" ng-click="downloadExcel()">-->
     </div>
   </ion-content>
 </ion-view>

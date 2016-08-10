@@ -20,7 +20,7 @@
       $scope.showCategoria = function(quantidade) {
         $ionicLoading.show();
         $scope.categoria = false;
-        if(quantidade !== '' && quantidade !== undefined && quantidade !== null)
+        if(quantidade !== '' && quantidade !== undefined && quantidade !== null) {
         ReservaService.categorias(quantidade)
           .then(
             function(data) {
@@ -38,6 +38,9 @@
                 $ionicLoading.hide();
             }
           );
+        } else {
+          $ionicLoading.hide();
+        }
       }
 
       $scope.cadastrarReserva = function() {
