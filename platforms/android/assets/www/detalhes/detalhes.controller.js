@@ -7,7 +7,9 @@
     DetalhesCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'DetalhesService', '$ionicLoading'];
     function DetalhesCtrl($rootScope, $scope, $state, $ionicPopup, DetalhesService, $ionicLoading) {
 
-      $ionicLoading.show();
+      $ionicLoading.show({
+        template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
+      });
       DetalhesService.getDados()
         .then(
           function(data) {

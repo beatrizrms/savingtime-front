@@ -1,0 +1,10 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header transparent">
+    <h1 class="title">Comprovante</h1>
+    <button class="button button-clear stable ion-close-circled button-primary close" ng-click="closeModal()"></button>
+  </ion-header-bar>
+  <ion-content>
+    <img data-ng-src="{{reserva.comprovante}}" data-err-src="" id="image-comprovante"/>
+    <p style="text-align:center;" ng-show="notcomprovante">{{notcomprovante}}</p>
+  </ion-content>
+</ion-modal-view>

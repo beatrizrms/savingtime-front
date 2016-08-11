@@ -3,15 +3,22 @@
         .module('editarreserva.controller', [])
         .controller('EditReservaCtrl', EditReservaCtrl);
 
-    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate'];
-    function EditReservaCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate) {
+    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal'];
+    function EditReservaCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal) {
 
-      console.log($rootScope.reservaedit.qtPessoas)
+      $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+      }).then(function(modal) {
+        $scope.modal = modal;
+      });
+
+
+      $scope.reserva = {}
 
       ReservaService.categorias($rootScope.reservaedit.qtPessoas)
         .then(
           function(data) {
-              console.log(data);
               if (data.length > 0) {
                 $scope.listcategorias = data;
               }
@@ -28,15 +35,11 @@
 
 
       $scope.editarReserva = function() {
-        console.log($scope.reservaedit)
-
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
         });
         $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ', '-0300');
-        console.log($scope.reservaedit);
-        $scope.reservaedit.comprovante = '';
-
+        $scope.reservaedit.comprovante = $scope.reserva.comprovante;
 
           ReservaService.editarReserva($scope.reservaedit)
             .then(
@@ -124,6 +127,46 @@
               }
             });//
           }
+
+          $scope.getComprovanteAnexado = function() {
+            $ionicLoading.show({
+              template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+            });
+            if($scope.reservaedit.comprovante) {
+              $scope.reserva.comprovante = $scope.reservaedit.comprovante;
+              $scope.openModal();
+
+            } else {
+
+            ReservaService.obterComprovante($rootScope.reservaedit.codReserva)
+              .then(
+                function(data) {
+                    if(data.object != null) {
+                      var photo = data.object[0].comprovante;
+                      $scope.reserva.comprovante = photo;
+                    } else {
+                      $scope.notcomprovante = 'Não há comprovante cadastrado!'
+                      $scope.openModal();
+                    }
+                    $ionicLoading.hide();
+                },
+                function(error) {
+                    $scope.showAlert("Tente novamente");
+                    $ionicLoading.hide();
+                }
+              );
+            }
+          }
+
+          $scope.openModal = function() {
+            $scope.modal.show();
+          };
+
+          $scope.closeModal = function() {
+            $scope.modal.hide();
+          };
+
+
 
           $scope.back = function() {
             $ionicNavBarDelegate.back();

@@ -58,13 +58,17 @@
 
      <label class="item item-input item-icon-right" ng-click="addPicture()">
        <span class="input-label">Anexar comprovante</span>
-       <span class="pink-color">{{anexado}}</span>
+       <span class="">{{anexado}}</span>
           <i class="icon ion-images"></i>
       </label>
 
-    <button class="button button-outline button-stable button-checkin" ng-click="cadastrarReserva()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.responsavel || !reserva.cpf || !reserva.telefone || !reserva.email ">
-      Efetuar Reserva
-    </button>
+      <label ng-show="anexo" class="item item-input item-icon-right" ng-click="getComprovanteAnexado()">
+        <span class="input-label">Ver comprovante anexado </span>
+       </label>
+
+      <button class="button button-outline button-stable button-checkin" ng-click="cadastrarReserva()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.responsavel || !reserva.cpf || !reserva.telefone || !reserva.email ">
+        Efetuar Reserva
+      </button>
     </div>
   </ion-content>
 </ion-view>

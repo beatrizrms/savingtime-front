@@ -15,6 +15,20 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -27,6 +41,12 @@
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.app"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.app"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.app"
         }
     },
     "dependent_plugins": {},
@@ -38,10 +58,44 @@
             "clobbers": [
                 "navigator.splashscreen"
             ]
+        },
+        {
+            "id": "cordova-plugin-camera.Camera",
+            "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "Camera"
+            ]
+        },
+        {
+            "id": "cordova-plugin-camera.CameraPopoverOptions",
+            "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverOptions"
+            ]
+        },
+        {
+            "id": "cordova-plugin-camera.camera",
+            "file": "plugins/cordova-plugin-camera/www/Camera.js",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "navigator.camera"
+            ]
+        },
+        {
+            "id": "cordova-plugin-camera.CameraPopoverHandle",
+            "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverHandle"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
-        "cordova-plugin-splashscreen": "3.2.2"
+        "cordova-plugin-splashscreen": "3.2.2",
+        "cordova-plugin-compat": "1.0.0",
+        "cordova-plugin-camera": "2.2.0"
     }
 }

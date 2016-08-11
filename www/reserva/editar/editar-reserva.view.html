@@ -56,11 +56,15 @@
         </select>
    </label>
 
-   <label class="item item-input item-icon-right pink-color" ng-click="addPicture()">
-     <span class="input-label">Anexar novo comprovante</span>
-        <span class="pink-color">{{anexado}}</span>
-          <i class="icon ion-images"></i>
-      </label>
+   <label class="item item-input item-icon-right" ng-click="addPicture()">
+      <span class="input-label">Anexar novo comprovante</span>
+      <span class="">{{anexado}}</span>
+        <i class="icon ion-images"></i>
+    </label>
+
+    <label class="item item-input item-icon-right" ng-click="getComprovanteAnexado()">
+      <span class="input-label">Ver comprovante </span>
+     </label>
 
     <button class="button button-full button-positive button-checkin" ng-click="editarReserva()" ng-disabled="!reservaedit.responsavel || !reservaedit.cpf || !reservaedit.telefone || !reservaedit.email || !reservaedit.tipoEvento || !reservaedit.pagamento">
       Editar

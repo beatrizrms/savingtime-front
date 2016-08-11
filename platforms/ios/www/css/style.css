@@ -1,5 +1,31 @@
 /* Empty. Add your own CSS if you like */
 
+@font-face {
+    font-family: 'San Fran';
+    src: url("System San Francisco Display Regular.ttf") format("opentype");
+    font-weight: 500;
+}
+
+body{
+    font-family: 'San Fran';
+}
+
+.close {
+  color: white !important;
+  font-size: 26px !important;
+  opacity: 1 !important;
+}
+
+#image-comprovante {
+  width: 100%;
+  position: absolute;
+}
+
+.transparent {
+  background-color: rgb(41,91,171) !important;
+}
+
+
 .main-box-checkin {
   margin-top: 2em;
   width: 95%;

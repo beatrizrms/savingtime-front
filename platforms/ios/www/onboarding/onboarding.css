@@ -21,7 +21,11 @@
   border: 1px solid;
   border-radius: 15px;
   border-color: white;
-	background-color: transparent;;
+	background-color: transparent;
+  box-shadow: 5px 6px 9px 4px rgba(0,0,0,0.35);
+  -webkit-box-shadow: 5px 6px 9px 4px rgba(0,0,0,0.35);
+  -moz-box-shadow: 5px 6px 9px 4px rgba(0,0,0,0.35);
+
 }
 
 .onboarding-title {

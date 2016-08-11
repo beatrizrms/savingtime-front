@@ -16,7 +16,8 @@
             consultarReservasCC: consultarReservasCC,
             editarReserva: editarReserva,
             cancelarReserva: cancelarReserva,
-            categorias: categorias
+            categorias: categorias,
+            obterComprovante: obterComprovante
         };
 
         return reservasMethods;
@@ -64,8 +65,17 @@
           return deferred.promise;
         }
 
+        function obterComprovante(codigo) {
+          var deferred = $q.defer();
+          $http.get(host + 'reservarest/obter/comprovante/'+codigo)
+          .success(function(data) {
+            deferred.resolve(data);
+          }).error(function(data) {
+            deferred.reject(data);
+          });
 
-
+          return deferred.promise;
+        }
 
         function consultarReservasData(dataInicio, dataFinal){
           var deferred = $q.defer();
