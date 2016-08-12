@@ -49,6 +49,8 @@
   text-align: center;
   font-weight: lighter;
   font-size: x-large;
+  overflow-y: scroll;
+  max-height: 120vw;
 }
 
 .scroll-onboarding {

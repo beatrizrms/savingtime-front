@@ -9,15 +9,13 @@
 
       $scope.reserva = [];
       $scope.busca = '';
-      $scope.checkin = {
-        qtPessoas : 1
-      };
+      $scope.checkin = {};
       $scope.categoria = false;
 
       $scope.showCategoria = function(quantidade) {
         $ionicLoading.show();
         $scope.categoria = false;
-        if(quantidade !== '' && quantidade !== undefined && quantidade !== null)
+        if(quantidade !== '' && quantidade !== undefined && quantidade !== null){
         ReservaService.categorias(quantidade)
           .then(
             function(data) {
@@ -35,6 +33,9 @@
                 $ionicLoading.hide();
             }
           );
+        } else {
+          $ionicLoading.hide();
+        }
       }
 
       $scope.buscarReserva = function(busca) {

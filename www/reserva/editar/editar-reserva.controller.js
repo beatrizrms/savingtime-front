@@ -36,7 +36,7 @@
 
       $scope.editarReserva = function() {
         $ionicLoading.show({
-          template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
         $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ', '-0300');
         $scope.reservaedit.comprovante = $scope.reserva.comprovante;
@@ -130,7 +130,7 @@
 
           $scope.getComprovanteAnexado = function() {
             $ionicLoading.show({
-              template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+              template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
             });
             if($scope.reservaedit.comprovante) {
               $scope.reserva.comprovante = $scope.reservaedit.comprovante;

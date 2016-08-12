@@ -11,7 +11,7 @@
 
         $scope.gerarRelatorio = function(dataInicio, dataFinal) {
           $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+            template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
           });
           dataInicio = $filter('date')(dataInicio, 'dd-MM-yyyy', '-0300')
           dataFinal = $filter('date')(dataFinal, 'dd-MM-yyyy', '-0300');

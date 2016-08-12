@@ -53,7 +53,7 @@
 
       $scope.cadastrarReserva = function() {
         $ionicLoading.show({
-          template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
 
           $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
