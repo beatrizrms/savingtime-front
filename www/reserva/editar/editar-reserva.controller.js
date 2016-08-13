@@ -97,7 +97,7 @@
 
                   }, function(err) {
                     showActionSheet();
-                  },{ quality: 70,
+                  },{ quality: 40,
                       encodingType: Camera.EncodingType.JPEG,
                       correctOrientation: true,
                       destinationType: Camera.DestinationType.DATA_URL
@@ -137,6 +137,9 @@
               $scope.openModal();
               $ionicLoading.hide();
 
+            } else if($scope.reserva.comprovante){
+              $scope.openModal();
+              $ionicLoading.hide();
             } else {
 
             ReservaService.obterComprovante($rootScope.reservaedit.codReserva)

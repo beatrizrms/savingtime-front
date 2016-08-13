@@ -42,6 +42,7 @@
             target = cordova.file.externalRootDirectory;
           }
           var targetPath =  target+ "/relatorio.xls";
+          $scope.target = targetPath;
           console.log(targetPath);
           var trustHosts = true;
           var options = {};
@@ -72,6 +73,16 @@
 
         $scope.backRelatorio = function() {
           $state.go("main");
+        }
+
+        $scope.openFile = function() {
+          cordova.plugins.fileOpener2.open(
+            $scope.target,
+            'application/xls',
+            {
+                error : function(){ },
+                success : function(){ }
+            });
         }
 
     };

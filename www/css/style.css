@@ -327,13 +327,25 @@ input[type=email] {
 
 .button.button-positive {
   border-color: white;
-  background-color: white;
+  background-color: transparent;
   color: rgb(41,91,171);
 }
 
-.button.button-positive.active {
+.button.button-positive.active  {
   border-color: white;
-  color: rgb(192,185,224);
+  background-color: transparent;
+  color: rgb(41,91,171);
+}
+
+.button.button-positive.activated {
+  border-color: white;
+  background-color: transparent;
+  color: rgb(41,91,171);
+}
+
+.button.button-positive:hover  {
+  border-color: white;
+  color: rgb(41,91,171);
 }
 
 .button.button-rose {
@@ -387,10 +399,32 @@ input[type=email] {
     color: white;
 }
 
+.button: hover{
+    border-color: white !important;
+    background: transparent !important;
+    color: rgb(41,91,171) !important;
+}
+
+.button.active{
+    border-color: white !important;
+    background: white !important;
+    color: rgb(41,91,171) !important;
+}
+
+.button.activated{
+    border-color: white !important;
+    background: white !important;
+    color: rgb(41,91,171) !important;
+}
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
   background: white;
   color:rgb(41,91,171);
+}
+
+.button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
+  background: white;
+  color: rgb(41,91,171);
 }
 
 .item.activated {
@@ -443,4 +477,8 @@ input:-ms-input-placeholder { /* IE10+ */
     font-size: 14px;
     padding: 16px;
     color: rgb(41,91,171) !important;
+}
+
+.image-excel {
+  width: 100px;
 }
