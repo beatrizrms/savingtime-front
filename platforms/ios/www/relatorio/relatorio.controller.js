@@ -11,7 +11,7 @@
 
         $scope.gerarRelatorio = function(dataInicio, dataFinal) {
           $ionicLoading.show({
-            template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+            template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
           });
           dataInicio = $filter('date')(dataInicio, 'dd-MM-yyyy', '-0300')
           dataFinal = $filter('date')(dataFinal, 'dd-MM-yyyy', '-0300');
@@ -42,6 +42,7 @@
             target = cordova.file.externalRootDirectory;
           }
           var targetPath =  target+ "/relatorio.xls";
+          $scope.target = targetPath;
           console.log(targetPath);
           var trustHosts = true;
           var options = {};
@@ -72,6 +73,16 @@
 
         $scope.backRelatorio = function() {
           $state.go("main");
+        }
+
+        $scope.openFile = function() {
+          cordova.plugins.fileOpener2.open(
+            $scope.target,
+            'application/xls',
+            {
+                error : function(){ },
+                success : function(){ }
+            });
         }
 
     };

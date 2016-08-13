@@ -3,8 +3,8 @@
         .module('cadreserva.controller', [])
         .controller('CadReservaCtrl', CadReservaCtrl);
 
-    CadReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicPopup', '$ionicLoading'];
-    function CadReservaCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicPopup, $ionicLoading) {
+    CadReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicPopup', '$ionicLoading', '$ionicModal'];
+    function CadReservaCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicPopup, $ionicLoading, $ionicModal) {
 
 
     $scope.reserva = {};
@@ -14,7 +14,15 @@
                       comprovante: ''
                      };
     $scope.anexado = '';
+    $scope.anexo = false;
     $scope.categoria = false;
+
+    $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
 
 
       $scope.showCategoria = function(quantidade) {
@@ -45,7 +53,7 @@
 
       $scope.cadastrarReserva = function() {
         $ionicLoading.show({
-          template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
 
           $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
@@ -94,6 +102,7 @@
                   $scope.$apply(function (){
                     image = imageURI;
                     $scope.reserva.comprovante = "data:image/jpeg;base64, "+image;
+                    $scope.anexo = true;
                     $scope.anexado = 'Anexado!!'
                   });
 
@@ -111,6 +120,7 @@
                   $scope.$apply(function (){
                     image = imageURI;
                     $scope.reserva.comprovante = "data:image/jpeg;base64, "+image;
+                    $scope.anexo = true;
                     $scope.anexado = 'Anexado!!'
                   });
 
@@ -129,6 +139,18 @@
             }
           });//
         }
+
+        $scope.getComprovanteAnexado = function() {
+          $scope.openModal();
+        }
+
+        $scope.openModal = function() {
+          $scope.modal.show();
+        };
+
+        $scope.closeModal = function() {
+          $scope.modal.hide();
+        };
 
 
 

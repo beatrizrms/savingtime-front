@@ -206,9 +206,8 @@ body{
 
 
 .item {
-  background: transparent;
+  background-color: rgba(255,255,255,0.1);
   color: white;
-  : 0.6;
 }
 
 .item-complex .item-content, .item-radio .item-content {
@@ -277,6 +276,7 @@ body {
 
 .input-label {
   color: white;
+  font-weight: bold;
 }
 
 input[type=tel] {
@@ -313,7 +313,10 @@ input[type=email] {
 }
 
 .popup-container .popup {
-  background-color: transparent;
+  background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
   border: 1px solid;
   border-radius: 10px;
 }
@@ -324,13 +327,25 @@ input[type=email] {
 
 .button.button-positive {
   border-color: white;
-  background-color: white;
+  background-color: transparent;
   color: rgb(41,91,171);
 }
 
-.button.button-positive.active {
+.button.button-positive.active  {
   border-color: white;
-  color: rgb(192,185,224);
+  background-color: transparent;
+  color: rgb(41,91,171);
+}
+
+.button.button-positive.activated {
+  border-color: white;
+  background-color: transparent;
+  color: rgb(41,91,171);
+}
+
+.button.button-positive:hover  {
+  border-color: white;
+  color: rgb(41,91,171);
 }
 
 .button.button-rose {
@@ -384,13 +399,86 @@ input[type=email] {
     color: white;
 }
 
+.button.active: hover{
+    border-color: white !important;
+    background: transparent !important;
+    color: rgb(41,91,171) !important;
+}
+
+.button.active{
+    border-color: white !important;
+    background: white !important;
+    color: rgb(41,91,171) !important;
+}
+
+.button.activated{
+    border-color: white !important;
+    background: white !important;
+    color: rgb(41,91,171) !important;
+}
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
   background: white;
   color:rgb(41,91,171);
 }
 
+.button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
+  background: white;
+  rgb(41,91,171);
+}
+
 .item.activated {
   background-color: white;
   color:rgb(41,91,171);
+}
+
+.scroll-refresher .ionic-refresher-content {
+    color: white;
+}
+
+.tabs-striped.tabs-stable .tabs {
+    background-color: rgb(41,91,171);
+    color: white;
+}
+
+.tabs-striped.tabs-positive .tabs {
+  background-color: rgb(41,91,171);
+  color: white;
+}
+
+.tabs-striped.tabs-stable .tab-item.tab-item-active, .tabs-striped.tabs-stable .tab-item.active, .tabs-striped.tabs-stable .tab-item.activated {
+  color: white;
+  border-color: white;
+}
+
+.tabs-striped.tabs-stable .tab-item {
+    color: white;
+    opacity: 1;
+}
+
+input::-webkit-input-placeholder {
+  color: pink;
+}
+input:-moz-placeholder {
+  color: pink;
+}
+input:-ms-input-placeholder { /* IE10+ */
+  color: pink;
+}
+
+.platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
+    text-align: center;
+    border-color: gray;
+    font-size: 16px;
+    color: gray;
+}
+
+.platform-android .action-sheet .action-sheet-title {
+    font-size: 14px;
+    padding: 16px;
+    color: rgb(41,91,171) !important;
+}
+
+.image-excel {
+  width: 100px;
 }

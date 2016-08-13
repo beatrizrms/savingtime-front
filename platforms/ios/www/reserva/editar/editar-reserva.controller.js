@@ -36,7 +36,7 @@
 
       $scope.editarReserva = function() {
         $ionicLoading.show({
-          template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
         $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ', '-0300');
         $scope.reservaedit.comprovante = $scope.reserva.comprovante;
@@ -97,7 +97,7 @@
 
                   }, function(err) {
                     showActionSheet();
-                  },{ quality: 70,
+                  },{ quality: 40,
                       encodingType: Camera.EncodingType.JPEG,
                       correctOrientation: true,
                       destinationType: Camera.DestinationType.DATA_URL
@@ -130,28 +130,34 @@
 
           $scope.getComprovanteAnexado = function() {
             $ionicLoading.show({
-              template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+              template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
             });
             if($scope.reservaedit.comprovante) {
               $scope.reserva.comprovante = $scope.reservaedit.comprovante;
               $scope.openModal();
+              $ionicLoading.hide();
 
+            } else if($scope.reserva.comprovante){
+              $scope.openModal();
+              $ionicLoading.hide();
             } else {
 
             ReservaService.obterComprovante($rootScope.reservaedit.codReserva)
               .then(
                 function(data) {
+                  console.log(data.object)
                     if(data.object != null) {
                       var photo = data.object[0].comprovante;
                       $scope.reserva.comprovante = photo;
                     } else {
                       $scope.notcomprovante = 'Não há comprovante cadastrado!'
-                      $scope.openModal();
                     }
+                    $scope.openModal();
                     $ionicLoading.hide();
                 },
                 function(error) {
                     $scope.showAlert("Tente novamente");
+                    console.log(error)
                     $ionicLoading.hide();
                 }
               );

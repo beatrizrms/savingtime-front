@@ -63,29 +63,9 @@
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
     $ionicConfigProvider.views.maxCache(0);
-
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
-      var datePickerObj = {
-      inputDate: new Date(),
-      setLabel: 'Set',
-      todayLabel: 'Today',
-      closeLabel: 'Close',
-      mondayFirst: false,
-      weeksList: ["S", "M", "T", "W", "T", "F", "S"],
-      monthsList: ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
-      templateType: 'popup',
-      from: new Date(2012, 8, 1),
-      to: new Date(2018, 8, 1),
-      showTodayButton: true,
-      dateFormat: 'dd MMMM yyyy',
-      closeOnSelect: false,
-      disableWeekdays: [6]
-    };
-    ionicDatePickerProvider.configDatePicker(datePickerObj);
-
     $stateProvider
-
 		.state('main', {
 			name: 'main',
 			url: '/main',

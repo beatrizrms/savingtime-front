@@ -53,7 +53,7 @@
 
       $scope.cadastrarReserva = function() {
         $ionicLoading.show({
-          template: '<ion-spinner icon="lines" class="spinner-positive"></ion-spinner>'
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
 
           $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
@@ -108,7 +108,7 @@
 
                 }, function(err) {
                   showActionSheet();
-                },{ quality: 70,
+                },{ quality: 40,
                     encodingType: Camera.EncodingType.JPEG,
                     correctOrientation: true,
                     destinationType: Camera.DestinationType.DATA_URL

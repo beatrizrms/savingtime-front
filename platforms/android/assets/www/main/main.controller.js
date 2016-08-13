@@ -7,6 +7,7 @@
     function MainCtrl($scope, $scope, $state, $ionicPopup, $rootScope) {
       var myPopup;
 
+
       $scope.settings = function() {
         $state.go('settings');
       }

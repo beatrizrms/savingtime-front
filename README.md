@@ -13,7 +13,7 @@ For example, to start a new Ionic project with the default tabs interface, make 
 $ npm install -g ionic
 ```
 
-Then run: 
+Then run:
 
 ```bash
 $ ionic start myProject tabs
@@ -23,3 +23,12 @@ More info on this can be found on the Ionic [Getting Started](http://ionicframew
 
 ## Issues
 Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+
+Plugins used:
+
+cordova-plugin-camera 2.2.0 "Camera"
+cordova-plugin-compat 1.0.0 "Compat"
+cordova-plugin-file 4.2.0 "File"
+cordova-plugin-file-transfer 1.5.1 "File Transfer"
+cordova-plugin-splashscreen 3.2.2 "Splashscreen"
+cordova-plugin-whitelist 1.2.2 "Whitelist"
