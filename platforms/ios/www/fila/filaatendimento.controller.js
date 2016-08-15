@@ -106,6 +106,7 @@
           .then(
             function(data) {
                 $scope.showAlert(data.message);
+                $scope.doRefresh();
                 $ionicLoading.hide();
             },
             function(error) {

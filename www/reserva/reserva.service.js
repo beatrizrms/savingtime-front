@@ -17,7 +17,8 @@
             editarReserva: editarReserva,
             cancelarReserva: cancelarReserva,
             categorias: categorias,
-            obterComprovante: obterComprovante
+            obterComprovante: obterComprovante,
+            verificarDisponibilidade: verificarDisponibilidade
         };
 
         return reservasMethods;
@@ -38,7 +39,23 @@
              deferred.reject(data);
           });
             return deferred.promise;
+        }
 
+        function verificarDisponibilidade(reserva){
+
+          var deferred = $q.defer();
+
+          $http({
+             method: 'POST',
+             url: host + 'disponibilidaderest/disponibilidade/reserva',
+             data: reserva,
+             headers: {'Content-Type': 'application/json'}
+          }).success(function (data, status, headers, config) {
+            deferred.resolve(data);
+          }).error(function (data, status, headers, config) {
+             deferred.reject(data);
+          });
+            return deferred.promise;
         }
 
         function consultarReservas() {

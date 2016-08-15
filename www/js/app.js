@@ -5,7 +5,6 @@
                                           'ui.mask',
                                           'ionic-datepicker',
 
-
                                         /* Controllers */
                                         'main.controller',
                                         // mesas
@@ -214,15 +213,25 @@
 			name: 'disponibilidade',
 			url: '/disponibilidade',
 			templateUrl: 'disponibilidade/disponibilidade.view.html',
-			controller: 'DisponibilidadeCtrl'
+			controller: 'DisponibilidadeCtrl',
+      params: { dados: null }
 		})
 
     .state('reserva', {
 			name: 'reserva',
 			url: '/reserva',
 			templateUrl: 'reserva/cadastrar/cadreserva.view.html',
-			controller: 'CadReservaCtrl'
+			controller: 'CadReservaCtrl',
+      params: { reserva: null }
 		})
+
+    .state('confirmar/reserva', {
+      name: 'confirmarreserva',
+      url: '/confirmar/reserva',
+      templateUrl: 'reserva/cadastrar/confirmarreserva.view.html',
+      controller: 'CadReservaCtrl',
+      params: { reserva: null }
+    })
 
     .state('gerenciar/reserva', {
 			name: 'gerenciarreserva',

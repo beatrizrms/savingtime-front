@@ -399,7 +399,7 @@ input[type=email] {
     color: white;
 }
 
-.button.active: hover{
+.button: hover{
     border-color: white !important;
     background: transparent !important;
     color: rgb(41,91,171) !important;
@@ -424,7 +424,7 @@ input[type=email] {
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
   background: white;
-  rgb(41,91,171);
+  color: rgb(41,91,171);
 }
 
 .item.activated {

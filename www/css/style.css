@@ -10,6 +10,12 @@ body{
     font-family: 'San Fran';
 }
 
+#timeline {
+  margin: 0 auto;
+  margin-top:50px;
+  max-width:96.5%;
+}
+
 .close {
   color: white !important;
   font-size: 26px !important;
@@ -481,4 +487,44 @@ input:-ms-input-placeholder { /* IE10+ */
 
 .image-excel {
   width: 100px;
+}
+
+.farol {
+  display:flex;
+  margin:0 auto;
+}
+
+.farol-verm {
+  background-color:red;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+.item .farol-verm-text {
+  color:red;
+  margin-left:10px !important;
+}
+
+.farol-verd {
+  background-color:green;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+.item .farol-verd-text {
+  color:green;
+  margin-left:10px !important;
+}
+
+.farol-ama {
+  background-color:#ecc92d;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+.item .farol-ama-text {
+  color:#ecc92d;
+  margin-left:10px !important;
 }
