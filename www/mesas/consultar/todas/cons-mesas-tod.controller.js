@@ -39,11 +39,10 @@
       $scope.editMesas = function(codigo) {
         for(var i=0; i < $scope.listmesas.length; i++) {
           if(codigo === $scope.listmesas[i].codigo){
-            $rootScope.editmesa = "";
-            $rootScope.editmesa = $scope.listmesas[i];
+            $scope.editmesa = $scope.listmesas[i];
           }
         }
-        $state.go("edit/mesas");
+        $state.go("edit/mesas", { mesa:   $scope.editmesa });
       };
 
       $scope.doRefresh = function() {

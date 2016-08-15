@@ -12,7 +12,7 @@
           <span class="input-label">Capacidade de Lugares</span>
           <input type="tel" ng-model="mesa.capacidade" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
      </label>
-
+     <br />
     <button class="button button-outline button-stable button-checkin" ng-click="cadastrarMesa()" ng-disabled="!mesa.numMesa || !mesa.capacidade">
       Cadastrar
     </button>

@@ -191,7 +191,8 @@
 			name: 'editmesas',
 			url: '/edit/mesas',
 			templateUrl: 'mesas/editar/edit-mesas.view.html',
-			controller: 'EditMesasCtrl'
+			controller: 'EditMesasCtrl',
+      params: { mesa: null }
 		})
 
     .state('cadmesas', {
