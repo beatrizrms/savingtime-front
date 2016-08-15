@@ -75,32 +75,45 @@
     };
 
     $scope.cadastrarReserva = function() {
-      $ionicLoading.show({
-        template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
-      });
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Cadastrar Reserva',
+          template: 'Você tem certeza ?'
+        });
 
-      $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
-      $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0200');
-
-      ReservaService.cadastrarReserva($scope.reserva)
-        .then(
-          function(data) {
-              console.log(data);
-              if(data.status === 'NOT_ACCEPTABLE'){
-                $scope.showAlert(data.message);
-              } else {
-                $scope.showAlert(data.message);
-                $state.go('gerenciar/reserva');
-              }
-
-              $ionicLoading.hide();
-
-          },
-          function(error) {
-              $scope.showAlert("Tente novamente");
-              $ionicLoading.hide();
+        confirmPopup.then(function(res) {
+          if(res) {
+            cadastrarReserva();
           }
-        );
+        });
+      }
+
+      function cadastrarReserva() {
+        $ionicLoading.show({
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
+        });
+
+        $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
+        $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0200');
+
+        ReservaService.cadastrarReserva($scope.reserva)
+          .then(
+            function(data) {
+                console.log(data);
+                if(data.status === 'NOT_ACCEPTABLE'){
+                  $scope.showAlert(data.message);
+                } else {
+                  $scope.showAlert(data.message);
+                  $state.go('gerenciar/reserva');
+                }
+
+                $ionicLoading.hide();
+
+            },
+            function(error) {
+                $scope.showAlert("Tente novamente");
+                $ionicLoading.hide();
+            }
+          );
       }
 
       $scope.showAlert = function(msg) {

@@ -37,6 +37,19 @@
 
 
       $scope.editarReserva = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Editar Reserva',
+          template: 'Você tem certeza ?'
+        });
+
+        confirmPopup.then(function(res) {
+          if(res) {
+            editarReserva();
+          }
+        });
+      }
+
+      function editarReserva() {
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
@@ -56,9 +69,22 @@
                   $ionicLoading.hide();
               }
             );
-        }
+      }
 
         $scope.cancelarReserva = function(codigo) {
+          var confirmPopup = $ionicPopup.confirm({
+            title: 'Cancelar Reserva',
+            template: 'Você tem certeza ?'
+          });
+
+          confirmPopup.then(function(res) {
+            if(res) {
+              cancelarReserva(codigo);
+            }
+          });
+        };
+
+        function cancelarReserva(codigo) {
           ReservaService.cancelarReserva(codigo)
             .then(
               function(data) {
@@ -72,7 +98,7 @@
                   $ionicLoading.hide();
               }
             );
-          };
+        }
 
         $scope.addPicture = function() {
               showActionSheet();
