@@ -3,8 +3,9 @@
         .module('editarreserva.controller', [])
         .controller('EditReservaCtrl', EditReservaCtrl);
 
-    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal'];
-    function EditReservaCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal) {
+    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal', '$stateParams'];
+    function EditReservaCtrl(   $rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal, $stateParams) {
+
 
       $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
         scope: $scope,
@@ -13,10 +14,11 @@
         $scope.modal = modal;
       });
 
+      $scope.reservaedit = $stateParams.reserva;
 
       $scope.reserva = {}
 
-      ReservaService.categorias($rootScope.reservaedit.qtPessoas)
+      ReservaService.categorias($scope.reservaedit.qtPessoas)
         .then(
           function(data) {
               if (data.length > 0) {
@@ -145,7 +147,6 @@
             ReservaService.obterComprovante($rootScope.reservaedit.codReserva)
               .then(
                 function(data) {
-                  console.log(data.object)
                     if(data.object != null) {
                       var photo = data.object[0].comprovante;
                       $scope.reserva.comprovante = photo;

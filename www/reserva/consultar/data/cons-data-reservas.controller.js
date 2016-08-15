@@ -14,11 +14,11 @@
 
 
       $scope.editarReserva = function(reserva) {
-        $rootScope.reservaedit = reserva;
-        $state.go('editar/reserva');
+        $state.go('editar/reserva', {reserva: reserva });
       }
 
       $scope.pesquisarData = function(reserva) {
+        $scope.error = null;
         var dataInicio = $filter('date')($scope.pesquisa.dataInicio, 'dd-MM-yyyy', '-0300');
         var dataFinal = $filter('date')($scope.pesquisa.dataFinal, 'dd-MM-yyyy', '-0300');
 

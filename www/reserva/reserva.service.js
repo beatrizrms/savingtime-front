@@ -95,6 +95,7 @@
         }
 
         function consultarReservasData(dataInicio, dataFinal){
+          console.log(dataInicio + " " + dataFinal)
           var deferred = $q.defer();
           $http.get(host + 'reservarest/consultar/reserva/data/' + dataInicio + '/' + dataFinal)
           .success(function(data) {

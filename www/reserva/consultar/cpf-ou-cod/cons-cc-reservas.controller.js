@@ -11,8 +11,7 @@
       $scope.search = {value: ""};
 
       $scope.editarReserva = function(reserva) {
-        $rootScope.reservaedit = reserva;
-        $state.go('editar/reserva');
+        $state.go('editar/reserva', {reserva: reserva });
       }
 
       $scope.pesquisarCC = function() {

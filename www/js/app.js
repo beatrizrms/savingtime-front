@@ -189,7 +189,6 @@
 
     .state('edit/mesas', {
 			name: 'editmesas',
-      cache: false,
 			url: '/edit/mesas',
 			templateUrl: 'mesas/editar/edit-mesas.view.html',
 			controller: 'EditMesasCtrl'
@@ -244,7 +243,8 @@
 			name: 'editarreserva',
 			url: '/editar/reserva',
 			templateUrl: 'reserva/editar/editar-reserva.view.html',
-			controller: 'EditReservaCtrl'
+			controller: 'EditReservaCtrl',
+      params: { reserva: null }
 		})
 
     .state('settings', {
