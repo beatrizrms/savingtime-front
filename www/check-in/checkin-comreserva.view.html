@@ -6,6 +6,7 @@
         <span class="input-label">Cód. Reserva / Cpf</span>
         <input type="tel" placeholder="8798789" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="busca">
       </label>
+      <br/>
     <button class="button button-outline button-stable button-checkin" ng-click="buscarReserva(busca)"  ng-disabled="!busca">
       Efetuar Check-in
     </button>

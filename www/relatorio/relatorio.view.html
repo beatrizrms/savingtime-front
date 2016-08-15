@@ -12,7 +12,7 @@
         <span class="input-label">Data Final</span>
         <input type="date" ng-model="relatorio.dataFinal" placeholder="dd/mm/yyyy">
       </label>
-
+      <br/>
     <button class="button button-outline button-stable button-checkin" ng-click="gerarRelatorio(relatorio.dataInicio, relatorio.dataFinal)" ng-disabled="!relatorio.dataInicio || !relatorio.dataFinal">
       Gerar Relatório
     </button>

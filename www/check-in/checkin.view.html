@@ -22,7 +22,7 @@
            <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
-
+    <br/>
     <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.tipoEvento">
       Efetuar Check-in
     </button>
