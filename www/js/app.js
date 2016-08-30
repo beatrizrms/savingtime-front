@@ -4,6 +4,7 @@
                                           'ngCordova',
                                           'ui.mask',
                                           'ionic-datepicker',
+                                          'custom-directives',
 
                                         /* Controllers */
                                         'main.controller',
@@ -61,7 +62,6 @@
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
-    $ionicConfigProvider.views.maxCache(0);
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
     $stateProvider
@@ -115,76 +115,40 @@
 			controller: 'MesasCtrl'
 		})
 
-    .state('tabres', {
-     abstract: true,
-     url: "/tabres",
-     templateUrl: 'reserva/consultar/reservas-tab.view.html'
-     })
-
-     .state('tabres.todasres', {
+     .state('todasres', {
        url: '/todasres',
-       views: {
-        'todasres': {
-          templateUrl: 'reserva/consultar/todas/todas-reservas.view.html',
-          controller: 'ConsTodasReservasCtrl'
-         }
-       }
+       templateUrl: 'reserva/consultar/todas/todas-reservas.view.html',
+       controller: 'ConsTodasReservasCtrl'
      })
 
-     .state('tabres.pordata', {
+     .state('pordata', {
        url: '/pordata',
-       views: {
-        'pordata': {
-          templateUrl: 'reserva/consultar/data/data-reservas.view.html',
-          controller: 'ConsDataReservasCtrl'
-         }
-       }
+       templateUrl: 'reserva/consultar/data/data-reservas.view.html',
+       controller: 'ConsDataReservasCtrl'
      })
 
-     .state('tabres.porcodoucpf', {
+     .state('porcodoucpf', {
        url: '/porcodoucpf',
-       views: {
-        'porcodoucpf': {
-          templateUrl: 'reserva/consultar/cpf-ou-cod/cons-cc-reservas.view.html',
-          controller: 'ConsCCReservasCtrl'
-         }
-       }
+       templateUrl: 'reserva/consultar/cpf-ou-cod/cons-cc-reservas.view.html',
+       controller: 'ConsCCReservasCtrl'
      })
 
-    .state('tab', {
-     abstract: true,
-     url: "/tab",
-     templateUrl: 'mesas/consultar/cons-mesas.view.html'
-     })
-
-    .state('tab.todasmesas', {
+    .state('todasmesas', {
       url: '/todasmesas',
-      views: {
-       'todasmesas': {
-         templateUrl: 'mesas/consultar/todas/tab-todas.view.html',
-         controller: 'ConsMesasCtrl'
-        }
-      }
+      templateUrl: 'mesas/consultar/todas/tab-todas.view.html',
+      controller: 'ConsMesasCtrl'
     })
 
-    .state('tab.porstatus', {
+    .state('porstatus', {
       url: '/porstatus',
-      views: {
-       'porstatus': {
-         templateUrl: 'mesas/consultar/status/tab-status.view.html',
-         controller: 'ConsMesasStatusCtrl'
-        }
-      }
+      templateUrl: 'mesas/consultar/status/tab-status.view.html',
+      controller: 'ConsMesasStatusCtrl'
     })
 
-    .state('tab.porcapacidade', {
+    .state('porcapacidade', {
       url: '/porcapacidade',
-      views: {
-       'porcapacidade': {
-         templateUrl: 'mesas/consultar/capacidade/tab-capacidade.view.html',
-         controller: 'ConsMesasCapCtrl'
-        }
-      }
+      templateUrl: 'mesas/consultar/capacidade/tab-capacidade.view.html',
+      controller: 'ConsMesasCapCtrl'
     })
 
     .state('edit/mesas', {

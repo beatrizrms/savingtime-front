@@ -1,34 +1,46 @@
 <ion-view view-title="Disponibilidade">
   <ion-content>
-    <div class="title">Preencha os campos para descobrir a possibilidade de reserva:</div>
-    <div class="main-box-checkin">
-
-      <label class="item item-input">
-        <span class="input-label">Data</span>
-        <input type="date" ng-model="disp.data"/>
-      </label>
-
-      <label class="item item-input">
-        <span class="input-label">Horário</span>
-        <input type="time" ng-model="disp.hora"/>
-      </label>
-
-      <label class="item item-input">
-          <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="disp.quantidade" ng-change="showCategoria(disp.quantidade)"/>
-     </label>
-
-
-      <label class="item item-input item-select" ng-show="categoria">
-        <span class="input-label">Tipo de evento</span>
-          <select ng-model="disp.tipoEvento">
-            <option ng-repeat="op in listcategorias"selected>{{op}}</option>
-          </select>
-     </label>
-
-    <button class="button button-outline button-stable button-checkin" ng-disabled="!disp.data || !disp.hora || !disp.quantidade || !disp.tipoEvento">
-      Verificar
-    </button>
+    <div class="title"></div>
+    <div class="card" style="color:black;">
+      <div class="item item-divider" style="color:black;">
+        Nova Reserva
+      </div>
+      <div class="item item-text-wrap" style="color:black;">
+        <p><b>Dia:</b> {{retornoDisp.reservaAtual.dataReserva}}  <b>Hora:</b> {{retornoDisp.reservaAtual.horaReserva}}</p>
+        <p><b>Pessoas:</b> {{retornoDisp.reservaAtual.qtPessoas}}</p>
+        <p><b>Tipo Atendimento:</b>  {{retornoDisp.reservaAtual.tipoEvento}}</p>
+      </div>
     </div>
+
+    <div>
+      <h4 style="color:white;">&nbsp;&nbsp;&nbsp;Veja as reservas do dia &nbsp;&nbsp;&nbsp;</h4>
+      <div id="timeline" style="color:white; margin-top:-7px;" width="200" height="200"></div>
+    </div>
+    <div class="card" style="color:black;">
+      <div class="item item-divider" style="color:black;">
+        <p><b>Mesas Disp:</b> {{retornoDisp.qtdMesasLivres}}</p>
+
+        <!-- Se a reserva nao oferecer risco -->
+        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.0 && retornoDisp.txUtilizacao < 0.5">
+          <div class="farol-verd"></div>
+          <p class="farol-verd-text"><b>Essa reserva não oferece risco!</b></p>
+        </div>
+
+        <!-- Se a reserva oferecer um pouco de risco -->
+        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.5 && retornoDisp.txUtilizacao < 0.9">
+          <div class="farol-ama"></div>
+          <p class="farol-ama-text"><b>Essa reserva oferece risco!</b></p>
+        </div>
+
+        <!-- Se a reserva oferecer risco -->
+        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.9 && retornoDisp.txUtilizacao <= 1">
+          <div class="farol-verm"></div>
+          <p class="farol-verm-text"><b>Essa reserva oferece alto risco!</b></p>
+        </div>
+      </div>
+    </div>
+    <button class="button button-outline button-stable button-checkin" ng-click="continuarReserva()">
+      Continuar >
+    </button>
   </ion-content>
 </ion-view>

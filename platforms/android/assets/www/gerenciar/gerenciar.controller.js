@@ -14,8 +14,8 @@
       }
       $scope.checkin = function() {
           myPopup = $ionicPopup.show({
-            template: '<button class="button button-outline button-stable button-checkin" ng-click="semReserva()">Sem Reserva</button> \
-            <button class="button button-outline button-stable button-checkin" ng-click="comReserva()">Com reserva</button>',
+            template: '<button class="button button-outline button-stable button-checkin" ng-click="semReserva()">Sem Reserva</button><br/> \
+            <br/><button class="button button-outline button-stable button-checkin" ng-click="comReserva()">Com reserva</button>',
             title: 'Ações',
             subTitle: 'O cliente já tem reserva?',
             scope: $scope,

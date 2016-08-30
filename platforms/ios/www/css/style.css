@@ -10,6 +10,12 @@ body{
     font-family: 'San Fran';
 }
 
+#timeline {
+  margin: 0 auto;
+  margin-top:50px;
+  max-width:96.5%;
+}
+
 .close {
   color: white !important;
   font-size: 26px !important;
@@ -481,4 +487,84 @@ input:-ms-input-placeholder { /* IE10+ */
 
 .image-excel {
   width: 100px;
+}
+
+.farol {
+  display:flex;
+  margin:0 auto;
+}
+
+.farol-verm {
+  background-color:red;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+.item .farol-verm-text {
+  color:red;
+  margin-left:10px !important;
+}
+
+.farol-verd {
+  background-color:green;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+.item .farol-verd-text {
+  color:green;
+  margin-left:10px !important;
+}
+
+.farol-ama {
+  background-color:#ecc92d;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+.item .farol-ama-text {
+  color:#ecc92d;
+  margin-left:10px !important;
+}
+
+
+.popup-buttons .button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    min-height: 45px;
+    border-radius: 2px;
+    line-height: 20px;
+    margin-right: 5px;
+}
+.button {
+    border-color: transparent;
+    background-color: #f8f8f8;
+    color: #444;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0 12px;
+    min-width: 52px;
+    min-height: 47px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    vertical-align: top;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    line-height: 42px;
+    cursor: pointer;
+}
+
+.tabs-stable > .tabs, .tabs.tabs-stable {
+  background: rgb(124,204,228);
+  color: white;
 }

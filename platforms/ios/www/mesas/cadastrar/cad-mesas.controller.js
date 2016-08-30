@@ -15,6 +15,20 @@
 
 
       $scope.cadastrarMesa = function() {
+
+         var confirmPopup = $ionicPopup.confirm({
+           title: 'Cadastrar Mesas',
+           template: 'Você tem certeza ?'
+         });
+
+         confirmPopup.then(function(res) {
+           if(res) {
+             cadastrarMesa();
+           }
+         });
+      }
+
+      function cadastrarMesa() {
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });

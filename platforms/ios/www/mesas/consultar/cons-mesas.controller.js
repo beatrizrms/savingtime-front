@@ -68,5 +68,15 @@
          $scope.$broadcast('scroll.refreshComplete');
       }
 
+      $scope.onTabSelected = function(){
+        console.log('onTabSelected');
+        $ionicHistory.clearHistory();
+      }
+
+      $scope.onTabDeselected = function(){
+        console.log('onTabDeselected');
+        $ionicHistory.clearHistory();
+      }
+
     };
 })();

@@ -8,12 +8,12 @@
       </label>
       <label class="item item-input">
         <span class="input-label">Telefone</span>
-        <input type="tel" ng-model="checkin.telefone" ui-mask="(999) 99999-9999" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required/>
+        <input type="tel" ng-model="checkin.telefone" ui-mask="(999) 99999-9999" only-digits required/>
       </label>
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" ng-model="checkin.qtPessoas" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-change="showCategoria(checkin.qtPessoas)" required/>
+          <input type="tel" ng-model="checkin.qtPessoas" only-digits ng-change="showCategoria(checkin.qtPessoas)" required/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
@@ -22,7 +22,7 @@
            <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
-
+    <br/>
     <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.tipoEvento">
       Efetuar Check-in
     </button>

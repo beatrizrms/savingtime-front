@@ -5,13 +5,13 @@
 
       <label class="item item-input">
           <span class="input-label">Número</span>
-          <input type="tel" ng-model="edit.numMesa" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+          <input type="tel" ng-model="edit.numMesa" only-digits/>
      </label>
 
 
       <label class="item item-input">
           <span class="input-label">Capacidade de Lugares</span>
-          <input type="tel" ng-model="edit.capacidade" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+          <input type="tel" ng-model="edit.capacidade" only-digits/>
      </label>
 
      <label class="item item-input item-select">
@@ -22,7 +22,7 @@
           </option>
          </select>
     </label>
-
+    <br/>
     <button class="button button-outline button-stable button-checkin" ng-click="editarMesa()" ng-disabled="!edit.numMesa || !edit.capacidade || !edit.status">
       Editar
     </button>

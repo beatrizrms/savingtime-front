@@ -14,8 +14,24 @@
       <ion-list>
         <ion-item ng-repeat="data in listmesas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(data)">
           <div ng-class="isItemShown(data) ? 'item-expand active' : 'item-expand inactive'">
-            <h2 class="white">Mesa: {{data.numMesa}}</h2>
-          </br>
+            <div style="display: inline-flex;">
+              <!-- Se a mesa estiver livre -->
+              <div class="farol" ng-show="data.status == 'Ativa - Livre'">
+                <div class="farol-verd" style="border: solid 2px white;"></div>
+              </div>
+
+              <!-- Se a mesa estiver ocupada -->
+              <div class="farol" ng-show="data.status == 'Ativa - Ocupada'">
+                <div class="farol-ama" style="border: solid 2px white;"></div>
+              </div>
+
+              <!-- Se a mesa estiver inativa -->
+              <div class="farol" ng-show="data.status == 'Inativa'">
+                <div class="farol-verm" style="border: solid 2px white;"></div>
+              </div>
+              <h2 class="white">&nbsp;&nbsp;Mesa de {{data.capacidade}} lugares&nbsp;&nbsp;</h2>
+            </div>
+          </br></br>
             <p class="white">Número: {{data.numMesa}}</p>
             <p class="white">Capacidade: {{data.capacidade}}</p>
             <p class="white">Status: {{data.status}}</p>

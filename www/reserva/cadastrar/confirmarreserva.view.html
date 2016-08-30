@@ -1,8 +1,18 @@
 <ion-view view-title="Reserva">
   <ion-content>
+    <div class="title">Confirme os dados a seguir:</div>
+    <div class="card" style="color:black;">
+      <div class="item item-divider" style="color:black;">
+        Nova Reserva
+      </div>
+      <div class="item item-text-wrap" style="color:black;">
+        <p><b>Dia:</b> {{reserva.dataReserva}}  <b>Hora:</b> {{reserva.horaReserva}}</p>
+        <p><b>Pessoas:</b> {{reserva.qtPessoas}}</p>
+        <p><b>Tipo Atendimento:</b>  {{reserva.tipoEvento}}</p>
+      </div>
+    </div>
     <div class="title">Preencha os campos para reservar:</div>
     <div class="main-box-reserva">
-
       <label class="item item-input">
         <span class="input-label">Nome do Responsável</span>
         <input type="text" placeholder="Maria da Silva" ng-model="reserva.responsavel"/>
@@ -10,12 +20,12 @@
 
       <label class="item item-input">
         <span class="input-label">Cpf</span>
-        <input type="tel" ui-mask="999.999.999-99" ng-model="reserva.cpf" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        <input type="tel" ui-mask="999.999.999-99" ng-model="reserva.cpf" only-digits/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Telephone</span>
-        <input type="tel" ng-model="reserva.telefone" ui-mask="(999) 99999-9999" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        <span class="input-label">Telefone</span>
+        <input type="tel" ng-model="reserva.telefone" ui-mask="(999) 99999-9999" only-digits/>
       </label>
 
       <label class="item item-input">

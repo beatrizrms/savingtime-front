@@ -4,10 +4,12 @@
         .module('consmesastodas.controller', [])
         .controller('ConsMesasCtrl', ConsMesasCtrl);
 
-    ConsMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate'];
-    function ConsMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate) {
+    ConsMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory'];
+    function ConsMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
 
       $scope.error = null;
+
+        console.log($ionicHistory.viewHistory());
 
       $ionicLoading.show({
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'

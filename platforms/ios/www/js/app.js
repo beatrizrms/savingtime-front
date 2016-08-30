@@ -4,7 +4,7 @@
                                           'ngCordova',
                                           'ui.mask',
                                           'ionic-datepicker',
-
+                                          'custom-directives',
 
                                         /* Controllers */
                                         'main.controller',
@@ -62,7 +62,6 @@
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
-    $ionicConfigProvider.views.maxCache(0);
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
     $stateProvider
@@ -190,10 +189,10 @@
 
     .state('edit/mesas', {
 			name: 'editmesas',
-      cache: false,
 			url: '/edit/mesas',
 			templateUrl: 'mesas/editar/edit-mesas.view.html',
-			controller: 'EditMesasCtrl'
+			controller: 'EditMesasCtrl',
+      params: { mesa: null }
 		})
 
     .state('cadmesas', {
@@ -214,15 +213,25 @@
 			name: 'disponibilidade',
 			url: '/disponibilidade',
 			templateUrl: 'disponibilidade/disponibilidade.view.html',
-			controller: 'DisponibilidadeCtrl'
+			controller: 'DisponibilidadeCtrl',
+      params: { dados: null }
 		})
 
     .state('reserva', {
 			name: 'reserva',
 			url: '/reserva',
 			templateUrl: 'reserva/cadastrar/cadreserva.view.html',
-			controller: 'CadReservaCtrl'
+			controller: 'CadReservaCtrl',
+      params: { reserva: null }
 		})
+
+    .state('confirmar/reserva', {
+      name: 'confirmarreserva',
+      url: '/confirmar/reserva',
+      templateUrl: 'reserva/cadastrar/confirmarreserva.view.html',
+      controller: 'CadReservaCtrl',
+      params: { reserva: null }
+    })
 
     .state('gerenciar/reserva', {
 			name: 'gerenciarreserva',
@@ -235,7 +244,8 @@
 			name: 'editarreserva',
 			url: '/editar/reserva',
 			templateUrl: 'reserva/editar/editar-reserva.view.html',
-			controller: 'EditReservaCtrl'
+			controller: 'EditReservaCtrl',
+      params: { reserva: null }
 		})
 
     .state('settings', {

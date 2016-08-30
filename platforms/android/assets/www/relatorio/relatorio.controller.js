@@ -50,7 +50,7 @@
           $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
             .then(function(result) {
               console.log('sucess');
-              $scope.showAlert(message + "\n O arquivo está em "+result.nativeURL);
+              $scope.showAlert(message);
 
             }, function(err) {
               console.log("erro");

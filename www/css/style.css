@@ -563,3 +563,8 @@ input:-ms-input-placeholder { /* IE10+ */
     line-height: 42px;
     cursor: pointer;
 }
+
+.tabs-stable > .tabs, .tabs.tabs-stable {
+  background: rgb(124,204,228);
+  color: white;
+}

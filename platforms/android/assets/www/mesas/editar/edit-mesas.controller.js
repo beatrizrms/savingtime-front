@@ -4,12 +4,13 @@
         .module('editmesas.controller', [])
         .controller('EditMesasCtrl', EditMesasCtrl);
 
-    EditMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicNavBarDelegate'];
-    function EditMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicNavBarDelegate) {
+    EditMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicNavBarDelegate', '$stateParams', '$ionicLoading'];
+    function EditMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicNavBarDelegate, $stateParams, $ionicLoading) {
+
+      console.log($stateParams.mesa)
 
       $scope.error = '';
-      $scope.edit = $rootScope.editmesa;
-      $rootScope.editmesa = "";
+      $scope.edit = $stateParams.mesa;
 
       MesasService.consultarStatusMesa()
         .then(
@@ -23,14 +24,33 @@
 
 
       $scope.editarMesa = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Editar Mesas',
+          template: 'Você tem certeza ?'
+        });
+
+        confirmPopup.then(function(res) {
+          if(res) {
+            editarMesa();
+          }
+        });
+      }
+
+      function editarMesa() {
+        $ionicLoading.show({
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
+        });
         var mesa = {codigo: $scope.edit.codigo, numMesa: $scope.edit.numMesa, status: $scope.edit.status, capacidade: $scope.edit.capacidade };
+        console.log(mesa);
         MesasService.editarMesa(mesa)
           .then(
             function(data) {
+                $ionicLoading.hide();
                 $scope.showAlert(data.message);
             },
             function(error) {
                 $scope.error = error;
+                $ionicLoading.hide();
                 $scope.showAlert("Tente novamente");
             }
         );

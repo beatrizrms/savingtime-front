@@ -97,9 +97,19 @@
       }
 
       $scope.fazerCheckin = function(checkin) {
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Cadastrar Checkin',
+          template: 'Você tem certeza ?'
+        });
 
-        console.log(checkin)
+        confirmPopup.then(function(res) {
+          if(res) {
+            fazerCheckin(checkin);
+          }
+        });
+      }
 
+      function fazerCheckin(checkin) {
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
@@ -123,19 +133,19 @@
         }
       }
 
-
         CheckinService.efetuarCheckin(atendimento)
           .then(
             function(data) {
-                $scope.showAlert(data.message);
                 $ionicLoading.hide();
+                $scope.showAlert(data.message);
                 $ionicNavBarDelegate.back();
 
             },
             function(error) {
+                $ionicLoading.hide();
                 $scope.error = "Carregue a página novamente";
                 $scope.showAlert($scope.error);
-                $ionicLoading.hide();
+
             }
           );
       }

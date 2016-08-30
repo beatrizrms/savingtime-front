@@ -3,8 +3,9 @@
         .module('editarreserva.controller', [])
         .controller('EditReservaCtrl', EditReservaCtrl);
 
-    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal'];
-    function EditReservaCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal) {
+    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal', '$stateParams'];
+    function EditReservaCtrl(   $rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal, $stateParams) {
+
 
       $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
         scope: $scope,
@@ -13,10 +14,11 @@
         $scope.modal = modal;
       });
 
+      $scope.reservaedit = $stateParams.reserva;
 
       $scope.reserva = {}
 
-      ReservaService.categorias($rootScope.reservaedit.qtPessoas)
+      ReservaService.categorias($scope.reservaedit.qtPessoas)
         .then(
           function(data) {
               if (data.length > 0) {
@@ -35,6 +37,19 @@
 
 
       $scope.editarReserva = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: 'Editar Reserva',
+          template: 'Você tem certeza ?'
+        });
+
+        confirmPopup.then(function(res) {
+          if(res) {
+            editarReserva();
+          }
+        });
+      }
+
+      function editarReserva() {
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
@@ -54,9 +69,22 @@
                   $ionicLoading.hide();
               }
             );
-        }
+      }
 
         $scope.cancelarReserva = function(codigo) {
+          var confirmPopup = $ionicPopup.confirm({
+            title: 'Cancelar Reserva',
+            template: 'Você tem certeza ?'
+          });
+
+          confirmPopup.then(function(res) {
+            if(res) {
+              cancelarReserva(codigo);
+            }
+          });
+        };
+
+        function cancelarReserva(codigo) {
           ReservaService.cancelarReserva(codigo)
             .then(
               function(data) {
@@ -70,7 +98,7 @@
                   $ionicLoading.hide();
               }
             );
-          };
+        }
 
         $scope.addPicture = function() {
               showActionSheet();
@@ -145,7 +173,6 @@
             ReservaService.obterComprovante($rootScope.reservaedit.codReserva)
               .then(
                 function(data) {
-                  console.log(data.object)
                     if(data.object != null) {
                       var photo = data.object[0].comprovante;
                       $scope.reserva.comprovante = photo;

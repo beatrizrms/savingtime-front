@@ -12,19 +12,45 @@
   <br />
   <div class="title">&nbsp;Escolha a quantidade de lugares abaixo</div>
 
-    <div class="item range">
-       <p class="title-range white">   {{quantidade.num}}</p>
-      <i class="icon ion-person white" style="font-size: 18px;"></i>
-      <input type="range" name="range-qtd">
-      <i class="icon ion-ios-people white" ></i>
+  <label class = "item item-input item-select">
+    <div class = "input-label">
+       Capacidade
     </div>
-
-    <button class="button button-full white button-checkin button-clear" ng-click="pesquisar()">
-      Pesquisar
-    </button>
-
+    <select ng-model="quantidade.num" ng-change="pesquisar()">
+       <option selected value="1">1</option>
+       <option selected value="2">2</option>
+       <option selected value="3">3</option>
+       <option selected value="4">4</option>
+       <option selected value="5">5</option>
+       <option selected value="6">6</option>
+       <option selected value="7">7</option>
+       <option selected value="8">8</option>
+       <option selected value="9">9</option>
+       <option selected value="10">10</option>
+       <option selected value="11">11</option>
+       <option selected value="12">12</option>
+       <option selected value="13">13</option>
+       <option selected value="14">14</option>
+       <option selected value="15">15</option>
+       <option selected value="16">16</option>
+       <option selected value="17">17</option>
+       <option selected value="18">18</option>
+       <option selected value="19">19</option>
+       <option selected value="20">20</option>
+       <option selected value="21">21</option>
+       <option selected value="22">22</option>
+       <option selected value="23">23</option>
+       <option selected value="24">24</option>
+       <option selected value="25">25</option>
+       <option selected value="26">26</option>
+       <option selected value="27">27</option>
+       <option selected value="28">28</option>
+       <option selected value="29">29</option>
+       <option selected value="30">30</option>
+    </select>
+ </label>
+    <br/>
     <div class="title">{{error}}</div>
-
 
     <ion-list>
       <ion-item ng-repeat="data in listmesas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(data)">
@@ -46,4 +72,14 @@
 
 
   </ion-content>
+  <ion-tabs class="tabs-icon-top tabs-stable">
+    <ion-tab title="Todas" icon="ion-asterisk" ui-sref="todasmesas" >
+    </ion-tab>
+
+    <ion-tab title="Capacidade" icon="ion-ios-people" ui-sref="porcapacidade" class="tab-item-active">
+    </ion-tab>
+
+    <ion-tab title="Status" icon="ion-flag" ui-sref="porstatus">
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

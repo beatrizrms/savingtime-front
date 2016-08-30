@@ -92,6 +92,7 @@
                             <option ng-repeat="data in mesascap" value="{{data.codigo}}">{{data.numMesa}} ( {{data.capacidade}} lugares - {{data.status}} )</option> \
                           </select> \
                      </label> \
+                     <br/> \
                      <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+')">Confirmar</button> <br/>',
                       title: 'Escolher mesa',
                       subTitle: 'Estas mesas estão disponíveis',
@@ -130,6 +131,7 @@
               .then(
                 function(data) {
                     $scope.showAlert(data.message);
+                    $scope.doRefresh();
                     $ionicLoading.hide();
                 },
                 function(error) {
@@ -163,6 +165,7 @@
                             <option ng-repeat="data in statusAtend" selected>{{data}}</option> \
                           </select> \
                      </label> \
+                      <br/>\
                     <button class="button button-outline button-stable button-checkin" ng-click="cancelarCheckin(statusEscolhido, '+codAtend+')">Confirmar</button>',
                       title: 'Confirmação',
                       subTitle: '',

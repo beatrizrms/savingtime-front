@@ -15,7 +15,7 @@
     <input type="date" ng-model="pesquisa.dataFinal"/>
   </label>
 
-  <button class="button button-outline button-stable button-checkin button-clear" ng-click="pesquisarData()">
+  <button class="button button-full button-positive button-checkin" style="color:white;" ng-click="pesquisarData()">
     Pesquisar
   </button>
 
@@ -36,6 +36,10 @@
           <p class="white"><b>Status:</b> {{reserva.statusReserva}}</p>
           <p class="white"><b>Tipo Evento:</b> {{reserva.tipoEvento}}</p>
         </div>
+        <ion-option-button class="button-positive pink"
+                           ng-click="getComprovanteAnexado({{reserva.codReserva}})">
+        Ver comprovante
+        </ion-option-button>
         <ion-option-button class="button-rose"
                            ng-click="editarReserva({{reserva}})">
         Editar
@@ -44,4 +48,14 @@
       </ion-item>
     </ion-list>
   </ion-content>
+  <ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tab title="Todas" icon="ion-asterisk" ui-sref="todasres">
+    </ion-tab>
+
+    <ion-tab title="Data" icon="ion-calendar" ui-sref="pordata" class="tab-item-active">
+    </ion-tab>
+
+    <ion-tab title="Cpf/Cod" icon="ion-ios-paper" ui-sref="porcodoucpf">
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

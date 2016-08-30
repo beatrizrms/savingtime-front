@@ -29,6 +29,11 @@
       $scope.modal = modal;
     });
 
+    $scope.teste = function(event) {
+      console.log(event.charCode >= 48 && event.charCode <= 57)
+      console.log(event.charCode)
+    }
+
 
     $scope.showCategoria = function(quantidade) {
       $ionicLoading.show();

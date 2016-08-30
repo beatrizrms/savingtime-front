@@ -15,7 +15,7 @@
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="reserva.qtPessoas" ng-change="showCategoria(reserva.qtPessoas)"/>
+          <input type="tel" only-digits ng-model="reserva.qtPessoas" ng-change="showCategoria(reserva.qtPessoas)"/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
@@ -24,8 +24,8 @@
            <option ng-repeat="op in listcategorias"selected>{{op}}</option>
          </select>
     </label>
-
-      <button class="button button-outline button-stable button-checkin" ng-click="verificarDisponibilidade()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.qtPessoas || !reserva.tipoEvento "> 
+      <br/>
+      <button class="button button-outline button-stable button-checkin" ng-click="verificarDisponibilidade()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.qtPessoas || !reserva.tipoEvento ">
         Verificar Disponibilidade
       </button>
     </div>

@@ -17,6 +17,7 @@
           .then(
             function(data) {
                 $scope.list = data.object;
+                console.log(data.object)
                 if($scope.list == null) {
                   setTimeout(function () {
                     $scope.$apply(function(){
@@ -82,6 +83,7 @@
                 <option ng-repeat="data in statusAtend" selected>{{data}}</option> \
               </select> \
          </label> \
+         <br/>\
         <button class="button button-outline button-stable button-checkin" ng-click="efetuarCheckout(statusEscolhido, '+codAtend+')">Confirmar</button>',
           title: 'Confirmação',
           subTitle: '',

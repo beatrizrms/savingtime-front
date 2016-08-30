@@ -20,12 +20,12 @@
 
       <label class="item item-input">
         <span class="input-label">Cpf</span>
-        <input type="text" ng-model="reservaedit.cpf" ui-mask="999.999.999-99" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        <input type="text" ng-model="reservaedit.cpf" ui-mask="999.999.999-99" only-digits/>
       </label>
 
       <label class="item item-input">
         <span class="input-label">Telephone</span>
-        <input type="text" ui-mask="(999) 99999-9999"  ng-model="reservaedit.telefone" onkeypress='return event.charCode >= 48 && event.charCode <= 57'/>
+        <input type="text" ui-mask="(999) 99999-9999"  ng-model="reservaedit.telefone" only-digits/>
       </label>
 
       <label class="item item-input">

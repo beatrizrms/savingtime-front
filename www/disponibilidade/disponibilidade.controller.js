@@ -1,5 +1,4 @@
 (function() {
-    'use strict';
     angular
         .module('disponibilidade.controller', [])
         .controller('DisponibilidadeCtrl', DisponibilidadeCtrl);
@@ -28,7 +27,7 @@
                           txUtilizacao: 0.1,
                           reservaAtual: { comprovante: "",
                                           cpf:"11111111111",
-                                          dataReserva:"16-08-2016",
+                                          dataReserva:"16-09-2016",
                                           email:"bibi_bagg@hotmail.com",
                                           horaReserva:"18:00:00 ",
                                           pagamento:"Transferencia - Pago",
@@ -47,7 +46,9 @@
             console.log(data);
           },
           function(error) {
-              $scope.showAlert("Tente novamente");
+            google.charts.load('45',{'packages':['timeline']});
+            google.charts.setOnLoadCallback(drawChart);
+              //$scope.showAlert("Tente novamente");
               $ionicLoading.hide();
           }
         );
@@ -71,7 +72,7 @@
 
           dataTable.addRows($scope.retornoDisp.reservasImpactantes);
 
-          var rowHeight = 41;
+          var rowHeight = 37;
           var chartHeight = (dataTable.getNumberOfRows() + 1) * rowHeight;
 
           var options = {

@@ -4,8 +4,8 @@
         .module('constodasreserva.controller', [])
         .controller('ConsTodasReservasCtrl', ConsTodasReservasCtrl);
 
-    ConsTodasReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicLoading', '$ionicNavBarDelegate'];
-    function ConsTodasReservasCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicLoading, $ionicNavBarDelegate) {
+    ConsTodasReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicLoading', '$ionicNavBarDelegate', '$ionicModal'];
+    function ConsTodasReservasCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicLoading, $ionicNavBarDelegate, $ionicModal) {
 
     var vm = this;
     $ionicLoading.show({
@@ -93,6 +93,47 @@
       $scope.backToMain = function() {
         $state.go("main");
       }
+
+      $scope.getComprovanteAnexado = function(codReserva) {
+        $ionicLoading.show({
+          template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
+        });
+
+        ReservaService.obterComprovante(codReserva)
+          .then(
+            function(data) {
+                if(data.object != null) {
+                  var photo = data.object[0].comprovante;
+                  $scope.reserva.comprovante = photo;
+                } else {
+                  $scope.notcomprovante = 'Não há comprovante cadastrado!'
+                }
+                $scope.openModal();
+                $ionicLoading.hide();
+            },
+            function(error) {
+                $scope.showAlert("Tente novamente");
+                console.log(error)
+                $ionicLoading.hide();
+            }
+          );
+        }
+
+        $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
+          scope: $scope,
+          animation: 'slide-in-up'
+        }).then(function(modal) {
+          $scope.modal = modal;
+        });
+
+        $scope.openModal = function() {
+          $scope.modal.show();
+        };
+
+        $scope.closeModal = function() {
+          $scope.modal.hide();
+        };
+
 
     };
 })();
