@@ -4,8 +4,8 @@
         .module('checkin.controller', [])
         .controller('CheckinCtrl', CheckinCtrl);
 
-    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate', 'ReservaService'];
-    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate, ReservaService) {
+    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate', 'ReservaService', '$ionicHistory'];
+    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate, ReservaService, $ionicHistory) {
 
       $scope.reserva = [];
       $scope.busca = '';
@@ -23,6 +23,7 @@
                 if (data.length > 0) {
                   $scope.categoria = true;
                   $scope.listcategorias = data;
+                  $scope.checkin.tipoEvento = data[0];
                 }
 
                 $ionicLoading.hide();
@@ -138,7 +139,7 @@
             function(data) {
                 $ionicLoading.hide();
                 $scope.showAlert(data.message);
-                $ionicNavBarDelegate.back();
+                $ionicHistory.goBack();
 
             },
             function(error) {

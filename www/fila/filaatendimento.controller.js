@@ -71,11 +71,13 @@
           .then(
             function(data) {
                 $scope.statusAtend = data;
+                $scope.statusEscolhido = data[0];
             },
             function(error) {
                 $scope.error = "Carregue a página novamente";
             }
           );
+
         confirmation = $ionicPopup.show({
           template: '<label class="item item-input item-select"> \
             <span class="input-label">Status</span> \

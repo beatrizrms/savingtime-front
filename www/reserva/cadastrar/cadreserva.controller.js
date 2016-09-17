@@ -14,11 +14,14 @@
                         dataReserva: new Date(),
                         horaReserva: new Date(2000, 0, 1, 18, 0, 0)
                        };
+
       $scope.categoria = false;
     } else {
       $scope.anexado = '';
       $scope.anexo = false;
       $scope.reserva = $stateParams.reserva;
+      var dataSplited = $scope.reserva.dataReserva.split("-");
+      $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
     }
 
 
@@ -45,6 +48,7 @@
               if (data.length > 0) {
                 $scope.categoria = true;
                 $scope.listcategorias = data;
+                $scope.reserva.tipoEvento = data[0];
               }
 
               $ionicLoading.hide();

@@ -25,6 +25,11 @@
                 <div class="farol-ama" style="border: solid 2px white;"></div>
               </div>
 
+              <!-- Se a mesa estiver reservada -->
+              <div class="farol" ng-show="data.status == 'Ativa - Reservada'">
+                <div class="farol-gray" style="border: solid 2px white;"></div>
+              </div>
+
               <!-- Se a mesa estiver inativa -->
               <div class="farol" ng-show="data.status == 'Inativa'">
                 <div class="farol-verm" style="border: solid 2px white;"></div>

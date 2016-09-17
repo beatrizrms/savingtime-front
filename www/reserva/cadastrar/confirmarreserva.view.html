@@ -6,9 +6,9 @@
         Nova Reserva
       </div>
       <div class="item item-text-wrap" style="color:black;">
-        <p><b>Dia:</b> {{reserva.dataReserva}}  <b>Hora:</b> {{reserva.horaReserva}}</p>
-        <p><b>Pessoas:</b> {{reserva.qtPessoas}}</p>
+        <p><b>Dia:</b> {{dataFormatada}}  <b>Hora:</b> {{reserva.horaReserva}}</p>
         <p><b>Tipo Atendimento:</b>  {{reserva.tipoEvento}}</p>
+        <p><b>Pessoas:</b> {{reserva.qtPessoas}}</p>
       </div>
     </div>
     <div class="title">Preencha os campos para reservar:</div>
@@ -20,12 +20,12 @@
 
       <label class="item item-input">
         <span class="input-label">Cpf</span>
-        <input type="tel" ui-mask="999.999.999-99" ng-model="reserva.cpf" only-digits/>
+        <input type="tel" ui-br-cpf-mask ng-model="reserva.cpf" only-digits/>
       </label>
 
       <label class="item item-input">
         <span class="input-label">Telefone</span>
-        <input type="tel" ng-model="reserva.telefone" ui-mask="(999) 99999-9999" only-digits/>
+        <input type="tel" ng-model="reserva.telefone" ui-br-phone-number only-digits/>
       </label>
 
       <label class="item item-input">

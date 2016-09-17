@@ -12,6 +12,7 @@
 
     <ion-list>
       <ion-item ng-repeat="reserva in reservas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(reserva)">
+
         <div ng-class="isItemShown(reserva) ? 'item-expand active' : 'item-expand inactive'">
           <h2 class="white">Reserva no cpf {{reserva.cpf}}</h2>
           <br/>

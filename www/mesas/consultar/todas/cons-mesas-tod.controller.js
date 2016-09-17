@@ -9,8 +9,6 @@
 
       $scope.error = null;
 
-        console.log($ionicHistory.viewHistory());
-
       $ionicLoading.show({
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
@@ -93,6 +91,7 @@
       $scope.backToMain = function() {
         $state.go("main");
       }
+
 
     };
 })();

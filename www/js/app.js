@@ -5,6 +5,7 @@
                                           'ui.mask',
                                           'ionic-datepicker',
                                           'custom-directives',
+                                          'ui.utils.masks',
 
                                         /* Controllers */
                                         'main.controller',
@@ -62,6 +63,7 @@
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
+   $ionicConfigProvider.tabs.position('bottom');
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
     $stateProvider

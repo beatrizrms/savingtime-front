@@ -443,12 +443,12 @@ input[type=email] {
 }
 
 .tabs-striped.tabs-stable .tabs {
-    background-color: rgb(41,91,171);
+    background-color: rgb(124,204,228);
     color: white;
 }
 
 .tabs-striped.tabs-positive .tabs {
-  background-color: rgb(41,91,171);
+  background-color: rgb(124,204,228);
   color: white;
 }
 
@@ -522,6 +522,19 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+}
+
+.farol-gray {
+  background-color: gray;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+
+.item .farol-gray-text {
+  color:gray;
+  margin-left:10px !important;
 }
 
 .item .farol-ama-text {

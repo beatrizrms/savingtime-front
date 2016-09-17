@@ -15,13 +15,13 @@
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" only-digits ng-model="reserva.qtPessoas" ng-change="showCategoria(reserva.qtPessoas)"/>
+          <input type="tel" only-digits ng-model="reserva.qtPessoas" ng-change="showCategoria(reserva.qtPessoas)" maxlength="4"/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="reserva.tipoEvento">
-           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
+         <select ng-model="reserva.tipoEvento" ng-options="op for op in listcategorias">
+           <!--<option ng-repeat="op in listcategorias" ng-show="op.length != 0">{{op}}</option>-->
          </select>
     </label>
       <br/>
