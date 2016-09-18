@@ -29,6 +29,7 @@ Plugins used:
 cordova-plugin-camera 2.2.0 "Camera"
 cordova-plugin-compat 1.0.0 "Compat"
 cordova-plugin-file 4.2.0 "File"
+cordova-plugin-file-opener2 2.0.2 "File Opener2"
 cordova-plugin-file-transfer 1.5.1 "File Transfer"
 cordova-plugin-splashscreen 3.2.2 "Splashscreen"
 cordova-plugin-whitelist 1.2.2 "Whitelist"
