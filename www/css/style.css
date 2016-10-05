@@ -10,6 +10,34 @@ body{
     font-family: 'San Fran';
 }
 
+.card-home{
+  background-color: white;
+  color: gray !important;
+  width: 9em;
+  height: 9em;
+  font-weight: normal !important;
+  margin: 0 auto;
+  border-radius: 10em;
+  text-align: center !important;
+  box-shadow: 2px 8px 5px #888888;
+  padding: 1em;;
+}
+
+.box-home {
+  
+  margin: 10px auto;
+  padding: 20px;
+  display: flex;
+  text-align: center !important;
+}
+
+.refresh {
+    width: 20px;
+    float: right;
+    height: 20px;
+    font-size: x-large;
+}
+
 #timeline {
   margin: 0 auto;
   margin-top:50px;
@@ -581,3 +609,29 @@ input:-ms-input-placeholder { /* IE10+ */
   background: rgb(124,204,228);
   color: white;
 }
+
+@media screen and (min-width: 320px) {
+  .chart-home {
+  width: 22em; 
+  height: 14em; 
+  margin:0 auto;  
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .chart-home {
+  width: 27em; 
+  height: 15em; 
+  margin:0 auto;  
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .chart-home {
+  width: 45em; 
+  height: 30em; 
+  margin:0 auto;  
+  }
+}
+ 
+

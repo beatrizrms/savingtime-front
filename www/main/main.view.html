@@ -12,12 +12,34 @@
   </ion-refresher>
     <div class="title-main"><div class="ion-android-restaurant tam-icon"></div></div>
 
-    <div style="margin-left:10px;">
-      <span class="input-label">Em Fila: </span>
-      <span class="input-label">Em Espera: </span>
-      <span class="input-label">Mesas Livres: </span>
-      <span class="input-label">Tempo médio de espera:</span>
+     <div class="box-home">
+    <div class="card-home" style="border-radius: 2em; width:100%;">
+      <span style="font-size:1em;">Tempo médio </span> 
+       <br/><br/>
+      <span style="font-size:2.5em; color:rgb(41,91,171);"> {{home.tempoEspera}}</span> 
+      <br/>
+      <span style="font-size:1em;"> de espera</span>
+      </div>
     </div>
 
+    <div class="box-home" style="margin-top: -30px;">
+      <div class="card-home">
+       <span style="font-size:1em;">Em Fila </span>
+       <br/><br/>
+      <span style="font-size:3em; color:rgb(41,91,171);">{{home.pessoasFila}}</span> 
+      <br/>
+      <span style="font-size:1em;"> atendimentos</span>
+      </div>
+
+      <div class="card-home">
+        <span style="font-size:1em;">Mesas </span> 
+         <br/><br/>
+        <span style="font-size:3em;color:rgb(41,91,171);"> {{home.mesasLivres}}</span> 
+        <br/>
+        <span style="font-size:1em;"> livres</span>
+      </div>
+    </div>
+
+   
   </ion-content>
 </ion-view>

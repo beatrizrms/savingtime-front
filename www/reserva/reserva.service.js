@@ -7,7 +7,8 @@
     ReservaService.$inject = ['$http', '$q'];
     function ReservaService($http, $q) {
 
-      var host = 'http://usjt-savingtime.rhcloud.com/';
+      //var host = 'http://usjt-savingtime.rhcloud.com/';
+      var host = 'http://localhost:8080/usjt/';
 
         var reservasMethods = {
             cadastrarReserva : cadastrarReserva,

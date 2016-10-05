@@ -46,7 +46,8 @@
                                         'filas.service',
                                         'checkin.service',
                                         'relatorio.service',
-                                        'detalhes.service'
+                                        'detalhes.service',
+                                        'main.service'
                                       ]);
 
 
@@ -63,7 +64,7 @@
 	app.config(function($stateProvider, $urlRouterProvider, $locationProvider,
 					 $compileProvider, $ionicConfigProvider, ionicDatePickerProvider) {
 
-   $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.tabs.position('bottom');
     $ionicConfigProvider.views.swipeBackEnabled(false);
 
     $stateProvider
