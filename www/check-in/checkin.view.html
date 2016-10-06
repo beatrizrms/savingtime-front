@@ -18,12 +18,10 @@
 
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="checkin.tipoEvento" required>
-           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
-         </select>
+        <select ng-model="checkin.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select> 
     </label>
     <br/>
-    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.tipoEvento">
+    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.codCategoria">
       Efetuar Check-in
     </button>
     </div>

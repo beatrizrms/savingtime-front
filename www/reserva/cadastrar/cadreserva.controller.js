@@ -45,10 +45,10 @@
       ReservaService.categorias(quantidade)
         .then(
           function(data) {
-              if (data.length > 0) {
+              if (data.object.length > 0) {
                 $scope.categoria = true;
-                $scope.listcategorias = data;
-                $scope.reserva.tipoEvento = data[0];
+                $scope.listcategorias = data.object;
+                $scope.reserva.codCategoria = data.object[0].codCategoria;
               }
 
               $ionicLoading.hide();

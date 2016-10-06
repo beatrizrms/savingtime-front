@@ -77,7 +77,7 @@
 
         function cancelarCheckin(statusEscolhido, codAtend) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+statusEscolhido)
+          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+ statusEscolhido)
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

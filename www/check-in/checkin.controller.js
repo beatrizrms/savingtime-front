@@ -19,11 +19,13 @@
         ReservaService.categorias(quantidade)
           .then(
             function(data) {
-                console.log(data);
-                if (data.length > 0) {
-                  $scope.categoria = true;
-                  $scope.listcategorias = data;
-                  $scope.checkin.tipoEvento = data[0];
+                console.log(data.object);
+                if(data.object != null){
+                  if (data.object.length > 0) {
+                    $scope.categoria = true;
+                    $scope.listcategorias = data.object;
+                    $scope.checkin.codCategoria = data.object[0].codCategoria;
+                  }
                 }
 
                 $ionicLoading.hide();
@@ -87,7 +89,7 @@
                    <p> Status da Reserva: '+$scope.reserva[0].statusReserva+'</p> \
                    <p> Telefone: '+$scope.reserva[0].telefone+'</p> \
                    <p> Pessoas: '+$scope.reserva[0].qtPessoas+'</p> \
-                   <p> Tipo de Evento: '+$scope.reserva[0].tipoEvento+'</p> '
+                   <p> Tipo de Evento: '+$scope.reserva[0].nomeCategoria+'</p> '
        });
 
        confirmPopup.then(function(res) {
@@ -98,6 +100,7 @@
       }
 
       $scope.fazerCheckin = function(checkin) {
+        console.log(checkin)
         var confirmPopup = $ionicPopup.confirm({
           title: 'Cadastrar Checkin',
           template: 'Você tem certeza ?'
@@ -121,14 +124,14 @@
         atendimento = {
           numReserva: checkin.codReserva,
           nomeResponsavel: checkin.responsavel,
-          tipoEvento: checkin.tipoEvento,
+          codCategoria: checkin.codCategoria,
           telefone: checkin.telefone,
           qtPessoas: checkin.qtPessoas
         }
       } else {
         atendimento = {
           nomeResponsavel: checkin.responsavel,
-          tipoEvento: checkin.tipoEvento,
+          codCategoria: checkin.codCategoria,
           telefone: checkin.telefone,
           qtPessoas: checkin.qtPessoas
         }

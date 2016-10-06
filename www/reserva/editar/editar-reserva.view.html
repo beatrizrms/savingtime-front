@@ -40,9 +40,7 @@
 
      <label class="item item-input item-select">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="reservaedit.tipoEvento" required>
-           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
-         </select>
+        <select ng-model="reservaedit.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
 
     <label class="item item-input item-select">
@@ -65,7 +63,7 @@
       <span class="input-label">Ver comprovante </span>
      </label>
 
-    <button class="button button-full button-positive button-checkin" ng-click="editarReserva()" ng-disabled="!reservaedit.responsavel || !reservaedit.cpf || !reservaedit.telefone || !reservaedit.email || !reservaedit.tipoEvento || !reservaedit.pagamento">
+    <button class="button button-full button-positive button-checkin" ng-click="editarReserva()" ng-disabled="!reservaedit.responsavel || !reservaedit.cpf || !reservaedit.telefone || !reservaedit.email || !reservaedit.codCategoria || !reservaedit.pagamento">
       Editar
     </button>
     <button class="button button-full pink" ng-click="cancelarReserva({{reservaedit.codReserva}})" ng-show="reservaedit.statusReserva != 'Cancelado'">
