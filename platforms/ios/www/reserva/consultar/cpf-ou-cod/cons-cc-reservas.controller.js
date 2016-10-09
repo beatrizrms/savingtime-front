@@ -7,7 +7,7 @@
     ConsCCReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicLoading', '$ionicNavBarDelegate', '$ionicModal'];
     function ConsCCReservasCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicLoading, $ionicNavBarDelegate, $ionicModal) {
 
-
+      $scope.reserva ={};
       $scope.search = {value: ""};
 
       $scope.editarReserva = function(reserva) {
@@ -25,6 +25,7 @@
           .then(
             function(data) {
                 $scope.reservas = data.object;
+                console.log($scope.reservas);
                 if($scope.reservas == null) {
                   setTimeout(function () {
                     $scope.$apply(function(){

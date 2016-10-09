@@ -15,8 +15,8 @@
       });
 
       $scope.reservaedit = $stateParams.reserva;
-
       $scope.reserva = {}
+      console.log($scope.reservaedit);
 
       ReservaService.categorias($scope.reservaedit.qtPessoas)
         .then(

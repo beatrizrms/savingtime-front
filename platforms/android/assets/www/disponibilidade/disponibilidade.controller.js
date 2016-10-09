@@ -12,38 +12,34 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
-      $scope.retornoDisp = {
-                          tamFila: '',
-                          tempoEspera: '',
-                          tempoEspera: '',
-                          reservasImpactantes: [[ '8 lug', '#', new Date(2016, 3, 30, 10,0,0), new Date(2016, 3, 30, 12,45,0) ],
-                                                [ '7 lug', '#', new Date(2016, 3, 30, 11,0,0), new Date(2016, 3, 30, 12,0,0) ],
-                                                [ '6 lug', '#', new Date(2016, 3, 30, 12,0,0), new Date(2016, 3, 30, 14,45,0,0) ],
-                                                [ '4 lug', '?', new Date(2016, 3, 30, 15,0,0), new Date(2016, 3, 30, 19,0,0)],
-                                                [ '2 lug', '#', new Date(2016, 3, 30, 13,0,0), new Date(2016, 3, 30, 19,45,0,0) ],
-                                                [ '1 lug', '#', new Date(2016, 3, 30, 12,0,0), new Date(2016, 3, 30, 13,45,0,0) ],
-                                                [ '10 lug', '#', new Date(2016, 3, 30, 20,0,0), new Date(2016, 3, 30, 22,15,0,0) ]],
-                          qtdMesasLivres: 3,
-                          txUtilizacao: 0.1,
-                          reservaAtual: { comprovante: "",
-                                          cpf:"11111111111",
-                                          dataReserva:"16-09-2016",
-                                          email:"bibi_bagg@hotmail.com",
-                                          horaReserva:"18:00:00 ",
-                                          pagamento:"Transferencia - Pago",
-                                          qtPessoas:"6",
-                                          responsavel:"Beatriz Ramos",
-                                          telefone:"111111111111",
-                                          tipoEvento:"Almoço Familiar"}
-                        }
-
-
       ReservaService.verificarDisponibilidade(reserva)
         .then(
           function(data) {
-            google.charts.load('45',{'packages':['timeline']});
-            google.charts.setOnLoadCallback(drawChart);
             console.log(data);
+            $scope.retornoDisp = data.object[0];
+            if($scope.retornoDisp.reservasImpactantes != null) {
+
+            }
+            var dataSplited = $scope.retornoDisp.reservaAtual.dataReserva.split("-");
+            $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
+
+            // mock
+            $scope.retornoDisp.txUtilizacao = 0.1;
+            /*$scope.retornoDisp.reservasImpactantes = [[ '8 lug', '#', new Date(2016, 3, 30, 10,0,0), new Date(2016, 3, 30, 12,45,0) ],
+                                  [ '7 lug', '#', new Date(2016, 3, 30, 11,0,0), new Date(2016, 3, 30, 12,0,0) ],
+                                  [ '6 lug', '#', new Date(2016, 3, 30, 12,0,0), new Date(2016, 3, 30, 14,45,0,0) ],
+                                  [ '4 lug', '?', new Date(2016, 3, 30, 15,0,0), new Date(2016, 3, 30, 19,0,0)],
+                                  [ '2 lug', '#', new Date(2016, 3, 30, 13,0,0), new Date(2016, 3, 30, 19,45,0,0) ],
+                                  [ '1 lug', '#', new Date(2016, 3, 30, 12,0,0), new Date(2016, 3, 30, 13,45,0,0) ],
+                                  [ '10 lug', '#', new Date(2016, 3, 30, 20,0,0), new Date(2016, 3, 30, 22,15,0,0) ]];*/
+            if($scope.retornoDisp.reservasImpactantes != null ) {
+              google.charts.load('45',{'packages':['timeline']});
+              google.charts.setOnLoadCallback(drawChart);
+            } else {
+              $scope.erroReservasImpactantes = "Não há reservas impactantes neste dia!"
+              $ionicLoading.hide();
+            }
+
           },
           function(error) {
             google.charts.load('45',{'packages':['timeline']});

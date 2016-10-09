@@ -10,6 +10,34 @@ body{
     font-family: 'San Fran';
 }
 
+.card-home{
+  background-color: white;
+  color: gray !important;
+  width: 9em;
+  height: 9em;
+  font-weight: normal !important;
+  margin: 0 auto;
+  border-radius: 10em;
+  text-align: center !important;
+  box-shadow: 2px 8px 5px #888888;
+  padding: 1em;;
+}
+
+.box-home {
+  
+  margin: 10px auto;
+  padding: 20px;
+  display: flex;
+  text-align: center !important;
+}
+
+.refresh {
+    width: 20px;
+    float: right;
+    height: 20px;
+    font-size: x-large;
+}
+
 #timeline {
   margin: 0 auto;
   margin-top:50px;
@@ -28,7 +56,7 @@ body{
 }
 
 .transparent {
-  background-color: rgb(41,91,171) !important;
+  background-color: rgb(45,119,144) !important;
 }
 
 
@@ -199,15 +227,15 @@ body{
  }
 
  .has-header {
-   background: rgb(41,91,171); /* For browsers that do not support gradients */
-   background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
-   background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
-   background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
-   background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+   background: rgb(45,119,144); /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72));); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* Standard syntax */
  }
 
  .bar-dark {
-   background-color: rgb(41,91,171) !important;
+   background-color: rgb(45,119,144) !important;
  }
 
 
@@ -247,23 +275,23 @@ body {
 .pink {
   background: white;
   background-color: white !important;
-  border-color: rgb(192,185,224);
+  border-color: rgb(43,88,109);
   border: 1px dotted;
-  color: rgb(192,185,224);
+  color: rgb(43,88,109);
 }
 .pink-color {
-  color: rgb(192,185,224) !important;
+  color: rgb(43,88,109) !important;
 }
 
 .blue-color {
-  color: rgb(124,204,228) !important;
+  color: rgb(46,56,72) !important;
 }
 
 .red {
-  background: rgb(41,91,171); /* For browsers that do not support gradients */
-  border-color: rgb(124,204,228);
+  background: rgb(45,119,144); /* For browsers that do not support gradients */
+  border-color: rgb(46,56,72);
   border: 1px dotted;
-  color: rgb(124,204,228);
+  color: rgb(46,56,72);
 }
 
 .detail {
@@ -319,10 +347,10 @@ input[type=email] {
 }
 
 .popup-container .popup {
-  background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+  background: -webkit-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72));); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(45,119,144), rgb(43,88,109), rgb(46,56,72)); /* Standard syntax */
   border: 1px solid;
   border-radius: 10px;
 }
@@ -334,47 +362,47 @@ input[type=email] {
 .button.button-positive {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: rgb(45,119,144);
 }
 
 .button.button-positive.active  {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: rgb(45,119,144);
 }
 
 .button.button-positive.activated {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: rgb(45,119,144);
 }
 
 .button.button-positive:hover  {
   border-color: white;
-  color: rgb(41,91,171);
+  color: rgb(45,119,144);
 }
 
 .button.button-rose {
   border-color: white;
   background-color: white;
-  color: rgb(192,185,224);
+  color: rgb(43,88,109);
 }
 
 .button.button-rose.active {
   border-color: white;
-  background-color: rgb(192,185,224);
-  color: rgb(41,91,171);
+  background-color: rgb(43,88,109);
+  color: rgb(45,119,144);
 }
 
 
 .tabs-stable > .tabs, .tabs.tabs-stable {
-  background: rgb(124,204,228);
+  background: rgb(46,56,72);
   color: white;
   border:1px solid;
 }
 
 .tabs-positive > .tabs, .tabs.tabs-positive {
-  background: rgb(124,204,228);
+  background: rgb(46,56,72);
   color: white;
   border:1px solid;
 }
@@ -408,34 +436,34 @@ input[type=email] {
 .button: hover{
     border-color: white !important;
     background: transparent !important;
-    color: rgb(41,91,171) !important;
+    color: rgb(45,119,144) !important;
 }
 
 .button.active{
     border-color: white !important;
     background: white !important;
-    color: rgb(41,91,171) !important;
+    color: rgb(45,119,144) !important;
 }
 
 .button.activated{
     border-color: white !important;
     background: white !important;
-    color: rgb(41,91,171) !important;
+    color: rgb(45,119,144) !important;
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
   background: white;
-  color:rgb(41,91,171);
+  color:rgb(45,119,144);
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
   background: white;
-  color: rgb(41,91,171);
+  color: rgb(45,119,144);
 }
 
 .item.activated {
   background-color: white;
-  color:rgb(41,91,171);
+  color:rgb(45,119,144);
 }
 
 .scroll-refresher .ionic-refresher-content {
@@ -443,12 +471,12 @@ input[type=email] {
 }
 
 .tabs-striped.tabs-stable .tabs {
-    background-color: rgb(41,91,171);
+    background-color: rgb(46,56,72);
     color: white;
 }
 
 .tabs-striped.tabs-positive .tabs {
-  background-color: rgb(41,91,171);
+  background-color: rgb(46,56,72);
   color: white;
 }
 
@@ -482,7 +510,7 @@ input:-ms-input-placeholder { /* IE10+ */
 .platform-android .action-sheet .action-sheet-title {
     font-size: 14px;
     padding: 16px;
-    color: rgb(41,91,171) !important;
+    color: rgb(45,119,144) !important;
 }
 
 .image-excel {
@@ -522,6 +550,19 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+}
+
+.farol-gray {
+  background-color: gray;
+  width:20px;
+  height:20px;
+  border-radius:30px;
+}
+
+
+.item .farol-gray-text {
+  color:gray;
+  margin-left:10px !important;
 }
 
 .item .farol-ama-text {
@@ -565,6 +606,32 @@ input:-ms-input-placeholder { /* IE10+ */
 }
 
 .tabs-stable > .tabs, .tabs.tabs-stable {
-  background: rgb(124,204,228);
+  background: rgb(46,56,72);
   color: white;
 }
+
+@media screen and (min-width: 320px) {
+  .chart-home {
+  width: 22em; 
+  height: 14em; 
+  margin:0 auto;  
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .chart-home {
+  width: 27em; 
+  height: 15em; 
+  margin:0 auto;  
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .chart-home {
+  width: 45em; 
+  height: 30em; 
+  margin:0 auto;  
+  }
+}
+ 
+

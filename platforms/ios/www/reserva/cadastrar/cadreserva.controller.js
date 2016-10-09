@@ -14,11 +14,40 @@
                         dataReserva: new Date(),
                         horaReserva: new Date(2000, 0, 1, 18, 0, 0)
                        };
+
       $scope.categoria = false;
     } else {
       $scope.anexado = '';
       $scope.anexo = false;
       $scope.reserva = $stateParams.reserva;
+      var dataSplited = $scope.reserva.dataReserva.split("-");
+      $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
+      
+      switch ($scope.reserva.codCategoria) {
+            case 1:
+               $scope.reserva.nomeCategoria = 'Refeição Rápida';
+                break;
+            case 2:
+                $scope.reserva.nomeCategoria = 'Almoco Executivo';
+                break;
+            case 3:
+                $scope.reserva.nomeCategoria = 'Jantar Executivo';
+                break;
+            case 4:
+                $scope.reserva.nomeCategoria = 'Almoço Familiar';
+                break;
+            case 5:
+                $scope.reserva.nomeCategoria = 'Jantar Familiar';
+                break;
+            case 6:
+                $scope.reserva.nomeCategoria = 'Aniversário';
+                break;
+            case 7:
+                $scope.reserva.nomeCategoria = 'Happy Hour';
+                break;
+            default:
+
+        }
     }
 
 
@@ -42,9 +71,10 @@
       ReservaService.categorias(quantidade)
         .then(
           function(data) {
-              if (data.length > 0) {
+              if (data.object.length > 0) {
                 $scope.categoria = true;
-                $scope.listcategorias = data;
+                $scope.listcategorias = data.object;
+                $scope.reserva.codCategoria = data.object[0].codCategoria;
               }
 
               $ionicLoading.hide();
@@ -110,7 +140,7 @@
                   $scope.showAlert(data.message);
                   $state.go('gerenciar/reserva');
                 }
-
+                $scope.reserva = {};
                 $ionicLoading.hide();
 
             },

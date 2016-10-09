@@ -7,7 +7,9 @@
     FilasService.$inject = ['$http', '$q'];
     function FilasService($http, $q) {
 
-      var host = 'http://usjt-savingtime.rhcloud.com/';
+      ////var host = 'http://usjt-savingtime.rhcloud.com/';
+      var host = 'http://localhost:8080/usjt/';
+
 
         var filasMethods = {
             selectEspera : selectEspera,
@@ -28,6 +30,7 @@
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
+            console.log(data)
             deferred.reject(data);
           });
 
@@ -74,7 +77,7 @@
 
         function cancelarCheckin(statusEscolhido, codAtend) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+statusEscolhido)
+          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+ statusEscolhido)
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

@@ -8,22 +8,20 @@
       </label>
       <label class="item item-input">
         <span class="input-label">Telefone</span>
-        <input type="tel" ng-model="checkin.telefone" ui-mask="(999) 99999-9999" only-digits required/>
+        <input type="tel" ng-model="checkin.telefone" ui-br-phone-number only-digits required/>
       </label>
 
       <label class="item item-input">
           <span class="input-label">Quant. de pessoas</span>
-          <input type="tel" ng-model="checkin.qtPessoas" only-digits ng-change="showCategoria(checkin.qtPessoas)" required/>
+          <input type="tel" ng-model="checkin.qtPessoas" only-digits ng-change="showCategoria(checkin.qtPessoas)" maxlength="4" required/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="checkin.tipoEvento" required>
-           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
-         </select>
+        <select ng-model="checkin.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select> 
     </label>
     <br/>
-    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.tipoEvento">
+    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.codCategoria">
       Efetuar Check-in
     </button>
     </div>

@@ -27,7 +27,7 @@
           <p class="white"><b>Lugares:</b> {{reserva.qtPessoas}}</p>
           <p class="white"><b>Pagamento:</b> {{reserva.pagamento}}</p>
           <p class="white"><b>Status:</b> {{reserva.statusReserva}}</p>
-          <p class="white"><b>Tipo Evento:</b> {{reserva.tipoEvento}}</p>
+          <p class="white"><b>Tipo Evento:</b> {{reserva.nomeCategoria}}</p>
         </div>
         <ion-option-button class="button-positive pink"
                            ng-click="getComprovanteAnexado({{reserva.codReserva}})">
@@ -41,4 +41,14 @@
       </ion-item>
     </ion-list>
   </ion-content>
+  <ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tab title="Todas" icon="ion-asterisk" ui-sref="todasres">
+    </ion-tab>
+
+    <ion-tab title="Data" icon="ion-calendar" ui-sref="pordata">
+    </ion-tab>
+
+    <ion-tab title="Cpf/Cod" icon="ion-ios-paper" ui-sref="porcodoucpf" class="tab-item-active">
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

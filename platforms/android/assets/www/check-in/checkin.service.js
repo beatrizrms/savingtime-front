@@ -7,7 +7,8 @@
     CheckinService.$inject = ['$http', '$q'];
     function CheckinService($http, $q) {
 
-      var host = 'http://usjt-savingtime.rhcloud.com/';
+      //var host = 'http://usjt-savingtime.rhcloud.com/';
+      var host = 'http://localhost:8080/usjt/';
 
         var checkinMethods = {
             consultarReserva : consultarReserva,

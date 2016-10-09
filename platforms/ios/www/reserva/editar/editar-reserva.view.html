@@ -20,12 +20,12 @@
 
       <label class="item item-input">
         <span class="input-label">Cpf</span>
-        <input type="text" ng-model="reservaedit.cpf" ui-mask="999.999.999-99" only-digits/>
+        <input type="text" ng-model="reservaedit.cpf" ui-br-cpf-mask only-digits/>
       </label>
 
       <label class="item item-input">
         <span class="input-label">Telephone</span>
-        <input type="text" ui-mask="(999) 99999-9999"  ng-model="reservaedit.telefone" only-digits/>
+        <input type="text" ui-br-phone-number  ng-model="reservaedit.telefone" only-digits/>
       </label>
 
       <label class="item item-input">
@@ -40,9 +40,7 @@
 
      <label class="item item-input item-select">
        <span class="input-label">Tipo de evento</span>
-         <select ng-model="reservaedit.tipoEvento" required>
-           <option ng-repeat="op in listcategorias"selected>{{op}}</option>
-         </select>
+        <select ng-model="reservaedit.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
 
     <label class="item item-input item-select">
@@ -65,7 +63,7 @@
       <span class="input-label">Ver comprovante </span>
      </label>
 
-    <button class="button button-full button-positive button-checkin" ng-click="editarReserva()" ng-disabled="!reservaedit.responsavel || !reservaedit.cpf || !reservaedit.telefone || !reservaedit.email || !reservaedit.tipoEvento || !reservaedit.pagamento">
+    <button class="button button-full button-positive button-checkin" ng-click="editarReserva()" ng-disabled="!reservaedit.responsavel || !reservaedit.cpf || !reservaedit.telefone || !reservaedit.email || !reservaedit.codCategoria || !reservaedit.pagamento">
       Editar
     </button>
     <button class="button button-full pink" ng-click="cancelarReserva({{reservaedit.codReserva}})" ng-show="reservaedit.statusReserva != 'Cancelado'">

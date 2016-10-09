@@ -6,14 +6,15 @@
         Nova Reserva
       </div>
       <div class="item item-text-wrap" style="color:black;">
-        <p><b>Dia:</b> {{retornoDisp.reservaAtual.dataReserva}}  <b>Hora:</b> {{retornoDisp.reservaAtual.horaReserva}}</p>
+        <p><b>Dia:</b> {{dataFormatada}}  <b>Hora:</b> {{retornoDisp.reservaAtual.horaReserva}}</p>
+        <p><b>Tipo Atendimento:</b>  {{retornoDisp.reservaAtual.nomeCategoria}}</p>
         <p><b>Pessoas:</b> {{retornoDisp.reservaAtual.qtPessoas}}</p>
-        <p><b>Tipo Atendimento:</b>  {{retornoDisp.reservaAtual.tipoEvento}}</p>
       </div>
     </div>
 
     <div>
-      <h4 style="color:white;">&nbsp;&nbsp;&nbsp;Veja as reservas do dia &nbsp;&nbsp;&nbsp;</h4>
+      <h4 style="color:white;" ng-show="!erroReservasImpactantes">&nbsp;&nbsp;&nbsp;Veja as reservas do dia &nbsp;&nbsp;&nbsp;</h4>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;{{erroReservasImpactantes}}</p>
       <div id="timeline" style="color:white; margin-top:-7px;" width="200" height="200"></div>
     </div>
     <div class="card" style="color:black;">

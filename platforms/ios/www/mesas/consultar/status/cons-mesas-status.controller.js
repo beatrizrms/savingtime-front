@@ -4,9 +4,10 @@
         .module('consmesasstatus.controller', [])
         .controller('ConsMesasStatusCtrl', ConsMesasStatusCtrl);
 
-    ConsMesasStatusCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate'];
-    function ConsMesasStatusCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate) {
+    ConsMesasStatusCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory'];
+    function ConsMesasStatusCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
 
+console.log($ionicHistory.viewHistory());
       $scope.error = null;
       $scope.mesa = {}
       $scope.mesa.status = 'Inativo';

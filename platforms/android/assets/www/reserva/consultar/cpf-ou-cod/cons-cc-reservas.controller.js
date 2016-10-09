@@ -7,7 +7,7 @@
     ConsCCReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicLoading', '$ionicNavBarDelegate', '$ionicModal'];
     function ConsCCReservasCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicLoading, $ionicNavBarDelegate, $ionicModal) {
 
-
+      $scope.reserva ={};
       $scope.search = {value: ""};
 
       $scope.editarReserva = function(reserva) {

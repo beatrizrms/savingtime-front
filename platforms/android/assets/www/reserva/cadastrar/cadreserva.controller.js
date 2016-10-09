@@ -14,11 +14,14 @@
                         dataReserva: new Date(),
                         horaReserva: new Date(2000, 0, 1, 18, 0, 0)
                        };
+
       $scope.categoria = false;
     } else {
       $scope.anexado = '';
       $scope.anexo = false;
       $scope.reserva = $stateParams.reserva;
+      var dataSplited = $scope.reserva.dataReserva.split("-");
+      $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
     }
 
 
@@ -42,9 +45,10 @@
       ReservaService.categorias(quantidade)
         .then(
           function(data) {
-              if (data.length > 0) {
+              if (data.object.length > 0) {
                 $scope.categoria = true;
-                $scope.listcategorias = data;
+                $scope.listcategorias = data.object;
+                $scope.reserva.codCategoria = data.object[0].codCategoria;
               }
 
               $ionicLoading.hide();

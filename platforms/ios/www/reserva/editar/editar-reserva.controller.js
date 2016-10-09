@@ -15,14 +15,14 @@
       });
 
       $scope.reservaedit = $stateParams.reserva;
-
       $scope.reserva = {}
+      console.log($scope.reservaedit);
 
       ReservaService.categorias($scope.reservaedit.qtPessoas)
         .then(
           function(data) {
-              if (data.length > 0) {
-                $scope.listcategorias = data;
+              if (data.object.length > 0) {
+                $scope.listcategorias = data.object;
               }
 
               $ionicLoading.hide();

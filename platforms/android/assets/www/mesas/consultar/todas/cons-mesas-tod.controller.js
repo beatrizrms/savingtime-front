@@ -4,8 +4,8 @@
         .module('consmesastodas.controller', [])
         .controller('ConsMesasCtrl', ConsMesasCtrl);
 
-    ConsMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate'];
-    function ConsMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate) {
+    ConsMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory'];
+    function ConsMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
 
       $scope.error = null;
 
@@ -91,6 +91,7 @@
       $scope.backToMain = function() {
         $state.go("main");
       }
+
 
     };
 })();

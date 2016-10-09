@@ -3,7 +3,7 @@
 @font-face {
     font-family: 'San Fran';
     src: url("System San Francisco Display Regular.ttf") format("opentype");
-    font-weight: 500;
+    font-weight: 900;
 }
 
 body{
@@ -19,7 +19,7 @@ body{
   margin: 0 auto;
   border-radius: 10em;
   text-align: center !important;
-  box-shadow: 2px 8px 5px #888888;
+  box-shadow: 2px 8px 5px #6e81a2;
   padding: 1em;;
 }
 
@@ -56,7 +56,7 @@ body{
 }
 
 .transparent {
-  background-color: rgb(41,91,171) !important;
+  background-color: #82bfe6 !important;
 }
 
 
@@ -133,7 +133,7 @@ body{
 }
 
 .tam-icon {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .filtro {
@@ -146,6 +146,17 @@ body{
 
 .esconder {
   display:none;
+}
+
+.button-icon.active {
+  color:white;
+}
+.activated {
+  color:white;
+}
+
+.button.button-icon:hover {
+  color:white;
 }
 
 .ionic_datepicker_popup .popup-body .selected_date_full {
@@ -227,21 +238,49 @@ body{
  }
 
  .has-header {
-   background: rgb(41,91,171); /* For browsers that do not support gradients */
-   background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
-   background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
-   background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
-   background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+   background: #82bfe6; /* For browsers that do not support gradients */
+   background: -webkit-linear-gradient(#82bfe6, #82bfe6); /* For Safari 5.1 to 6.0 */
+   background: -o-linear-gradient(#82bfe6, #82bfe6);); /* For Opera 11.1 to 12.0 */
+   background: -moz-linear-gradient(#82bfe6, #82bfe6); /* For Firefox 3.6 to 15 */
+   background: linear-gradient(#82bfe6, #82bfe6); /* Standard syntax */
+ }
+
+ .header-item {
+      color: #82bfe6 !important;
+      background: white;
+ }
+
+
+ .primary-buttons {
+  color: #82bfe6; 
  }
 
  .bar-dark {
-   background-color: rgb(41,91,171) !important;
+   background-color: white;
+   background: white;
+ }
+
+
+ .bar.bar-dark {
+   background-color: white;
+   background: white;
+ }
+
+ .bar-dark .button {
+  color: #82bfe6;
  }
 
 
 .item {
-  background-color: rgba(255,255,255,0.1);
-  color: white;
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-color: white;
+}
+
+.item-right-editable .activated {
+    background-color: rgba(255,255,255,0.1) !important;
+    color: white;
+    border-color: white;
 }
 
 .item-complex .item-content, .item-radio .item-content {
@@ -254,12 +293,12 @@ body{
 }
 
 .title-item {
-  background: white;
-  color: rgb(28,20,52);
-  font-size: 18px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  font-weight: lighter;
+    color: white;
+    font-size: 22px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-weight: lighter;
+    text-align: center;
 }
 
 body {
@@ -288,7 +327,7 @@ body {
 }
 
 .red {
-  background: rgb(41,91,171); /* For browsers that do not support gradients */
+  background: #82bfe6; /* For browsers that do not support gradients */
   border-color: rgb(124,204,228);
   border: 1px dotted;
   color: rgb(124,204,228);
@@ -347,10 +386,10 @@ input[type=email] {
 }
 
 .popup-container .popup {
-  background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228));); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
+  background: -webkit-linear-gradient(#82bfe6, #82bfe6); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#82bfe6, #82bfe6);); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#82bfe6, #82bfe6); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#82bfe6, #82bfe6); /* Standard syntax */
   border: 1px solid;
   border-radius: 10px;
 }
@@ -362,24 +401,24 @@ input[type=email] {
 .button.button-positive {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: #82bfe6;
 }
 
 .button.button-positive.active  {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: #82bfe6;
 }
 
 .button.button-positive.activated {
   border-color: white;
   background-color: transparent;
-  color: rgb(41,91,171);
+  color: #82bfe6;
 }
 
 .button.button-positive:hover  {
   border-color: white;
-  color: rgb(41,91,171);
+  color: white;
 }
 
 .button.button-rose {
@@ -391,7 +430,7 @@ input[type=email] {
 .button.button-rose.active {
   border-color: white;
   background-color: rgb(192,185,224);
-  color: rgb(41,91,171);
+  color: #82bfe6;
 }
 
 
@@ -402,9 +441,9 @@ input[type=email] {
 }
 
 .tabs-positive > .tabs, .tabs.tabs-positive {
-  background: rgb(124,204,228);
-  color: white;
-  border:1px solid;
+  background: white;
+  color: #82bfe6;
+  border: 1px solid;
 }
 
 .popup-title {
@@ -436,34 +475,34 @@ input[type=email] {
 .button: hover{
     border-color: white !important;
     background: transparent !important;
-    color: rgb(41,91,171) !important;
+    color: #82bfe6 !important;
 }
 
 .button.active{
     border-color: white !important;
     background: white !important;
-    color: rgb(41,91,171) !important;
+    color: #82bfe6 !important;
 }
 
 .button.activated{
     border-color: white !important;
     background: white !important;
-    color: rgb(41,91,171) !important;
+    color: #82bfe6 !important;
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
   background: white;
-  color:rgb(41,91,171);
+  color:#82bfe6;
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
   background: white;
-  color: rgb(41,91,171);
+  color: #82bfe6;
 }
 
 .item.activated {
   background-color: white;
-  color:rgb(41,91,171);
+  color:#82bfe6;
 }
 
 .scroll-refresher .ionic-refresher-content {
@@ -510,7 +549,7 @@ input:-ms-input-placeholder { /* IE10+ */
 .platform-android .action-sheet .action-sheet-title {
     font-size: 14px;
     padding: 16px;
-    color: rgb(41,91,171) !important;
+    color: #82bfe6 !important;
 }
 
 .image-excel {

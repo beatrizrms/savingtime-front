@@ -4,8 +4,8 @@
         .module('consmesascap.controller', [])
         .controller('ConsMesasCapCtrl', ConsMesasCapCtrl);
 
-    ConsMesasCapCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$timeout', '$ionicLoading', '$ionicNavBarDelegate'];
-    function ConsMesasCapCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $timeout, $ionicLoading, $ionicNavBarDelegate) {
+    ConsMesasCapCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$timeout', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory'];
+    function ConsMesasCapCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $timeout, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
 
       $scope.error = null;
       $scope.quantidade = { 'num' : '2' };
@@ -13,6 +13,8 @@
       $ionicLoading.show({
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
+
+      console.log($ionicHistory.viewHistory());
 
       MesasService.consultarMesasCapacidade($scope.quantidade.num)
         .then(

@@ -9,7 +9,8 @@
         <ion-item ng-repeat="data in list" class="item item-icon-right">
             <div>
               <i class="ion-coffee clock"></i>
-              <h2 class="text-margin white">{{ data.nomeResponsavel }} </h2>
+              <h2 class="text-margin white">Mesa: {{data.numMesa}}</h2>
+              <p class="text-margin white">{{ data.nomeResponsavel }} </p>
               <p class="text-margin white">{{data.qtPessoas}} pessoas</p>
               <p class="text-margin white">Codigo do atendimento: {{data.codigoAtendimento}}</p>
             </div>

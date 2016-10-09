@@ -11,6 +11,7 @@
                         dataInicio: new Date(),
                         dataFinal: new Date()
                        };
+      $scope.reserva ={};
 
 
       $scope.editarReserva = function(reserva) {

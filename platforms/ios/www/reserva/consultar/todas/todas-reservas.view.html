@@ -10,8 +10,11 @@
   </ion-refresher>
     <div class="title">{{error}}</div>
 
+    <div class="title"> &nbsp;&nbsp;&nbsp; Estas são a reservas para os próximos 60 dias: </div>
+
     <ion-list>
       <ion-item ng-repeat="reserva in reservas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(reserva)">
+
         <div ng-class="isItemShown(reserva) ? 'item-expand active' : 'item-expand inactive'">
           <h2 class="white">Reserva no cpf {{reserva.cpf}}</h2>
           <br/>
@@ -23,7 +26,7 @@
           <p class="white"><b>Lugares:</b> {{reserva.qtPessoas}}</p>
           <p class="white"><b>Pagamento:</b> {{reserva.pagamento}}</p>
           <p class="white"><b>Status:</b> {{reserva.statusReserva}}</p>
-          <p class="white"><b>Tipo Evento:</b> {{reserva.tipoEvento}}</p>
+          <p class="white"><b>Tipo Evento:</b> {{reserva.nomeCategoria}}</p>
         </div>
         <ion-option-button class="button-positive pink"
                            ng-click="getComprovanteAnexado({{reserva.codReserva}})">
@@ -37,4 +40,14 @@
       </ion-item>
     </ion-list>
   </ion-content>
+  <ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tab title="Todas" icon="ion-asterisk" ui-sref="todasres" class="tab-item-active">
+    </ion-tab>
+
+    <ion-tab title="Data" icon="ion-calendar" ui-sref="pordata">
+    </ion-tab>
+
+    <ion-tab title="Cpf/Cod" icon="ion-ios-paper" ui-sref="porcodoucpf">
+    </ion-tab>
+  </ion-tabs>
 </ion-view>

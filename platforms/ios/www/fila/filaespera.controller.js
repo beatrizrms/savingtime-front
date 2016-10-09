@@ -85,23 +85,28 @@
                       });
                     }, 1000);
                   } else {
-                    chooseTable = $ionicPopup.show({
-                      template: '<label class="item item-input item-select"> \
-                        <span class="input-label">Mesa</span> \
-                          <select ng-model="busca.codmesa"> \
-                            <option ng-repeat="data in mesascap" value="{{data.codigo}}">{{data.numMesa}} ( {{data.capacidade}} lugares - {{data.status}} )</option> \
-                          </select> \
-                     </label> \
-                     <br/> \
-                     <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+')">Confirmar</button> <br/>',
-                      title: 'Escolher mesa',
-                      subTitle: 'Estas mesas estão disponíveis',
-                      scope: $scope,
-                      buttons: [
-                        { text: 'Fechar' }
-                      ]
-                    });
-
+                    $scope.busca.codmesa = $scope.mesascap[0].numMesa;
+                    for(var i=0; i < $scope.mesascap.length; i++){
+                      $scope.mesascap[i].description = "( "+$scope.mesascap[i].capacidade +" lugares - " + $scope.mesascap[i].status +" )"
+                      console.log()
+                    };
+                    setTimeout(function () {
+                      chooseTable = $ionicPopup.show({
+                        template: '<label class="item item-input item-select"> \
+                          <span class="input-label">Mesa</span> \
+                            <select ng-model="busca.codmesa" ng-options="option.numMesa as option.description for option in mesascap"> \
+                            </select> \
+                       </label> \
+                       <br/> \
+                       <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+')">Confirmar</button> <br/>',
+                        title: 'Escolher mesa',
+                        subTitle: 'Estas mesas estão disponíveis',
+                        scope: $scope,
+                        buttons: [
+                          { text: 'Fechar' }
+                        ]
+                      });
+                    }, 1000);
                   }
                   setTimeout(function () {
                     $ionicLoading.hide();
@@ -157,12 +162,13 @@
               .then(
                 function(data) {
                     $scope.statusAtend = data;
+                    $scope.statusEscolhido = data[0];
                     $scope.statusAtend.splice(2,1);
                     confirmation = $ionicPopup.show({
                       template: '<label class="item item-input item-select"> \
                         <span class="input-label">Status</span> \
                           <select ng-model="statusEscolhido"> \
-                            <option ng-repeat="data in statusAtend" selected>{{data}}</option> \
+                            <option ng-repeat="data in statusAtend" >{{data}}</option> \
                           </select> \
                      </label> \
                       <br/>\

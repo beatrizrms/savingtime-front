@@ -8,6 +8,8 @@
     function ConsTodasReservasCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicLoading, $ionicNavBarDelegate, $ionicModal) {
 
     var vm = this;
+    $scope.reserva ={};
+    
     $ionicLoading.show({
       template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
     });
@@ -102,6 +104,7 @@
         ReservaService.obterComprovante(codReserva)
           .then(
             function(data) {
+
                 if(data.object != null) {
                   var photo = data.object[0].comprovante;
                   $scope.reserva.comprovante = photo;

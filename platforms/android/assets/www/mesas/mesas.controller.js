@@ -14,7 +14,7 @@
       }
 
       $scope.consultarMesa = function() {
-        $state.go("tab/todasmesas");
+        $state.go("todasmesas");
       }
 
       $scope.backToMain = function() {

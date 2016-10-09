@@ -7,25 +7,25 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.app"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.app"
-        },
         "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.ionicframework.app"
+            "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
         },
-        "cordova-plugin-file-opener2": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.app"
+            "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ibm.cio.be.savingtime"
