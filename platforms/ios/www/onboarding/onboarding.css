@@ -1,10 +1,10 @@
 .slider {
   height: 100%;
-  background: rgb(45,119,144); /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(rgb(45,119,144), rgb(46,56,72), rgb(46,56,72)); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgb(45,119,144), rgb(46,56,72), rgb(46,56,72)); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgb(45,119,144), rgb(46,56,72), rgb(46,56,72)); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgb(45,119,144), rgb(46,56,72), rgb(46,56,72)); /* Standard syntax */
+  background: rgb(41,91,171); /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgb(41,91,171), rgb(192,185,224), rgb(124,204,228)); /* Standard syntax */
 }
 
 .imagem {
@@ -60,7 +60,7 @@
 }
 
 .slider-pager .slider-pager-page {
-	color: rgb(45,119,144);
+	color: rgb(41,91,171);
 }
 
 .slider-pager {
