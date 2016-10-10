@@ -23,6 +23,7 @@
           function(data) {
               if (data.object.length > 0) {
                 $scope.listcategorias = data.object;
+                $scope.reservaedit.codCategoria= $scope.listcategorias[0].codCategoria;
               }
 
               $ionicLoading.hide();

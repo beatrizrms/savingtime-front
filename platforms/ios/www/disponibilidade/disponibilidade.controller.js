@@ -3,8 +3,8 @@
         .module('disponibilidade.controller', [])
         .controller('DisponibilidadeCtrl', DisponibilidadeCtrl);
 
-    DisponibilidadeCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$ionicLoading', '$stateParams', '$ionicPopup'];
-    function DisponibilidadeCtrl($rootScope, $scope, $state, ReservaService, $ionicLoading, $stateParams, $ionicPopup) {
+    DisponibilidadeCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$ionicLoading', '$stateParams', '$ionicPopup', '$ionicHistory'];
+    function DisponibilidadeCtrl($rootScope, $scope, $state, ReservaService, $ionicLoading, $stateParams, $ionicPopup, $ionicHistory) {
 
       var reserva = $stateParams.dados;
 
@@ -80,6 +80,7 @@
               }
             } else {
               $ionicLoading.hide();
+              $ionicHistory.goBack();
               $scope.showAlert(data.message);
             }
 

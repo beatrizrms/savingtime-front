@@ -481,6 +481,7 @@ input[type=email] {
 
 .popup-sub-title {
   color:white;
+  font-size: 16px
 }
 
 .bar {
@@ -544,12 +545,12 @@ input[type=email] {
 }
 
 .tabs-striped.tabs-stable .tabs {
-    background-color: rgb(124,204,228);
+    background-color: #82bfe6;
     color: white;
 }
 
 .tabs-striped.tabs-positive .tabs {
-  background-color: rgb(124,204,228);
+  background-color: #82bfe6;
   color: white;
 }
 
