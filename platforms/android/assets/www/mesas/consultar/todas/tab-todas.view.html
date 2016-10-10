@@ -9,7 +9,7 @@
     on-refresh="doRefresh()">
   </ion-refresher>
 
-      <div class="title">&nbsp;{{error}}</div>
+      <div class="title-item">&nbsp;{{error}}</div>
 
       <ion-list>
         <ion-item ng-repeat="data in listmesas" class="item item-text-wrap item-icon-right" ng-click="toggleItem(data)">
@@ -17,22 +17,22 @@
             <div style="display: inline-flex;">
               <!-- Se a mesa estiver livre -->
               <div class="farol" ng-show="data.status == 'Ativa - Livre'">
-                <div class="farol-verd" style="border: solid 2px white;"></div>
+                <div class="farol-verd"  ></div>
               </div>
 
               <!-- Se a mesa estiver ocupada -->
               <div class="farol" ng-show="data.status == 'Ativa - Ocupada'">
-                <div class="farol-ama" style="border: solid 2px white;"></div>
+                <div class="farol-ama"  ></div>
               </div>
 
               <!-- Se a mesa estiver reservada -->
               <div class="farol" ng-show="data.status == 'Ativa - Reservada'">
-                <div class="farol-gray" style="border: solid 2px white;"></div>
+                <div class="farol-gray"  ></div>
               </div>
 
               <!-- Se a mesa estiver inativa -->
               <div class="farol" ng-show="data.status == 'Inativa'">
-                <div class="farol-verm" style="border: solid 2px white;"></div>
+                <div class="farol-verm"  ></div>
               </div>
               <h2 class="white">&nbsp;&nbsp;Mesa de {{data.capacidade}} lugares&nbsp;&nbsp;</h2>
             </div>

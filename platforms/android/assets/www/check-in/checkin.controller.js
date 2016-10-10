@@ -20,10 +20,12 @@
           .then(
             function(data) {
                 console.log(data.object);
-                if (data.object.length > 0) {
-                  $scope.categoria = true;
-                  $scope.listcategorias = data.object;
-                  $scope.checkin.codCategoria = data.object[0].codCategoria;
+                if(data.object != null){
+                  if (data.object.length > 0) {
+                    $scope.categoria = true;
+                    $scope.listcategorias = data.object;
+                    $scope.checkin.codCategoria = data.object[0].codCategoria;
+                  }
                 }
 
                 $ionicLoading.hide();

@@ -12,7 +12,7 @@
     if($stateParams.reserva == null){
       $scope.reserva = {
                         dataReserva: new Date(),
-                        horaReserva: new Date(2000, 0, 1, 18, 0, 0)
+                        horaReserva: new Date()
                        };
 
       $scope.categoria = false;
@@ -22,7 +22,7 @@
       $scope.reserva = $stateParams.reserva;
       var dataSplited = $scope.reserva.dataReserva.split("-");
       $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
-      
+
       switch ($scope.reserva.codCategoria) {
             case 1:
                $scope.reserva.nomeCategoria = 'Refeição Rápida';

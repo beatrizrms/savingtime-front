@@ -7,7 +7,7 @@
 }
 
 body{
-    font-family: 'San Fran';
+    font-family: 'San Fran' !important;
 }
 
 .card-home{
@@ -20,7 +20,8 @@ body{
   border-radius: 10em;
   text-align: center !important;
   box-shadow: 2px 8px 5px #6e81a2;
-  padding: 1em;;
+  padding: 1em;
+  font-family: 'San Fran';
 }
 
 .icon-accessory {
@@ -29,7 +30,7 @@ body{
 }
 
 .box-home {
-  
+
   margin: 10px auto;
   padding: 20px;
   display: flex;
@@ -114,11 +115,17 @@ body{
 .button-checkin {
   margin-top: 1em;
   width: 100%;
+  font-family: 'San Fran' !important;
+}
+
+input {
+  font-family: 'San Fran' !important;
 }
 
 .button {
   min-width: 0px;
   min-height: 0px;
+  font-family: 'San Fran' !important;
 }
 
 .table-fila{
@@ -261,7 +268,7 @@ body{
 
 
  .primary-buttons {
-  color: #82bfe6; 
+  color: #82bfe6;
  }
 
  .bar-dark {
@@ -286,12 +293,6 @@ body{
     border-color: white;
 }
 
-.item-right-editable .activated {
-    background-color: rgba(255,255,255,0.1) !important;
-    color: white;
-    border-color: white;
-}
-
 .item-complex .item-content, .item-radio .item-content {
   background-color: transparent;
 }
@@ -299,11 +300,12 @@ body{
 .titleitem {
   background: white;
   color: rgb(28,20,52);
+  border: 1px dashed #82bfe6;
 }
 
 .title-item {
     color: white;
-    font-size: 22px;
+    font-size: 19px;
     padding-bottom: 10px;
     padding-top: 10px;
     font-weight: lighter;
@@ -319,14 +321,13 @@ body {
   color: white;
   text-align: center;
   margin-bottom: 15px;
+  font-size: 19px !important;
 }
 
 .pink {
-  background: white;
-  background-color: white !important;
-  border-color: rgb(192,185,224);
-  border: 1px dotted;
-  color: rgb(192,185,224);
+  background-color: #b52222 !important;
+  color: white !important;
+  box-shadow: 2px 4px 5px #6e81a2;
 }
 .pink-color {
   color: rgb(192,185,224) !important;
@@ -355,6 +356,12 @@ body {
   border-color: white;
   background-color: transparent;
   color: white;
+}
+
+.button.button-default.activated  {
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
 
 .input-label {
@@ -409,38 +416,50 @@ input[type=email] {
 }
 
 .button.button-positive {
-  border-color: white;
-  background-color: transparent;
+  border-color: #F5F5F5;
+  background: #F5F5F5;
   color: #82bfe6;
+  opacity: 1;
+  box-shadow: 2px 4px 5px #6e81a2;
+  font-weight: bold;
 }
 
 .button.button-positive.active  {
-  border-color: white;
-  background-color: transparent;
-  color: #82bfe6;
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
 
 .button.button-positive.activated {
-  border-color: white;
-  background-color: transparent;
-  color: #82bfe6;
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
 
 .button.button-positive:hover  {
-  border-color: white;
-  color: white;
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
+
+.button-icon.activated {
+  background: #6e81a2 !important;
+  color:#6e81a2  !important;
+  border-color: #6e81a2 !important;
+}
+
 
 .button.button-rose {
   border-color: white;
   background-color: white;
-  color: rgb(192,185,224);
+  color: #82bfe6;
+  font-weight: bold;
 }
 
-.button.button-rose.active {
-  border-color: white;
-  background-color: rgb(192,185,224);
-  color: #82bfe6;
+.button.button-rose.activated {
+  border-color: white !important;
+  background-color: #6e81a2 !important;
+  color: white !important;
 }
 
 
@@ -462,6 +481,7 @@ input[type=email] {
 
 .popup-sub-title {
   color:white;
+  font-size: 16px
 }
 
 .bar {
@@ -477,9 +497,12 @@ input[type=email] {
 }
 
 .button.button-stable.button-outline {
-    border-color: white;
-    background: transparent;
-    color: white;
+  border-color: #F5F5F5;
+  background: #F5F5F5;
+  color: #82bfe6;
+  opacity: 1;
+  box-shadow: 2px 4px 5px #6e81a2;
+  font-weight: bold;
 }
 
 .button: hover{
@@ -501,13 +524,15 @@ input[type=email] {
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated {
-  background: white;
-  color:#82bfe6;
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
 
 .button.button-stable.button-outline.active, .button.button-stable.button-outline.activated: hover {
-  background: white;
-  color: #82bfe6;
+  background: #6e81a2 !important;
+  color:#F5F5F5 !important;
+  border-color: #6e81a2 !important;
 }
 
 .item.activated {
@@ -540,13 +565,13 @@ input[type=email] {
 }
 
 input::-webkit-input-placeholder {
-  color: pink;
+  color: gray;
 }
 input:-moz-placeholder {
-  color: pink;
+  color: gray;
 }
 input:-ms-input-placeholder { /* IE10+ */
-  color: pink;
+  color: gray;
 }
 
 .platform-android .action-sheet .action-sheet-title, .platform-android .action-sheet .button {
@@ -576,6 +601,7 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+  box-shadow: 2px 4px 5px #6e81a2;
 }
 
 .item .farol-verm-text {
@@ -588,6 +614,7 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+  box-shadow: 2px 4px 5px #6e81a2;
 }
 .item .farol-verd-text {
   color:green;
@@ -599,6 +626,7 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+  box-shadow: 2px 4px 5px #6e81a2;
 }
 
 .farol-gray {
@@ -606,6 +634,7 @@ input:-ms-input-placeholder { /* IE10+ */
   width:20px;
   height:20px;
   border-radius:30px;
+  box-shadow: 2px 4px 5px #6e81a2;
 }
 
 
@@ -632,6 +661,12 @@ input:-ms-input-placeholder { /* IE10+ */
     border-radius: 2px;
     line-height: 20px;
     margin-right: 5px;
+    border-color: #F5F5F5;
+    background: #F5F5F5;
+    color: #82bfe6;
+    opacity: 1;
+    box-shadow: 2px 4px 5px #6e81a2;
+    font-weight: bold;
 }
 .button {
     border-color: transparent;
@@ -657,26 +692,29 @@ input:-ms-input-placeholder { /* IE10+ */
 
 @media screen and (min-width: 320px) {
   .chart-home {
-  width: 22em; 
-  height: 14em; 
-  margin:0 auto;  
+  width: 22em;
+  height: 14em;
+  margin:0 auto;
   }
 }
 
 @media screen and (min-width: 375px) {
   .chart-home {
-  width: 27em; 
-  height: 15em; 
-  margin:0 auto;  
+  width: 27em;
+  height: 15em;
+  margin:0 auto;
   }
 }
 
 @media screen and (min-width: 768px) {
   .chart-home {
-  width: 45em; 
-  height: 30em; 
-  margin:0 auto;  
+  width: 45em;
+  height: 30em;
+  margin:0 auto;
   }
 }
- 
 
+.item.activated {
+  background-color: white !important;
+  color: #82bfe6 !important;
+}

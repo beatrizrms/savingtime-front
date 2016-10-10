@@ -25,6 +25,7 @@
           .then(
             function(data) {
                 $scope.reservas = data.object;
+                console.log($scope.reservas);
                 if($scope.reservas == null) {
                   setTimeout(function () {
                     $scope.$apply(function(){

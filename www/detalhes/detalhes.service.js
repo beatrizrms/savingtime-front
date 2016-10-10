@@ -7,8 +7,8 @@
     DetalhesService.$inject = ['$http', '$q'];
     function DetalhesService($http, $q) {
 
-      //var host = 'http://usjt-savingtime.rhcloud.com/';
-      var host = 'http://localhost:8080/usjt/';
+      var host = 'http://usjt-savingtime.rhcloud.com/';
+      //var host = 'http://localhost:8080/usjt/';
 
         var detalhesMethods = {
             getDados : getDados

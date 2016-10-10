@@ -71,7 +71,7 @@
           .then(
             function(data) {
                 $scope.statusAtend = data;
-                $scope.statusEscolhido = data[0];
+                $scope.statusEscolhido = data[2];
             },
             function(error) {
                 $scope.error = "Carregue a página novamente";
@@ -82,7 +82,7 @@
           template: '<label class="item item-input item-select"> \
             <span class="input-label">Status</span> \
               <select ng-model="statusEscolhido"> \
-                <option ng-repeat="data in statusAtend" selected>{{data}}</option> \
+                <option ng-repeat="data in statusAtend">{{data}}</option> \
               </select> \
          </label> \
          <br/>\

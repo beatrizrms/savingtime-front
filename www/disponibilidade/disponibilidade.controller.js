@@ -3,8 +3,8 @@
         .module('disponibilidade.controller', [])
         .controller('DisponibilidadeCtrl', DisponibilidadeCtrl);
 
-    DisponibilidadeCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$ionicLoading', '$stateParams', '$ionicPopup'];
-    function DisponibilidadeCtrl($rootScope, $scope, $state, ReservaService, $ionicLoading, $stateParams, $ionicPopup) {
+    DisponibilidadeCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$ionicLoading', '$stateParams', '$ionicPopup', '$ionicHistory'];
+    function DisponibilidadeCtrl($rootScope, $scope, $state, ReservaService, $ionicLoading, $stateParams, $ionicPopup, $ionicHistory) {
 
       var reserva = $stateParams.dados;
 
@@ -44,11 +44,9 @@
                 default:
 
             }
-            
+
               var dataSplited = $scope.retornoDisp.reservaAtual.dataReserva.split("-");
               $scope.dataFormatada = dataSplited[2] + "/" + dataSplited[1] + "/" + dataSplited[0];
-              // mock
-              $scope.retornoDisp.txUtilizacao = 0.1;
 
               var reservasI = $scope.retornoDisp.reservasImpactantes;
 
@@ -56,16 +54,18 @@
                 var newListReservas = [];
                 var tam = reservasI.length;
 
-                newListReservas.push([$scope.retornoDisp.reservaAtual.qtPessoas + " lug", 
-                  "Reserva", 
-                  new Date($scope.retornoDisp.reservaAtual.dataReserva + " " + $scope.retornoDisp.reservaAtual.horaReserva) , 
-                  new Date($scope.retornoDisp.reservaAtual.dataReserva + " " + $scope.retornoDisp.reservaAtual.horaPrevisaoTermino)]);
+                newListReservas.push([$scope.retornoDisp.reservaAtual.qtPessoas + " lug",
+                  "Reserva",
+                  convertStringToDate($scope.retornoDisp.reservaAtual.dataReserva + " " + $scope.retornoDisp.reservaAtual.horaReserva, false) ,
+                  convertStringToDate($scope.retornoDisp.reservaAtual.dataReserva + " " + $scope.retornoDisp.reservaAtual.horaPrevisaoTermino, false)]);
 
                 for(i=0; i < tam; i ++) {
-                  reservasI[i].horaReserva = new Date(reservasI[i].horaReserva);
-                  reservasI[i].horaPrevisaoTermino = new Date(reservasI[i].horaPrevisaoTermino);
+
+                  console.log("******");
+                  console.log(reservasI);
+
                   newListReservas.push(
-                    [reservasI[i].qtPessoas + " lug", "_", reservasI[i].horaReserva, reservasI[i].horaPrevisaoTermino]);
+                    [reservasI[i].qtPessoas + " lug", "_", convertStringToDate(reservasI[i].horaReserva, true), convertStringToDate(reservasI[i].horaPrevisaoTermino, true)]);
                 }
 
                 $scope.retornoDisp.reservasImpactantes = newListReservas;
@@ -80,15 +80,15 @@
               }
             } else {
               $ionicLoading.hide();
+              $ionicHistory.goBack();
               $scope.showAlert(data.message);
             }
 
           },
           function(error) {
             google.charts.load('45',{'packages':['timeline']});
-            google.charts.setOnLoadCallback(drawChart);
-              //$scope.showAlert("Tente novamente");
-              $ionicLoading.hide();
+            //$scope.showAlert("Tente novamente");
+            $ionicLoading.hide();
           }
         );
 
@@ -131,7 +131,20 @@
           $state.go('confirmar/reserva',{ reserva: $scope.retornoDisp.reservaAtual});
         }
 
+        function convertStringToDate (data,zero) {
+          //converter horaReserva
+          var copyData = data;
+          var splittedHora;
+          if(zero) {
+            splittedHora = copyData.substring(0,copyData.length-2).split(/[ .:;?!~,`"&|()<>{}\[\]\r\-/\\]+/);
 
+          } else {
+            splittedHora = copyData.split(/[ .:;?!~,`"&|()<>{}\[\]\r\-/\\]+/);
+
+          }
+          var dateTimeHoraReserva = new Date(splittedHora[0], splittedHora[1]-1, 1900 - splittedHora[2], splittedHora[3], splittedHora[4], splittedHora[5], 00 );
+          return dateTimeHoraReserva;
+        }
     };
 
 

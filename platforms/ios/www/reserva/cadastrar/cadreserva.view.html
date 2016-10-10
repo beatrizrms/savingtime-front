@@ -1,6 +1,6 @@
 <ion-view view-title="Reserva">
   <ion-content>
-    <div class="title">Preencha os campos para reservar:</div>
+    <div class="title-item">Preencha os campos para reservar:</div>
     <div class="main-box-reserva">
 
       <label class="item item-input">
@@ -20,7 +20,7 @@
 
      <label class="item item-input item-select" ng-show="categoria">
        <span class="input-label">Tipo de evento</span>
-          <select ng-model="reserva.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select> 
+          <select ng-model="reserva.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
       <br/>
       <button class="button button-outline button-stable button-checkin" ng-click="verificarDisponibilidade()" ng-disabled="!reserva.dataReserva || !reserva.horaReserva || !reserva.qtPessoas || !reserva.codCategoria ">

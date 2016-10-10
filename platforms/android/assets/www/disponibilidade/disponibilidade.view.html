@@ -2,11 +2,12 @@
   <ion-content>
     <div class="title"></div>
     <div class="card" style="color:black;">
-      <div class="item item-divider" style="color:black;">
+      <div class="item item-divider" style="color: #82bfe6; font-size: 19px;font-weight: bold;">
         Nova Reserva
       </div>
-      <div class="item item-text-wrap" style="color:black;">
+      <div class="item item-text-wrap" style="">
         <p><b>Dia:</b> {{dataFormatada}}  <b>Hora:</b> {{retornoDisp.reservaAtual.horaReserva}}</p>
+        <p><b>Previsão de término: </b> {{retornoDisp.reservaAtual.horaPrevisaoTermino}}</p>
         <p><b>Tipo Atendimento:</b>  {{retornoDisp.reservaAtual.nomeCategoria}}</p>
         <p><b>Pessoas:</b> {{retornoDisp.reservaAtual.qtPessoas}}</p>
       </div>
@@ -19,22 +20,23 @@
     </div>
     <div class="card" style="color:black;">
       <div class="item item-divider" style="color:black;">
-        <p><b>Mesas Disp:</b> {{retornoDisp.qtdMesasLivres}}</p>
+        <p><b>Mesas disponíveis:</b> {{retornoDisp.qtdMesasLivres}}</p>
+        <p ng-show="retornoDisp.dataComemorativa"><b>Data comemorativa:</b> {{retornoDisp.dataComemorativa.nomeDataComemorativa}}</p>
 
         <!-- Se a reserva nao oferecer risco -->
-        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.0 && retornoDisp.txUtilizacao < 0.5">
+        <div class="farol" ng-show="retornoDisp.taxaUtilizacao >= 0.0 && retornoDisp.taxaUtilizacao < 0.5">
           <div class="farol-verd"></div>
           <p class="farol-verd-text"><b>Essa reserva não oferece risco!</b></p>
         </div>
 
         <!-- Se a reserva oferecer um pouco de risco -->
-        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.5 && retornoDisp.txUtilizacao < 0.9">
+        <div class="farol" ng-show="retornoDisp.taxaUtilizacao >= 0.5 && retornoDisp.taxaUtilizacao < 0.9">
           <div class="farol-ama"></div>
           <p class="farol-ama-text"><b>Essa reserva oferece risco!</b></p>
         </div>
 
         <!-- Se a reserva oferecer risco -->
-        <div class="farol" ng-show="retornoDisp.txUtilizacao >= 0.9 && retornoDisp.txUtilizacao <= 1">
+        <div class="farol" ng-show="retornoDisp.taxaUtilizacao >= 0.9 && retornoDisp.taxaUtilizacao <= 1">
           <div class="farol-verm"></div>
           <p class="farol-verm-text"><b>Essa reserva oferece alto risco!</b></p>
         </div>

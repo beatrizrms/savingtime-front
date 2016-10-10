@@ -4,7 +4,7 @@
     pulling-text="Pull to refresh..."
     on-refresh="doRefresh()">
   </ion-refresher>
-    <div class="title"><div class="tam-icon"></div>Veja quem está esperando: </div>
+    <div class="title-item"><div class="tam-icon"></div>Veja quem está esperando: </div>
         <ion-list>
           <ion-item ng-repeat="data in list" class="item item-text-wrap item-icon-right">
             <div class="white">
@@ -15,11 +15,11 @@
               <p class="text-margin white"> Contato: {{ data.telefone }} </p>
               <p class="text-margin white" ng-show="data.numReserva"> Num reserva: {{ data.numReserva }}</p>
             </div>
-            <ion-option-button class="button-positive pink"
+            <ion-option-button class="button-positive"
                        ng-click="atender({{data.qtPessoas}},{{data.codigoAtendimento}})">
               Atender
             </ion-option-button>
-            <ion-option-button class="button-info"
+            <ion-option-button class="button-stable button-outline"
                                ng-click="cancelarCheckinPopup({{data.codigoAtendimento}})">
               Cancelar Espera
             </ion-option-button>

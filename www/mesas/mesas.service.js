@@ -7,8 +7,8 @@
     MesasService.$inject = ['$http', '$q'];
     function MesasService($http, $q) {
 
-      //var host = 'http://usjt-savingtime.rhcloud.com/';
-      var host = 'http://localhost:8080/usjt/';
+      var host = 'http://usjt-savingtime.rhcloud.com/';
+      //var host = 'http://localhost:8080/usjt/';
 
         var mesasMethods = {
             cadastrarMesa : cadastrarMesa,

@@ -1,7 +1,8 @@
 .slider {
   height: 100%;
-  background-image: url(../img/restaurant.jpg) !important;
-  background-size: cover;
+  /*background-image: url(../img/restaurant.jpg) !important;
+  background-size: cover;*/
+  background: #82bfe6;
 }
 
 .imagem {
@@ -43,7 +44,7 @@
 	color: white;
 	font-weight: bold;
   line-height: 25px;
-  text-align: center;
+  text-align: justify;
   font-weight: lighter;
   font-size: x-large;
   overflow-y: scroll;
