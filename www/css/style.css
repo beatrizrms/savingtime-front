@@ -598,10 +598,11 @@ input:-ms-input-placeholder { /* IE10+ */
 
 .farol-verm {
   background-color:red;
-  width:20px;
+  min-width:20px;
   height:20px;
   border-radius:30px;
   box-shadow: 2px 4px 5px #6e81a2;
+  text-transform: uppercase;
 }
 
 .item .farol-verm-text {
@@ -611,10 +612,11 @@ input:-ms-input-placeholder { /* IE10+ */
 
 .farol-verd {
   background-color:green;
-  width:20px;
+  min-width:20px;
   height:20px;
   border-radius:30px;
   box-shadow: 2px 4px 5px #6e81a2;
+  text-transform: uppercase;
 }
 .item .farol-verd-text {
   color:green;
@@ -623,18 +625,20 @@ input:-ms-input-placeholder { /* IE10+ */
 
 .farol-ama {
   background-color:#ecc92d;
-  width:20px;
+  min-width:20px;
   height:20px;
   border-radius:30px;
   box-shadow: 2px 4px 5px #6e81a2;
+  text-transform: uppercase;
 }
 
 .farol-gray {
   background-color: gray;
-  width:20px;
+  min-width:20px;
   height:20px;
   border-radius:30px;
   box-shadow: 2px 4px 5px #6e81a2;
+  text-transform: uppercase;
 }
 
 
