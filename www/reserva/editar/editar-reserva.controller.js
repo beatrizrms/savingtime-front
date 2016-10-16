@@ -54,7 +54,7 @@
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
-        $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ', '-0300');
+        $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ');
         $scope.reservaedit.comprovante = $scope.reserva.comprovante;
 
           ReservaService.editarReserva($scope.reservaedit)

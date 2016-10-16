@@ -12,7 +12,7 @@
     if($stateParams.reserva == null){
       $scope.reserva = {
                         dataReserva: new Date(),
-                        horaReserva: new Date()
+                        horaReserva: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), new Date().getHours(),new Date().getMinutes(),00)
                        };
 
       $scope.categoria = false;
@@ -96,9 +96,10 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
+      console.log($scope.reserva)
 
       $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
-      $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0300');
+      $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ');
 
       $ionicLoading.hide();
       $state.go('disponibilidade', {dados: $scope.reserva});
@@ -128,7 +129,7 @@
         });
 
         $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
-        $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0300');
+        $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ');
 
         ReservaService.cadastrarReserva($scope.reserva)
           .then(
