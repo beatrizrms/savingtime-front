@@ -96,10 +96,10 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
-      $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
-      $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0200');
 
-      console.log($scope.reserva);
+      $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
+      $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0300');
+
       $ionicLoading.hide();
       $state.go('disponibilidade', {dados: $scope.reserva});
     }
@@ -128,7 +128,7 @@
         });
 
         $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
-        $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0200');
+        $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0300');
 
         ReservaService.cadastrarReserva($scope.reserva)
           .then(

@@ -111,12 +111,12 @@
 
           dataTable.addRows($scope.retornoDisp.reservasImpactantes);
 
-          var rowHeight = 37;
+          var rowHeight = 30;
           var chartHeight = (dataTable.getNumberOfRows() + 1) * rowHeight;
 
           var options = {
             height: chartHeight,
-            colors: ['#FF6347', '#87CEEB'],
+            colors: ['#87CEEB', '#FF6347'],
             timeline: { rowLabelStyle: {fontName: 'San Fran', fontSize: 12, color: 'rgb(41,91,171)' },
                         barLabelStyle: { fontName: 'San Fran', fontSize: 10 }
                       }
