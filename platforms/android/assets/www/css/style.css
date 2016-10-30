@@ -10,6 +10,10 @@ body{
     font-family: 'San Fran' !important;
 }
 
+.popup-container .popup {
+    width: 290px;
+}
+
 .card-home{
   background-color: white;
   color: gray !important;
@@ -694,27 +698,166 @@ input:-ms-input-placeholder { /* IE10+ */
 }
 
 
+.titulo-home {
+  font-size:1em;
+}
+
+.valor-home {
+  margin-top:-3px;
+  font-size:3em;
+  color:#82bfe6;
+}
+
+
 @media screen and (min-width: 320px) {
   .chart-home {
-  width: 22em;
-  height: 14em;
-  margin:0 auto;
+    width: 22em;
+    height: 14em;
+    margin:0 auto;
   }
+  .input-label {
+    font-size: 17px;
+  }
+  .item-input input{
+    font-size: 16px;
+  }
+  .button {
+    font-size: 17px;
+  }
+  .item-select select {
+    font-size: 16px;
+  }
+  .title-item {
+    font-size: 19px;
+  }
+  .item {
+    font-size: 17px;
+  }
+  .popup-title {
+    font-size: 17px;
+  }
+  .popup-sub-title {
+    font-size: 16px;
+  }
+  .popup-body {
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (min-width: 375px) {
   .chart-home {
-  width: 27em;
-  height: 15em;
-  margin:0 auto;
+    width: 27em;
+    height: 15em;
+    margin:0 auto;
+  }
+  .input-label {
+    font-size: 19px;
+  }
+  .item-input input{
+    font-size: 18px;
+  }
+  .button {
+    font-size: 19px;
+  }
+  .item-select select {
+    font-size: 18px;
+  }
+  .title-item {
+    font-size: 19px;
+  }
+  .item {
+    font-size: 19px;
+  }
+  .popup-title {
+    font-size: 19px;
+  }
+  .popup-sub-title {
+    font-size: 18px;
+  }
+  .popup-body {
+    font-size: 17px;
+  }
+  .item h2 {
+    font-size: 19px;
+  }
+  .item p {
+    font-size: 17px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .chart-home {
-  width: 45em;
-  height: 30em;
-  margin:0 auto;
+    width: 45em;
+    height: 30em;
+    margin:0 auto;
+  }
+
+  .input-label {
+    font-size: 25px;
+  }
+  .item-input input{
+    font-size: 22px;
+  }
+  .button {
+    font-size: 25px;
+  }
+  .item-select select {
+    font-size: 22px;
+  }
+  .title-item {
+    font-size: 25px;
+  }
+  .bar .title {
+    font-size: 25px !important;
+  }
+  .item {
+    font-size: 25px;
+  }
+  .popup-title {
+    font-size: 25px;
+  }
+  .popup-sub-title {
+    font-size: 22px;
+  }
+  .popup-body {
+    font-size: 21px;
+  }
+  .item h2 {
+    font-size: 25px;
+  }
+  .item p {
+    font-size: 19px;
+  }
+  .back-button {
+    font-size: 22px !important;
+  }
+  .titulo-home {
+    margin-top:2em;
+    font-size:2em;
+  }
+  .valor-home {
+    margin-top:-3px;
+    font-size:4em;
+    color:#82bfe6;
+  }
+  .card-home {
+    margin-top:3em;
+    width: 20em;
+    height: 20em;
+    align-items: center;
+  }
+  .box-box {
+    margin-top: 27%;
+  }
+  .box-box-sq {
+    margin-top: 11%;
+  }
+  input {
+    font-size: 22px !important;
+  }
+  p {
+    font-size: 22px !important;
   }
 }
 

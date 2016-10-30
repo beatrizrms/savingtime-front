@@ -140,8 +140,9 @@
         CheckinService.efetuarCheckin(atendimento)
           .then(
             function(data) {
+                console.log(data)
                 $ionicLoading.hide();
-                $scope.showAlert(data.message);
+                $scope.showAlert(data.message + "<br/>SENHA: <b>"+ data.value + '</b>');
                 $ionicHistory.goBack();
 
             },
@@ -154,13 +155,9 @@
           );
       }
 
-
       $scope.backCheckin = function() {
         $state.go('gerenciar');
       }
-
-
-
 
     };
 

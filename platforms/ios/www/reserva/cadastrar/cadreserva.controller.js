@@ -3,8 +3,8 @@
         .module('cadreserva.controller', [])
         .controller('CadReservaCtrl', CadReservaCtrl);
 
-    CadReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicPopup', '$ionicLoading', '$ionicModal', '$stateParams'];
-    function CadReservaCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicPopup, $ionicLoading, $ionicModal, $stateParams) {
+    CadReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ionicDatePicker', 'ReservaService', '$filter', '$ionicActionSheet', '$ionicPopup', '$ionicLoading', '$ionicModal', '$stateParams', '$ionicHistory'];
+    function CadReservaCtrl($rootScope, $scope, $state, ionicDatePicker, ReservaService, $filter, $ionicActionSheet, $ionicPopup, $ionicLoading, $ionicModal, $stateParams, $ionicHistory) {
 
     console.log($stateParams);
     /** IF   - Entrando na tela de reserva
@@ -12,7 +12,7 @@
     if($stateParams.reserva == null){
       $scope.reserva = {
                         dataReserva: new Date(),
-                        horaReserva: new Date()
+                        horaReserva: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), new Date().getHours(),new Date().getMinutes(),00)
                        };
 
       $scope.categoria = false;
@@ -96,10 +96,11 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
+      console.log($scope.reserva)
+
       $scope.reserva.dataReserva = $filter('date')($scope.reserva.dataReserva, 'dd-MM-yyyy');
       $scope.reserva.horaReserva = $filter('date')($scope.reserva.horaReserva, 'HH:mm:00 ', '-0200');
 
-      console.log($scope.reserva);
       $ionicLoading.hide();
       $state.go('disponibilidade', {dados: $scope.reserva});
     }
@@ -133,12 +134,13 @@
         ReservaService.cadastrarReserva($scope.reserva)
           .then(
             function(data) {
+                console.log("Pegar reserva");
                 console.log(data);
                 if(data.status === 'NOT_ACCEPTABLE'){
                   $scope.showAlert(data.message);
                 } else {
                   $scope.showAlert(data.message);
-                  $state.go('gerenciar/reserva');
+                  $ionicHistory.goBack(-3);
                 }
                 $scope.reserva = {};
                 $ionicLoading.hide();

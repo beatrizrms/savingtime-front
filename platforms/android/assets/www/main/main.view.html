@@ -13,34 +13,40 @@
     <br/>
     <div class="title-main"><div class="ion-android-restaurant tam-icon"></div></div>
 
-     <div class="box-home">
-    <div class="card-home" style="border-radius: 2em; width:100%;">
-      <span style="font-size:1em;">Tempo médio </span> 
-       <br/><br/>
-      <span style="font-size:2.5em; color:#82bfe6;"> {{home.tempoEspera}}</span> 
-      <br/>
-      <span style="font-size:1em;"> de espera</span>
+    <div class="box-home">
+      <div class="card-home" style="border-radius: 2em; width:100%;">
+        <div class="box-box-sq">
+          <span class="titulo-home">Tempo médio </span>
+           <br/><br/>
+          <span class="valor-home"> {{home.tempoEspera}}</span>
+          <br/>
+          <span class="titulo-home"> de espera</span>
+        </div>
       </div>
     </div>
 
     <div class="box-home" style="margin-top: -30px;">
       <div class="card-home">
-       <span style="font-size:1em;">Em Fila </span>
-       <br/><br/>
-      <span style="font-size:3em; color:#82bfe6;">{{home.pessoasFila}}</span> 
-      <br/>
-      <span style="font-size:1em;"> atendimentos</span>
+        <div class="box-box">
+           <span class="titulo-home">Em Fila </span>
+           <br/><br/>
+          <span class="valor-home">{{home.pessoasFila}}</span>
+          <br/>
+          <span class="titulo-home"> atendimentos</span>
+        </div>
       </div>
 
       <div class="card-home">
-        <span style="font-size:1em;">Mesas </span> 
-         <br/><br/>
-        <span style="font-size:3em;color:#82bfe6;"> {{home.mesasLivres}}</span> 
-        <br/>
-        <span style="font-size:1em;"> livres</span>
+        <div class="box-box">
+          <span class="titulo-home">Mesas </span>
+           <br/><br/>
+          <span class="valor-home"> {{home.mesasLivres}}</span>
+          <br/>
+          <span class="titulo-home"> livres</span>
+        </div>
       </div>
     </div>
 
-   
+
   </ion-content>
 </ion-view>

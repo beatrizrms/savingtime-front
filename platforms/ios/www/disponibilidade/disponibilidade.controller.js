@@ -111,7 +111,7 @@
 
           dataTable.addRows($scope.retornoDisp.reservasImpactantes);
 
-          var rowHeight = 30;
+          var rowHeight = 39;
           var chartHeight = (dataTable.getNumberOfRows() + 1) * rowHeight;
 
           var options = {

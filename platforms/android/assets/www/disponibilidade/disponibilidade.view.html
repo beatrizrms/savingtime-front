@@ -18,9 +18,11 @@
       <p>&nbsp;&nbsp;&nbsp;&nbsp;{{erroReservasImpactantes}}</p>
       <div id="timeline" style="color:white; margin-top:-7px;" width="200" height="200"></div>
     </div>
-    <div class="card" style="color:black;">
+    <div class="card" style="color:black; margin-top:-0.5em;">
       <div class="item item-divider" style="color:black;">
         <p><b>Mesas disponíveis:</b> {{retornoDisp.qtdMesasLivres}}</p>
+        <p ng-show="retornoDisp.taxaUtilizacao >=0"><b>Taxa de utilização:</b> {{retornoDisp.taxaUtilizacao | percentage:2}}</p>
+        <p ng-show="retornoDisp.taxaUtilizacao >=0"><b>Tempo de espera:</b> {{retornoDisp.tempoEspera}}</p>
         <p ng-show="retornoDisp.dataComemorativa"><b>Data comemorativa:</b> {{retornoDisp.dataComemorativa.nomeDataComemorativa}}</p>
 
         <!-- Se a reserva nao oferecer risco -->

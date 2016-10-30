@@ -3,8 +3,8 @@
         .module('editarreserva.controller', [])
         .controller('EditReservaCtrl', EditReservaCtrl);
 
-    EditReservaCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal', '$stateParams'];
-    function EditReservaCtrl(   $rootScope, $scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal, $stateParams) {
+    EditReservaCtrl.$inject = ['$scope', '$state', 'ReservaService', '$filter', '$ionicPopup', '$ionicLoading', '$ionicActionSheet', '$ionicNavBarDelegate', '$ionicModal', '$stateParams', '$ionicHistory'];
+    function EditReservaCtrl($scope, $state, ReservaService, $filter, $ionicPopup, $ionicLoading, $ionicActionSheet, $ionicNavBarDelegate, $ionicModal, $stateParams, $ionicHistory) {
 
 
       $ionicModal.fromTemplateUrl('reserva/cadastrar/comprovante.html', {
@@ -54,7 +54,7 @@
         $ionicLoading.show({
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
-        $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ');
+        $scope.reservaedit.horaReserva = $filter('date')($scope.reservaedit.horaReserva, 'HH:mm:00 ', '-0200');
         $scope.reservaedit.comprovante = $scope.reserva.comprovante;
 
           ReservaService.editarReserva($scope.reservaedit)
@@ -62,7 +62,7 @@
               function(data) {
                   $scope.showAlert(data.message);
                   $ionicLoading.hide();
-                  $state.go('gerenciar/reserva');
+                  $ionicHistory.goBack();
 
               },
               function(error) {
@@ -91,7 +91,7 @@
               function(data) {
                   $scope.showAlert(data.message);
                   $ionicLoading.hide();
-                  $state.go('gerenciar/reserva');
+                  $ionicHistory.goBack();
 
               },
               function(error) {
@@ -171,7 +171,7 @@
               $ionicLoading.hide();
             } else {
 
-            ReservaService.obterComprovante($rootScope.reservaedit.codReserva)
+            ReservaService.obterComprovante($scope.reservaedit.codReserva)
               .then(
                 function(data) {
                     if(data.object != null) {

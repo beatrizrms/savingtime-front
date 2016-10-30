@@ -4,8 +4,8 @@
         .module('editmesas.controller', [])
         .controller('EditMesasCtrl', EditMesasCtrl);
 
-    EditMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicNavBarDelegate', '$stateParams', '$ionicLoading'];
-    function EditMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicNavBarDelegate, $stateParams, $ionicLoading) {
+    EditMesasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicNavBarDelegate', '$stateParams', '$ionicLoading', '$ionicHistory'];
+    function EditMesasCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicNavBarDelegate, $stateParams, $ionicLoading, $ionicHistory) {
 
       console.log($stateParams.mesa)
 
@@ -63,12 +63,8 @@
         });
 
         alertPopup.then(function(){
-          $state.go('mesas');
+          $ionicHistory.goBack();
         });
-      }
-
-      $scope.back = function() {
-        $ionicNavBarDelegate.back();
       }
 
       $scope.$on('$ionicView.beforeEnter', function (event, viewData) {

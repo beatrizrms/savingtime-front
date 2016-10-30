@@ -154,13 +154,9 @@
           );
       }
 
-
       $scope.backCheckin = function() {
         $state.go('gerenciar');
       }
-
-
-
 
     };
 

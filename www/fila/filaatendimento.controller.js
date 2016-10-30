@@ -4,8 +4,8 @@
         .module('filaatendimento.controller', [])
         .controller('FilaatendimentoCtrl', FilaatendimentoCtrl);
 
-    FilaatendimentoCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'FilasService', '$ionicLoading'];
-    function FilaatendimentoCtrl($rootScope, $scope, $state, $ionicPopup, FilasService, $ionicLoading) {
+    FilaatendimentoCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'FilasService', '$ionicLoading', '$ionicHistory'];
+    function FilaatendimentoCtrl($rootScope, $scope, $state, $ionicPopup, FilasService, $ionicLoading, $ionicHistory) {
 
       $scope.colums = [{"nome":'Qtde'},{"nome":'Nome'},{"nome":'Mesa'}];
       var myPopup;
