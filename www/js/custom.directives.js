@@ -133,6 +133,26 @@ angular.module('custom-directives').
     };
 });
 
+angular.module('custom-directives')
+.directive('capitalize', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, element, attrs, modelCtrl) {
+        var capitalize = function(inputValue) {
+          if (inputValue == undefined) inputValue = '';
+          var capitalized = inputValue.toUpperCase();
+          if (capitalized !== inputValue) {
+            modelCtrl.$setViewValue(capitalized);
+            modelCtrl.$render();
+          }
+          return capitalized;
+        }
+        modelCtrl.$parsers.push(capitalize);
+        capitalize(scope[attrs.ngModel]); // capitalize initial value
+      }
+    };
+  });
+
 
 angular.module('custom-directives').filter('percentage', ['$filter', function ($filter) {
   return function (input, decimals) {

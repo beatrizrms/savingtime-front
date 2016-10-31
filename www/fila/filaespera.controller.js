@@ -68,7 +68,7 @@
            $scope.$broadcast('scroll.refreshComplete');
         }
 
-        $scope.atender = function(qtPessoas, codAtend) {
+        $scope.atender = function(qtPessoas, codAtend, codCategoria) {
 
           $ionicLoading.show({
             template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
@@ -98,7 +98,7 @@
                             </select> \
                        </label> \
                        <br/> \
-                       <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+')">Confirmar</button> <br/>',
+                       <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+','+codCategoria+')">Confirmar</button> <br/>',
                         title: 'Escolher mesa',
                         subTitle: 'Estas mesas estão disponíveis',
                         scope: $scope,
@@ -125,14 +125,14 @@
         }
 
 
-          $scope.confirmar = function(codAtend) {
+          $scope.confirmar = function(codAtend, codCategoria) {
             $ionicLoading.show({
               template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
             });
 
             var codigoMesaAtend = $scope.busca.codmesa;
 
-            FilasService.selectMesaAtend(codAtend, codigoMesaAtend)
+            FilasService.selectMesaAtend(codAtend, codigoMesaAtend, codCategoria)
               .then(
                 function(data) {
                     $scope.showAlert(data.message);

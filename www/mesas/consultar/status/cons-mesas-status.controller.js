@@ -7,10 +7,9 @@
     ConsMesasStatusCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPopup', 'MesasService', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory'];
     function ConsMesasStatusCtrl($rootScope, $scope, $state, $ionicPopup, MesasService, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
 
-console.log($ionicHistory.viewHistory());
       $scope.error = null;
       $scope.mesa = {}
-      $scope.mesa.status = 'Inativo';
+      $scope.mesa.status = 'Inativa';
 
       $ionicLoading.show({
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'

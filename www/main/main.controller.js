@@ -12,6 +12,7 @@
           .then(
             function(data) {
                 $scope.home = data.object[0];
+                console.log(data.object[0]);
             },
             function(error) {
               $scope.$broadcast('scroll.refreshComplete');

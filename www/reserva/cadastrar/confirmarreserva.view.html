@@ -15,27 +15,27 @@
     <div class="title">Preencha os campos para reservar:</div>
     <div class="main-box-reserva">
       <label class="item item-input">
-        <span class="input-label">Nome do Responsável</span>
-        <input type="text" placeholder="Maria da Silva" maxlength="100" ng-model="reserva.responsavel"/>
+        <span class="input-label">Nome do Responsável *</span>
+        <input type="text" placeholder="Maria da Silva" maxlength="100" ng-model="reserva.responsavel" capitalize/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Cpf</span>
+        <span class="input-label">Cpf *</span>
         <input type="tel" ui-br-cpf-mask ng-model="reserva.cpf" only-digits/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Telefone</span>
+        <span class="input-label">Telefone *</span>
         <input type="tel" ng-model="reserva.telefone" ui-br-phone-number only-digits/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Email</span>
+        <span class="input-label">Email *</span>
         <input type="email" placeholder="pessoa@savingtime.com.br" ng-model="reserva.email" />
       </label>
 
       <label class="item item-input item-select">
-        <span class="input-label">Pagamento</span>
+        <span class="input-label">Pagamento *</span>
           <select ng-model="reserva.pagamento">
             <option selected>Transferencia - Processando</option>
             <option>Transferencia - Pago</option>
