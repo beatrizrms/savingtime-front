@@ -69,7 +69,6 @@
                 }
 
                 $scope.retornoDisp.reservasImpactantes = newListReservas;
-
                 console.log($scope.retornoDisp.reservasImpactantes);
 
                 google.charts.load('45',{'packages':['timeline']});

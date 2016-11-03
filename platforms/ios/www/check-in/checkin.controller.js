@@ -4,8 +4,8 @@
         .module('checkin.controller', [])
         .controller('CheckinCtrl', CheckinCtrl);
 
-    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate', 'ReservaService', '$ionicHistory'];
-    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate, ReservaService, $ionicHistory) {
+    CheckinCtrl.$inject = ['$rootScope', '$scope', '$state', 'CheckinService', '$ionicLoading', '$ionicPopup', '$ionicNavBarDelegate', 'ReservaService', '$ionicHistory', "$filter"];
+    function CheckinCtrl($rootScope, $scope, $state, CheckinService, $ionicLoading, $ionicPopup, $ionicNavBarDelegate, ReservaService, $ionicHistory, $filter) {
 
       $scope.reserva = [];
       $scope.busca = '';
@@ -55,7 +55,11 @@
                     $scope.error = data.message;
                     $scope.showAlert($scope.error);
                 } else {
-                  $scope.showConfirmationCheckinReserva();
+                  if($scope.reserva.length > 1){
+                    $scope.showConfirmationCheckinReservaMoreThan1();
+                  } else {
+                    $scope.showConfirmationCheckinReserva();
+                  }
                 }
                 setTimeout(function () {
                   $ionicLoading.hide();
@@ -76,28 +80,68 @@
         });
       }
 
-      $scope.showConfirmationCheckinReserva = function() {
+      $scope.showConfirmationCheckinReservaMoreThan1 = function() {
+        var content = "Há duas reservas disponíveis, pesquise pelo código da reserva <br/>";
+        for(var i=0; i<$scope.reserva.length; i++) {
+          content+='<br/><p> Cod Reserva: '+$scope.reserva[i].codReserva+'</p> \
+           <p> Data Reserva: '+$scope.reserva[i].dataReserva+'</p> \
+           <p>Hora Reserva: '+$scope.reserva[i].horaReserva+'</p> \
+           <p>Responsável: '+$scope.reserva[i].responsavel+'</p> \
+           <p> Pessoas: '+$scope.reserva[i].qtPessoas+'</p> \
+           <p> Tipo de Evento: '+$scope.reserva[i].nomeCategoria+'</p> \
+           <p ng-show="'+$scope.reserva[i].escolhida+'"> Escolhida!</p>\
+           <br/>'
+        }
         var confirmPopup = $ionicPopup.confirm({
-         title: 'Confirmar Check-in?',
-         template: '\
-                   <p> Cod Reserva: '+$scope.reserva[0].codReserva+'</p> \
-                   <p> Data Reserva: '+$scope.reserva[0].dataReserva+'</p> \
-                   <p>Responsável: '+$scope.reserva[0].responsavel+'</p> \
-                   <p>Hora Reserva: '+$scope.reserva[0].horaReserva+'</p> \
-                   <p> Cpf: '+$scope.reserva[0].cpf+'</p> \
-                   <p> Email: '+$scope.reserva[0].email+'</p> \
-                   <p> Status da Reserva: '+$scope.reserva[0].statusReserva+'</p> \
-                   <p> Telefone: '+$scope.reserva[0].telefone+'</p> \
-                   <p> Pessoas: '+$scope.reserva[0].qtPessoas+'</p> \
-                   <p> Tipo de Evento: '+$scope.reserva[0].nomeCategoria+'</p> '
+         title: 'Escolha uma das reservas',
+         template:content
        });
 
        confirmPopup.then(function(res) {
          if(res) {
-           $scope.fazerCheckin($scope.reserva[0]);
+
          }
        });
       }
+
+      $scope.escolherReserva = function(i) {
+        for(var j=0; j<$scope.reserva.length; j++) {
+          $scope.reserva[j].escolhida = false;
+        }
+        $scope.reserva[i].escolhida = true;
+        $scope.reservaEscolhida = i;
+      }
+
+      $scope.showConfirmationCheckinReserva = function(i) {
+        var num;
+        if (i != undefined && i != null) {
+          num = i;
+        } else {
+          num = 0;
+        }
+
+        var confirmPopup = $ionicPopup.confirm({
+         title: 'Confirmar Check-in?',
+         template: '\
+                   <p> Cod Reserva: '+$scope.reserva[num].codReserva+'</p> \
+                   <p> Data Reserva: '+$scope.reserva[num].dataReserva+'</p> \
+                   <p>Responsável: '+$scope.reserva[num].responsavel+'</p> \
+                   <p>Hora Reserva: '+$scope.reserva[num].horaReserva+'</p> \
+                   <p>Hora previsão término: '+$scope.reserva[num].horaPrevisaoTermino+'</p> \
+                   <p> Cpf: '+$scope.reserva[num].cpf+'</p> \
+                   <p> Email: '+$scope.reserva[num].email+'</p> \
+                   <p> Status da Reserva: '+$scope.reserva[num].statusReserva+'</p> \
+                   <p> Telefone: '+ $filter('tel')($scope.reserva[num].telefone) +'</p> \
+                   <p> Pessoas: '+$scope.reserva[num].qtPessoas+'</p> \
+                   <p> Tipo de Evento: '+$scope.reserva[num].nomeCategoria+'</p> '
+       });
+
+       confirmPopup.then(function(res) {
+         if(res) {
+           $scope.fazerCheckin($scope.reserva[num]);
+         }
+       });
+      };
 
       $scope.fazerCheckin = function(checkin) {
         console.log(checkin)
@@ -140,8 +184,9 @@
         CheckinService.efetuarCheckin(atendimento)
           .then(
             function(data) {
+                console.log(data)
                 $ionicLoading.hide();
-                $scope.showAlert(data.message);
+                $scope.showAlert(data.message + "<br/>SENHA: <b>"+ data.value + '</b>');
                 $ionicHistory.goBack();
 
             },

@@ -159,3 +159,34 @@ angular.module('custom-directives').filter('percentage', ['$filter', function ($
     return $filter('number')(input * 100, decimals) + '%';
   };
 }]);
+
+
+angular.module('custom-directives').filter('tel', function () {
+    return function (tel) {
+			
+        if (!tel) { return ''; }
+
+        var telefone = tel.replace(/[^0-9]+/g, "");
+
+				telefone = telefone.replace(/[^0-9]+/g, "");
+
+        if(telefone.length > 0){
+            telefone = telefone.substring(-1,0) + "(" + telefone.substring(0);
+        }
+
+        if(telefone.length > 3){
+            telefone = telefone.substring(0,3) + ")" + telefone.substring(3);
+        }
+
+        if(telefone.length == 12){
+            telefone = telefone.substring(0,8) + "-" + telefone.substring(8);
+
+        }else if(telefone.length >= 13){
+            telefone = telefone.substring(0,9) + "-" + telefone.substring(9,13);
+        }
+
+				telefone = telefone.replace(")", ") ");
+
+				return telefone;
+    };
+});

@@ -8,15 +8,7 @@
       var myPopup;
 
 
-      MainService.getHome()
-          .then(
-            function(data) {
-                $scope.home = data.object[0];
-            },
-            function(error) {
-              $scope.$broadcast('scroll.refreshComplete');
-            }
-          );
+      getHome();
 
 
       $scope.settings = function() {
@@ -29,6 +21,10 @@
 
 
       $scope.doRefresh = function() {
+        getHome();
+      }
+
+      function getHome() {
         MainService.getHome()
             .then(
               function(data) {
@@ -39,8 +35,14 @@
                 $scope.$broadcast('scroll.refreshComplete');
               }
             );
-
       }
+
+      $scope.$on("$ionicView.enter", function() {
+        setInterval(function(){
+          getHome();
+         },
+        1500);
+      });
 
     }
 

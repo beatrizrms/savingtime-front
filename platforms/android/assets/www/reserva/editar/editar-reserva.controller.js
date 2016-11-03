@@ -35,8 +35,6 @@
           }
         );
 
-
-
       $scope.editarReserva = function() {
         var confirmPopup = $ionicPopup.confirm({
           title: 'Editar Reserva',
@@ -200,21 +198,11 @@
             $scope.modal.hide();
           };
 
-
-
-          $scope.back = function() {
-            $ionicNavBarDelegate.back();
-          }
-
         $scope.showAlert = function(msg) {
           var alertPopup = $ionicPopup.alert({
             title: '',
             template: msg
           });
         }
-
-        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
-            viewData.enableBack = true;
-        });
     };
 })();

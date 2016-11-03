@@ -10,6 +10,10 @@ body{
     font-family: 'San Fran' !important;
 }
 
+.popup-container .popup {
+    width: 290px;
+}
+
 .card-home{
   background-color: white;
   color: gray !important;

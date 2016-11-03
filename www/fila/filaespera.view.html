@@ -9,10 +9,10 @@
           <ion-item ng-repeat="data in list" class="item item-text-wrap item-icon-right">
             <div class="white">
               <i class="ion-clock clock"></i>
-              <h2 class="text-margin white">Entrada às {{data.horaCheckIn}} </h2>
+              <h2 class="text-margin white">Entrada: {{data.data}} {{data.horaCheckIn}} </h2>
               <p class="text-margin white"> {{ data.qtPessoas }} pessoas ({{ data.nomeCategoria }}) </p>
               <p class="text-margin white">Responsável {{ data.nomeResponsavel }} </p>
-              <p class="text-margin white"> Contato: {{ data.telefone }} </p>
+              <p class="text-margin white"> Contato: {{ data.telefone | tel}} </p>
               <p class="text-margin white" ng-show="data.numReserva"> Num reserva: {{ data.numReserva }}</p>
             </div>
             <ion-option-button class="button-positive"

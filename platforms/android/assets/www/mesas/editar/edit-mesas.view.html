@@ -4,18 +4,18 @@
     <div class="main-box-checkin">
 
       <label class="item item-input">
-          <span class="input-label">Número</span>
+          <span class="input-label">Número *</span>
           <input type="tel" ng-model="edit.numMesa" only-digits/>
      </label>
 
 
       <label class="item item-input">
-          <span class="input-label">Capacidade de Lugares</span>
+          <span class="input-label">Capacidade de Lugares *</span>
           <input type="tel" ng-model="edit.capacidade" only-digits/>
      </label>
 
      <label class="item item-input item-select">
-       <span class="input-label">Status</span>
+       <span class="input-label">Status *</span>
          <select ng-model="edit.status">
            <option ng-repeat="o in statusmesa" ng-selected="{{o==edit.status}}" value="{{o}}" ng-disabled="{{o == statusmesa[2]}}">
               {{o}}

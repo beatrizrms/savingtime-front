@@ -13,39 +13,9 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
-      MesasService.consultarMesas()
-        .then(
-          function(data) {
-              $scope.listmesas = data.object;
-              if($scope.listmesas == null) {
-                setTimeout(function () {
-                  $scope.$apply(function(){
-                    $scope.error = data.message;
-                  });
-                }, 1000);
-              }
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          },
-          function(error) {
-              $scope.error = "Carregue a página novamente";
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          }
-        );
+      loadMesas();
 
-      $scope.editMesas = function(codigo) {
-        for(var i=0; i < $scope.listmesas.length; i++) {
-          if(codigo === $scope.listmesas[i].codigo){
-            $scope.editmesa = $scope.listmesas[i];
-          }
-        }
-        $state.go("edit/mesas", { mesa:   $scope.editmesa });
-      };
-
-      $scope.doRefresh = function() {
+      function loadMesas() {
         MesasService.consultarMesas()
           .then(
             function(data) {
@@ -57,13 +27,34 @@
                     });
                   }, 1000);
                 }
+                setTimeout(function () {
+                  $ionicLoading.hide();
+                 $scope.$broadcast('scroll.refreshComplete');
+                },1500);
             },
             function(error) {
                 $scope.error = "Carregue a página novamente";
+                setTimeout(function () {
+                 $scope.$broadcast('scroll.refreshComplete');
+                  $ionicLoading.hide();
+                },1500);
             }
           );
-         $scope.$broadcast('scroll.refreshComplete');
       }
+
+      $scope.editMesas = function(codigo) {
+        for(var i=0; i < $scope.listmesas.length; i++) {
+          if(codigo === $scope.listmesas[i].codigo){
+            $scope.editmesa = $scope.listmesas[i];
+          }
+        }
+        $state.go("edit/mesas", { mesa:   $scope.editmesa });
+      };
+
+      $scope.doRefresh = function() {
+        loadMesas();
+      }
+
       $scope.back = function() {
         $ionicNavBarDelegate.back();
       }
@@ -92,6 +83,9 @@
         $state.go("main");
       }
 
+      $scope.$on("$ionicView.enter", function() {
+        loadMesas();
+      });
 
     };
 })();

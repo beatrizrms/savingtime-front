@@ -4,22 +4,22 @@
     <div class="main-box-reserva">
 
       <label class="item item-input">
-        <span class="input-label">Data</span>
+        <span class="input-label">Data *</span>
         <input type="date" ng-model="reserva.dataReserva" required/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Horário</span>
+        <span class="input-label">Horário *</span>
         <input type="time" ng-model="reserva.horaReserva" required />
       </label>
 
       <label class="item item-input">
-          <span class="input-label">Quant. de pessoas</span>
+          <span class="input-label">Quant. de pessoas *</span>
           <input type="tel" only-digits ng-model="reserva.qtPessoas" ng-change="showCategoria(reserva.qtPessoas)" maxlength="4"/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
-       <span class="input-label">Tipo de evento</span>
+       <span class="input-label">Tipo de evento *</span>
           <select ng-model="reserva.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
       <br/>

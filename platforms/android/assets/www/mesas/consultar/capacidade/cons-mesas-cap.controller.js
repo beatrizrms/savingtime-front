@@ -14,30 +14,7 @@
         template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
       });
 
-      console.log($ionicHistory.viewHistory());
-
-      MesasService.consultarMesasCapacidade($scope.quantidade.num)
-        .then(
-          function(data) {
-              $scope.listmesas = data.object;
-              if($scope.listmesas == null) {
-                setTimeout(function () {
-                  $scope.$apply(function(){
-                    $scope.error = data.message;
-                  });
-                }, 1000);
-              }
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1000);
-          },
-          function(error) {
-              $scope.error = "Carregue a página novamente";
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1000);
-          }
-        );
+      loadMesas();
 
 
       $scope.pesquisar = function() {
@@ -92,17 +69,6 @@
          $scope.$broadcast('scroll.refreshComplete');
       }
 
-      $scope.back = function() {
-        $ionicNavBarDelegate.back();
-      }
-      $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
-          viewData.enableBack = true;
-      });
-
-      $scope.backConsMesas = function() {
-        $state.go("mesas");
-      }
-
       $rootScope.toggleItem= function(item) {
          if ($scope.isItemShown(item)) {
            $scope.shownItem = null;
@@ -115,8 +81,34 @@
          return $scope.shownItem === item;
       };
 
-      $scope.backToMain = function() {
-        $state.go("main");
+      function loadMesas() {
+        MesasService.consultarMesasCapacidade($scope.quantidade.num)
+          .then(
+            function(data) {
+                $scope.listmesas = data.object;
+                if($scope.listmesas == null) {
+                  setTimeout(function () {
+                    $scope.$apply(function(){
+                      $scope.error = data.message;
+                    });
+                  }, 1000);
+                }
+                setTimeout(function () {
+                  $ionicLoading.hide();
+                },1000);
+            },
+            function(error) {
+                $scope.error = "Carregue a página novamente";
+                setTimeout(function () {
+                  $ionicLoading.hide();
+                },1000);
+            }
+          );
       }
+
+      $scope.$on("$ionicView.enter", function() {
+        loadMesas();
+      });
+
     };
 })();

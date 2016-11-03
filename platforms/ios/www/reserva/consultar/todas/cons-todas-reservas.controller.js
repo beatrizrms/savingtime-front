@@ -9,34 +9,13 @@
 
     var vm = this;
     $scope.reserva ={};
-    
+
     $ionicLoading.show({
       template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
     });
 
 
-    ReservaService.consultarReservas()
-      .then(
-        function(data) {
-            $scope.reservas = data.object;
-            if($scope.reservas == null) {
-              setTimeout(function () {
-                $scope.$apply(function(){
-                  $scope.error = data.message;
-                });
-              }, 1000);
-            }
-            setTimeout(function () {
-              $ionicLoading.hide();
-            },1500);
-        },
-        function(error) {
-            $scope.error = "Carregue a página novamente";
-            setTimeout(function () {
-              $ionicLoading.hide();
-            },1500);
-        }
-      );
+    loadReservas();
 
       $scope.editarReserva = function(reserva) {
         $state.go('editar/reserva', {reserva: reserva });
@@ -47,37 +26,7 @@
       }
 
       $scope.doRefresh = function() {
-        ReservaService.consultarReservas()
-          .then(
-            function(data) {
-                $scope.reservas = data.object;
-                if($scope.reservas == null) {
-                  setTimeout(function () {
-                    $scope.$apply(function(){
-                      $scope.error = data.message;
-                    });
-                  }, 1000);
-                }
-                $ionicLoading.hide();
-            },
-            function(error) {
-                $scope.error = "Carregue a página novamente";
-                $ionicLoading.hide();
-            }
-          );
-         $scope.$broadcast('scroll.refreshComplete');
-      }
-      $scope.back = function() {
-        $ionicNavBarDelegate.back();
-      }
-
-      $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
-          viewData.enableBack = true;
-      });
-
-
-      $scope.backConsReserva = function() {
-        $state.go('gerenciar/reserva');
+        loadReservas();
       }
 
       $rootScope.toggleItem= function(item) {
@@ -91,10 +40,6 @@
       $rootScope.isItemShown = function(item) {
          return $scope.shownItem === item;
       };
-
-      $scope.backToMain = function() {
-        $state.go("main");
-      }
 
       $scope.getComprovanteAnexado = function(codReserva) {
         $ionicLoading.show({
@@ -136,6 +81,37 @@
         $scope.closeModal = function() {
           $scope.modal.hide();
         };
+
+        function loadReservas() {
+          ReservaService.consultarReservas()
+            .then(
+              function(data) {
+                  $scope.reservas = data.object;
+                  if($scope.reservas == null) {
+                    setTimeout(function () {
+                      $scope.$apply(function(){
+                        $scope.error = data.message;
+                      });
+                    }, 1000);
+                  }
+                  setTimeout(function () {
+                    $ionicLoading.hide();
+                  },1500);
+                  $scope.$broadcast('scroll.refreshComplete');
+              },
+              function(error) {
+                  $scope.error = "Carregue a página novamente";
+                  $scope.$broadcast('scroll.refreshComplete');
+                  setTimeout(function () {
+                    $ionicLoading.hide();
+                  },1500);
+              }
+            );
+        }
+
+        $scope.$on("$ionicView.enter", function() {
+          loadReservas();
+        });
 
 
     };

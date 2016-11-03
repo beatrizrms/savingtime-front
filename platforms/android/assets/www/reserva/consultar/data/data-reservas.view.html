@@ -28,9 +28,10 @@
           <br/>
           <p class="white"><b>Data:</b> {{reserva.dataReserva}}</p>
           <p class="white"><b>Horário:</b> {{reserva.horaReserva}}</p>
+          <p class="white"><b>Horário previsão término:</b> {{reserva.horaPrevisaoTermino}}</p>
           <p class="white"><b>Responsável:</b> {{reserva.responsavel}}</p>
           <p class="white"><b>Cpf:</b> {{reserva.cpf}}</p>
-          <p class="white"><b>Telefone:</b> {{reserva.telefone}}</p>
+          <p class="white"><b>Telefone:</b> {{reserva.telefone | tel}}</p>
           <p class="white"><b>Lugares:</b> {{reserva.qtPessoas}}</p>
           <p class="white"><b>Pagamento:</b> {{reserva.pagamento}}</p>
           <p class="white"><b>Status:</b> {{reserva.statusReserva}}</p>
@@ -49,13 +50,11 @@
     </ion-list>
   </ion-content>
   <ion-tabs class="tabs-icon-top tabs-positive">
+    <ion-tab title="Cpf/Cod" icon="ion-ios-paper" ui-sref="porcodoucpf">
+    </ion-tab>
     <ion-tab title="Todas" icon="ion-asterisk" ui-sref="todasres">
     </ion-tab>
-
     <ion-tab title="Data" icon="ion-calendar" ui-sref="pordata" class="tab-item-active">
-    </ion-tab>
-
-    <ion-tab title="Cpf/Cod" icon="ion-ios-paper" ui-sref="porcodoucpf">
     </ion-tab>
   </ion-tabs>
 </ion-view>

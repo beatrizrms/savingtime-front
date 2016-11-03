@@ -62,9 +62,13 @@
           return deferred.promise;
         };
 
-        function selectMesaAtend(codAtend, codigoMesaAtend) {
+        function selectMesaAtend(codAtend, codigoMesaAtend, codCategoria) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/iniciar/atendimento/' + codAtend + '/'+codigoMesaAtend)
+
+          var dataHoje = new Date();
+          var dataString = dataHoje.getDate() + '-' + (dataHoje.getMonth()+1) +'-'+ dataHoje.getFullYear();
+
+          $http.get(host + 'atendimentorest/iniciar/atendimento/' + codAtend + '/'+codigoMesaAtend + '/' +codCategoria + '/' + dataString)
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

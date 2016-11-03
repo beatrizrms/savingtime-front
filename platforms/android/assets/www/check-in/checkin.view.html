@@ -3,8 +3,8 @@
     <div class="title-item">Faça o check-in de um cliente que solicitou uma mesa: </div>
     <div class="main-box-checkin">
       <label class="item item-input">
-        <span class="input-label">Nome do Responsável</span>
-        <input type="text" placeholder="Maria da Silva" ng-model="checkin.responsavel" required>
+        <span class="input-label">Nome do Responsável *</span>
+        <input type="text" placeholder="Maria da Silva" ng-model="checkin.responsavel" capitalize required>
       </label>
       <label class="item item-input">
         <span class="input-label">Telefone</span>
@@ -12,16 +12,16 @@
       </label>
 
       <label class="item item-input">
-          <span class="input-label">Quant. de pessoas</span>
+          <span class="input-label">Quant. de pessoas *</span>
           <input type="tel" ng-model="checkin.qtPessoas" only-digits ng-change="showCategoria(checkin.qtPessoas)" maxlength="4" required/>
      </label>
 
      <label class="item item-input item-select" ng-show="categoria">
-       <span class="input-label">Tipo de evento</span>
-        <select ng-model="checkin.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select> 
+       <span class="input-label">Tipo de evento *</span>
+        <select ng-model="checkin.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
     <br/>
-    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel || !checkin.telefone  || !checkin.qtPessoas || !checkin.codCategoria">
+    <button class="button button-outline button-stable button-checkin" ng-click="fazerCheckin(checkin)" ng-disabled="!checkin.responsavel  || !checkin.qtPessoas || !checkin.codCategoria">
       Efetuar Check-in
     </button>
     </div>

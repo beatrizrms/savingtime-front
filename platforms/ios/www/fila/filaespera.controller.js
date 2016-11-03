@@ -15,60 +15,13 @@
         codmesa: ''
       }
 
-      $ionicLoading.show({
-        template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
-      });
-
-      FilasService.selectEspera()
-        .then(
-          function(data) {
-              $scope.list = data.object;
-              if($scope.list == null) {
-                setTimeout(function () {
-                  $scope.$apply(function(){
-                    $scope.error = data.message;
-                  });
-                }, 1000);
-              }
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          },
-          function(error) {
-              $scope.error = "Carregue a página novamente";
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          }
-        );
+      loadFila();
 
         $scope.doRefresh = function() {
-          FilasService.selectEspera()
-            .then(
-              function(data) {
-                  $scope.list = data.object;
-                  if($scope.list == null) {
-                    setTimeout(function () {
-                      $scope.$apply(function(){
-                        $scope.error = data.message;
-                      });
-                    }, 1000);
-                  }
-                  setTimeout(function () {
-                    $ionicLoading.hide();
-                  },1500);
-              },
-              function(error) {
-                  $scope.error = "Carregue a página novamente";
-                  setTimeout(function () {
-                    $ionicLoading.hide();
-                  },1500);
-              }
-            );
-           $scope.$broadcast('scroll.refreshComplete');
+          loadFila();
         }
 
-        $scope.atender = function(qtPessoas, codAtend) {
+        $scope.atender = function(qtPessoas, codAtend, codCategoria) {
 
           $ionicLoading.show({
             template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
@@ -77,6 +30,7 @@
           FilasService.mesasCapacidades(qtPessoas)
             .then(
               function(data) {
+                console.log(data.object);
                   $scope.mesascap = data.object;
                   if($scope.mesascap == null) {
                     setTimeout(function () {
@@ -94,11 +48,11 @@
                       chooseTable = $ionicPopup.show({
                         template: '<label class="item item-input item-select"> \
                           <span class="input-label">Mesa</span> \
-                            <select ng-model="busca.codmesa" ng-options="option.numMesa as option.description for option in mesascap"> \
+                            <select ng-model="busca.codmesa" ng-options="option.codigo as option.description for option in mesascap"> \
                             </select> \
                        </label> \
                        <br/> \
-                       <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+')">Confirmar</button> <br/>',
+                       <button class="button button-outline button-stable button-checkin" ng-click="confirmar('+codAtend+','+codCategoria+')">Confirmar</button> <br/>',
                         title: 'Escolher mesa',
                         subTitle: 'Estas mesas estão disponíveis',
                         scope: $scope,
@@ -125,16 +79,17 @@
         }
 
 
-          $scope.confirmar = function(codAtend) {
+          $scope.confirmar = function(codAtend, codCategoria) {
             $ionicLoading.show({
               template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
             });
 
             var codigoMesaAtend = $scope.busca.codmesa;
 
-            FilasService.selectMesaAtend(codAtend, codigoMesaAtend)
+            FilasService.selectMesaAtend(codAtend, codigoMesaAtend, codCategoria)
               .then(
                 function(data) {
+                    console.log(codigoMesaAtend);
                     $scope.showAlert(data.message);
                     $scope.doRefresh();
                     $ionicLoading.hide();
@@ -209,8 +164,32 @@
               );
           }
 
-          $scope.backFila = function() {
-            $state.go('gerenciar');
+          $scope.$on("$ionicView.enter", function() {
+            loadFila();
+          });
+
+          function loadFila() {
+            $ionicLoading.show();
+            FilasService.selectEspera()
+              .then(
+                function(data) {
+                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.list = data.object;
+                    if($scope.list == null) {
+                      setTimeout(function () {
+                        $scope.$apply(function(){
+                          $scope.error = data.message;
+                        });
+                      }, 1000);
+                    }
+                    $ionicLoading.hide();
+                },
+                function(error) {
+                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.error = "Carregue a página novamente";
+                    $ionicLoading.hide();
+                }
+              );
           }
 
     };

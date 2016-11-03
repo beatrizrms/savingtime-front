@@ -4,22 +4,22 @@
         <div class="title-pages"> </div>
 
       <label class="item item-input">
-        <span class="input-label">Data</span>
+        <span class="input-label">Data *</span>
         <span class="white">{{reservaedit.dataReserva}}</span>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Horário</span>
+        <span class="input-label">Horário *</span>
         <span class="white">{{reservaedit.horaReserva}}</span>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Nome do Responsável</span>
+        <span class="input-label">Nome do Responsável *</span>
         <input type="text" placeholder="Maria da Silva" maxlength="100" ng-model="reservaedit.responsavel"/>
       </label>
 
       <label class="item item-input">
-        <span class="input-label">Cpf</span>
+        <span class="input-label">Cpf *</span>
         <input type="text" ng-model="reservaedit.cpf" ui-br-cpf-mask only-digits/>
       </label>
 
@@ -34,17 +34,17 @@
       </label>
 
       <label class="item item-input">
-          <span class="input-label">Quant. de pessoas</span>
+          <span class="input-label">Quant. de pessoas *</span>
           <span class="white">{{reservaedit.qtPessoas}}</span>
      </label>
 
      <label class="item item-input item-select">
-       <span class="input-label">Tipo de evento</span>
+       <span class="input-label">Tipo de evento *</span>
         <select ng-model="reservaedit.codCategoria" ng-options="option.codCategoria as option.nomeCategoria for option in listcategorias"> </select>
     </label>
 
     <label class="item item-input item-select">
-      <span class="input-label">Pagamento</span>
+      <span class="input-label">Pagamento *</span>
         <select ng-model="reservaedit.pagamento">
           <option>Transferencia - Processando</option>
           <option>Transferencia - Pago</option>

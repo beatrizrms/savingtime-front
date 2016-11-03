@@ -13,55 +13,9 @@
 
       $scope.list = [];
 
-        FilasService.selectAtendimento()
-          .then(
-            function(data) {
-                $scope.list = data.object;
-                console.log(data.object)
-                if($scope.list == null) {
-                  setTimeout(function () {
-                    $scope.$apply(function(){
-                      $scope.error = data.message;
-                    });
-                  }, 1000);
-                }
-                setTimeout(function () {
-                  $ionicLoading.hide();
-                },1500);
-            },
-            function(error) {
-                $scope.error = "Carregue a página novamente";
-                setTimeout(function () {
-                  $ionicLoading.hide();
-                },1500);
-            }
-          );
-
 
         $scope.doRefresh = function() {
-          FilasService.selectAtendimento()
-            .then(
-              function(data) {
-                  $scope.list = data.object;
-                  if($scope.list == null) {
-                    setTimeout(function () {
-                      $scope.$apply(function(){
-                        $scope.error = data.message;
-                      });
-                    }, 1000);
-                  }
-                  setTimeout(function () {
-                    $ionicLoading.hide();
-                  },1500);
-              },
-              function(error) {
-                  $scope.error = "Carregue a página novamente";
-                  setTimeout(function () {
-                    $ionicLoading.hide();
-                  },1500);
-              }
-            );
-           $scope.$broadcast('scroll.refreshComplete');
+          loadFila();
         }
 
 
@@ -128,8 +82,33 @@
         });
       }
 
-      $scope.backFila = function() {
-        $state.go('gerenciar');
+      $scope.$on("$ionicView.enter", function() {
+        loadFila();
+      });
+
+      function loadFila() {
+        $ionicLoading.show();
+        FilasService.selectAtendimento()
+          .then(
+            function(data) {
+              $scope.$broadcast('scroll.refreshComplete');
+                $scope.list = data.object;
+                console.log(data.object)
+                if($scope.list == null) {
+                  setTimeout(function () {
+                    $scope.$apply(function(){
+                      $scope.error = data.message;
+                    });
+                  }, 1000);
+                }
+                $ionicLoading.hide();
+            },
+            function(error) {
+              $scope.$broadcast('scroll.refreshComplete');
+                $scope.error = "Carregue a página novamente";
+                $ionicLoading.hide();
+            }
+          );
       }
 
     };

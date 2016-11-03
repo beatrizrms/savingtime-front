@@ -25,28 +25,7 @@
           }
         );
 
-      MesasService.consultarMesasStatus($scope.mesa.status)
-        .then(
-          function(data) {
-              $scope.listmesas = data.object;
-              if($scope.listmesas == null) {
-                setTimeout(function () {
-                  $scope.$apply(function(){
-                    $scope.error = data.message;
-                  });
-                }, 1000);
-              }
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          },
-          function(error) {
-              $scope.error = "Carregue a página novamente";
-              setTimeout(function () {
-                $ionicLoading.hide();
-              },1500);
-          }
-        );
+      loadMesas();
 
       $scope.pesquisarMesasStatus = function() {
         $scope.error = null;
@@ -89,6 +68,10 @@
       };
 
       $scope.doRefresh = function() {
+        loadMesas();
+      }
+
+      function loadMesas() {
         $scope.error = null;
         MesasService.consultarMesasStatus($scope.mesa.status)
           .then(
@@ -102,33 +85,23 @@
                   }, 1000);
                 }
                 setTimeout(function () {
+                 $scope.$broadcast('scroll.refreshComplete');
                   $ionicLoading.hide();
                 },1500);
             },
             function(error) {
                 $scope.error = "Carregue a página novamente";
                 setTimeout(function () {
+                 $scope.$broadcast('scroll.refreshComplete');
                   $ionicLoading.hide();
                 },1500);
             }
           );
-         $scope.$broadcast('scroll.refreshComplete');
       }
 
-      $scope.back = function() {
-        $ionicNavBarDelegate.back();
-      }
-
-      $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
-          viewData.enableBack = true;
+      $scope.$on("$ionicView.enter", function() {
+        loadMesas();
       });
 
-      $scope.backConsMesas = function() {
-        $state.go("mesas");
-      }
-
-      $scope.backToMain = function() {
-        $state.go("main");
-      }
     };
 })();
