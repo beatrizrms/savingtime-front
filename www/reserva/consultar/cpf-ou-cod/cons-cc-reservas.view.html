@@ -19,11 +19,13 @@
         <div ng-class="isItemShown(reserva) ? 'item-expand active' : 'item-expand inactive'">
           <h2 class="white">Reserva no cpf {{reserva.cpf}}</h2>
           <br/>
+          <p class="white"><b>Codigo:</b> {{reserva.codReserva}}</p>
           <p class="white"><b>Data:</b> {{reserva.dataReserva}}</p>
           <p class="white"><b>Horário:</b> {{reserva.horaReserva}}</p>
           <p class="white"><b>Horário previsão término:</b> {{reserva.horaPrevisaoTermino}}</p>
           <p class="white"><b>Responsável:</b> {{reserva.responsavel}}</p>
           <p class="white"><b>Cpf:</b> {{reserva.cpf}}</p>
+          <p class="white"><b>Categoria:</b> {{reserva.nomeCategoria}}</p>
           <p class="white"><b>Telefone:</b> {{reserva.telefone | tel}}</p>
           <p class="white"><b>Lugares:</b> {{reserva.qtPessoas}}</p>
           <p class="white"><b>Pagamento:</b> {{reserva.pagamento}}</p>

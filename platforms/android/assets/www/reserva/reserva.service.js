@@ -110,13 +110,25 @@
 
         function consultarReservasCC(cpf) {
           var deferred = $q.defer();
-          $http.get(host + 'reservarest/consultar/reserva/cpf/' + cpf)
-          .success(function(data) {
-            deferred.resolve(data);
-          }).error(function(data) {
-            deferred.reject(data);
-          });
-
+          console.log(cpf.length)
+          if(cpf.length == 11) {
+            $http.get(host + 'reservarest/consultar/reserva/cpf/' + cpf)
+            .success(function(data) {
+              console.log(data);
+              deferred.resolve(data);
+            }).error(function(data) {
+              deferred.reject(data);
+            });
+          } else {
+            var codigo = cpf;
+            $http.get(host + 'reservarest/consultar/reserva/codigo/' + codigo)
+            .success(function(data) {
+              console.log(data);
+              deferred.resolve(data);
+            }).error(function(data) {
+              deferred.reject(data);
+            });
+          }
           return deferred.promise;
           }
 
