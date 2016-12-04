@@ -20,7 +20,7 @@
 
         function getHome() {
           var deferred = $q.defer();
-          $http.get(host + 'disponibilidaderest/get/dados/home')
+          $http.get(host + 'disponibilidaderest/get/dados/home', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

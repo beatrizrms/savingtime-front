@@ -26,13 +26,13 @@
         <p ng-show="retornoDisp.dataComemorativa"><b>Data comemorativa:</b> {{retornoDisp.dataComemorativa.nomeDataComemorativa}}</p>
 
         <!-- Se a reserva nao oferecer risco -->
-        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.0 && retornoDisp.taxaUtilizacao < 0.3">
+        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.0 && retornoDisp.taxaUtilizacao < 0.5">
           <div class="farol-verd"></div>
           <p class="farol-verd-text"><b>Essa reserva não oferece risco!</b></p>
         </div>
 
         <!-- Se a reserva oferecer um pouco de risco -->
-        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.3 && retornoDisp.taxaUtilizacao < 0.7">
+        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.5 && retornoDisp.taxaUtilizacao < 0.7">
           <div class="farol-ama"></div>
           <p class="farol-ama-text"><b>Essa reserva oferece risco!</b></p>
         </div>
