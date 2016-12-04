@@ -7,15 +7,15 @@
     function MainCtrl($scope, $scope, $state, $ionicPopup, $rootScope, MainService) {
       var myPopup;
 
-
-      getHome();
-
+      var getHomeInterval;
 
       $scope.settings = function() {
+        clearInterval(getHomeInterval);
         $state.go('settings');
       }
 
       $scope.help = function() {
+        clearInterval(getHomeInterval);
         $state.go('onboarding');
       }
 
@@ -38,7 +38,7 @@
       }
 
       $scope.$on("$ionicView.enter", function() {
-        setInterval(function(){
+        getHomeInterval = setInterval(function(){
           getHome();
          },
         1500);

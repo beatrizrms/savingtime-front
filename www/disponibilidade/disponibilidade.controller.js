@@ -86,8 +86,10 @@
           },
           function(error) {
             google.charts.load('45',{'packages':['timeline']});
-            //$scope.showAlert("Tente novamente");
+            $scope.showAlert("Tente novamente");
+            $ionicHistory.goBack();
             $ionicLoading.hide();
+
           }
         );
 
