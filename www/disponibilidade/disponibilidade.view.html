@@ -22,7 +22,7 @@
       <div class="item item-divider" style="color:black;">
         <p><b>Mesas disponíveis:</b> {{retornoDisp.qtdMesasLivres}}</p>
         <p ng-show="retornoDisp.taxaUtilizacao >=0"><b>Taxa de utilização:</b> {{retornoDisp.taxaUtilizacao | percentage:2}}</p>
-        <p ng-show="retornoDisp.taxaUtilizacao >=0 && retornoDisp.taxaUtilizacao <= 1"><b>Tempo de espera:</b> {{retornoDisp.tempoEspera}}</p>
+        <p ng-show="retornoDisp.taxaUtilizacao >=0 && retornoDisp.taxaUtilizacao < 1"><b>Tempo de espera:</b> {{retornoDisp.tempoEspera}}</p>
         <p ng-show="retornoDisp.dataComemorativa"><b>Data comemorativa:</b> {{retornoDisp.dataComemorativa.nomeDataComemorativa}}</p>
 
         <!-- Se a reserva nao oferecer risco -->
@@ -38,13 +38,13 @@
         </div>
 
         <!-- Se a reserva oferecer risco -->
-        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.7 && retornoDisp.taxaUtilizacao <= 1">
+        <div class="farol" ng-show="retornoDisp.qtdMesasLivres != 0 && retornoDisp.taxaUtilizacao >= 0.7 && retornoDisp.taxaUtilizacao < 1">
           <div class="farol-verm"></div>
           <p class="farol-verm-text"><b>Essa reserva oferece alto risco!</b></p>
         </div>
 
         <!-- Se a reserva oferecer ALTO risco -->
-        <div class="farol" ng-show="retornoDisp.qtdMesasLivres == 0 || (retornoDisp.taxaUtilizacao > 1  || retornoDisp.taxaUtilizacao < 0)">
+        <div class="farol" ng-show="retornoDisp.qtdMesasLivres == 0 || (retornoDisp.taxaUtilizacao >= 1  || retornoDisp.taxaUtilizacao < 0)">
           <div class="farol-verm"></div>
           <p class="farol-verm-text"><b> Demanda prevista não suportada!! </b></p>
         </div>

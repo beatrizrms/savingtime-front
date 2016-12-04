@@ -26,7 +26,7 @@
 
         function selectEspera() {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/fila/espera')
+          $http.get(host + 'atendimentorest/fila/espera', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -40,7 +40,7 @@
 
         function selectAtendimento() {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/lista/atendimento')
+          $http.get(host + 'atendimentorest/lista/atendimento', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -52,7 +52,7 @@
 
         function mesasCapacidades(capacidade) {
           var deferred = $q.defer();
-          $http.get(host + 'mesarest/consultar/mesas/capacidades/' + capacidade)
+          $http.get(host + 'mesarest/consultar/mesas/capacidades/' + capacidade, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -68,7 +68,7 @@
           var dataHoje = new Date();
           var dataString = dataHoje.getDate() + '-' + (dataHoje.getMonth()+1) +'-'+ dataHoje.getFullYear();
 
-          $http.get(host + 'atendimentorest/iniciar/atendimento/' + codAtend + '/'+codigoMesaAtend + '/' +codCategoria + '/' + dataString)
+          $http.get(host + 'atendimentorest/iniciar/atendimento/' + codAtend + '/'+codigoMesaAtend + '/' +codCategoria + '/' + dataString, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -81,7 +81,7 @@
 
         function cancelarCheckin(statusEscolhido, codAtend) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+ statusEscolhido)
+          $http.get(host + 'atendimentorest/cancelar/checkin/' + codAtend + '/'+ statusEscolhido, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -93,7 +93,7 @@
 
         function efetuarCheckout(statusEscolhido, codAtend) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/efetuar/checkout/' + codAtend + '/'+statusEscolhido)
+          $http.get(host + 'atendimentorest/efetuar/checkout/' + codAtend + '/'+statusEscolhido, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -107,7 +107,7 @@
 
         function getAllStatusAtend() {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/get/status/atendimento')
+          $http.get(host + 'atendimentorest/get/status/atendimento', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

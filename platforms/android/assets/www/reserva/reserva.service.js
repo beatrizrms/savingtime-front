@@ -34,7 +34,7 @@
              url: host + 'reservarest/cadastrar/reserva',
              data: reserva,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
@@ -51,7 +51,7 @@
              url: host + 'disponibilidaderest/disponibilidade/reserva',
              data: reserva,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
@@ -61,7 +61,7 @@
 
         function consultarReservas() {
           var deferred = $q.defer();
-          $http.get(host + 'reservarest/consultar/reservas')
+          $http.get(host + 'reservarest/consultar/reservas', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -73,7 +73,7 @@
 
         function categorias(quantidade) {
           var deferred = $q.defer();
-          $http.get(host + 'atendimentorest/get/tipo/evento/'+quantidade)
+          $http.get(host + 'atendimentorest/get/tipo/evento/'+quantidade, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -85,7 +85,7 @@
 
         function obterComprovante(codigo) {
           var deferred = $q.defer();
-          $http.get(host + 'reservarest/obter/comprovante/'+codigo)
+          $http.get(host + 'reservarest/obter/comprovante/'+codigo, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -98,7 +98,7 @@
         function consultarReservasData(dataInicio, dataFinal){
           console.log(dataInicio + " " + dataFinal)
           var deferred = $q.defer();
-          $http.get(host + 'reservarest/consultar/reserva/data/' + dataInicio + '/' + dataFinal)
+          $http.get(host + 'reservarest/consultar/reserva/data/' + dataInicio + '/' + dataFinal, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -112,7 +112,7 @@
           var deferred = $q.defer();
           console.log(cpf.length)
           if(cpf.length == 11) {
-            $http.get(host + 'reservarest/consultar/reserva/cpf/' + cpf)
+            $http.get(host + 'reservarest/consultar/reserva/cpf/' + cpf, {timeout: 10000})
             .success(function(data) {
               console.log(data);
               deferred.resolve(data);
@@ -121,7 +121,7 @@
             });
           } else {
             var codigo = cpf;
-            $http.get(host + 'reservarest/consultar/reserva/codigo/' + codigo)
+            $http.get(host + 'reservarest/consultar/reserva/codigo/' + codigo, {timeout: 10000})
             .success(function(data) {
               console.log(data);
               deferred.resolve(data);
@@ -134,7 +134,7 @@
 
         function cancelarReserva(cod) {
           var deferred = $q.defer();
-          $http.get(host + 'reservarest/cancelar/reserva/' + cod)
+          $http.get(host + 'reservarest/cancelar/reserva/' + cod, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -158,7 +158,7 @@
              url: host + 'reservarest/alterar/reserva',
              data: reserva,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);

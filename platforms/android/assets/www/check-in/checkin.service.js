@@ -25,7 +25,7 @@
              method: 'GET',
              url: host + 'reservarest/consultar/reserva/checkin/' + busca,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
@@ -42,7 +42,7 @@
              url: host + 'atendimentorest/efetuar/checkin',
              data: atendimento,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
