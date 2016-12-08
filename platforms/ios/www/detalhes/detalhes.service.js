@@ -19,7 +19,7 @@
 
         function getDados() {
           var deferred = $q.defer();
-          $http.get(host + 'estabelecimentorest/get/dados/estabelecimento')
+          $http.get(host + 'estabelecimentorest/get/dados/estabelecimento', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

@@ -4,8 +4,8 @@
         .module('consccreserva.controller', [])
         .controller('ConsCCReservasCtrl', ConsCCReservasCtrl);
 
-    ConsCCReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicLoading', '$ionicNavBarDelegate', '$ionicModal'];
-    function ConsCCReservasCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicLoading, $ionicNavBarDelegate, $ionicModal) {
+    ConsCCReservasCtrl.$inject = ['$rootScope', '$scope', '$state', 'ReservaService', '$filter', '$ionicLoading', '$ionicNavBarDelegate', '$ionicModal', '$ionicPopup'];
+    function ConsCCReservasCtrl($rootScope, $scope, $state, ReservaService, $filter, $ionicLoading, $ionicNavBarDelegate, $ionicModal, $ionicPopup) {
 
       $scope.reserva ={};
       $scope.search = {value: ""};
@@ -21,7 +21,7 @@
           template: '<ion-spinner icon="lines" class="spinner-stable"></ion-spinner>'
         });
 
-        loadReservas();
+        loadReservas(true);
       };
 
       $rootScope.toggleItem= function(item) {
@@ -78,34 +78,49 @@
 
         $scope.$on("$ionicView.enter", function() {
           if($scope.search.value){
-            loadReservas();
+            loadReservas(false);
           }
         });
 
-        function loadReservas() {
+        function loadReservas(notFirst) {
           ReservaService.consultarReservasCC($scope.search.value)
             .then(
               function(data) {
                   $scope.reservas = data.object;
                   console.log($scope.reservas);
                   if($scope.reservas == null) {
-                    setTimeout(function () {
-                      $scope.$apply(function(){
-                        $scope.error = data.message;
-                      });
-                    }, 1000);
+                    if(notFirst) {
+                      setTimeout(function () {
+                        $scope.$apply(function(){
+                          $scope.showAlert("Reserva não encontrada");
+                          $scope.error = data.message;
+                        });
+                      }, 1000);
+                    }
                   }
                   setTimeout(function () {
                     $ionicLoading.hide();
                   },1500);
               },
               function(error) {
+                console.log("DERU MERDA")
+                if(error.status == "NOT_FOUND") {
+                  $scope.showAlert("Reserva não encontrada");
+                } else {
                   $scope.error = "Carregue a página novamente";
                   setTimeout(function () {
                     $ionicLoading.hide();
                   },1500);
+                }
               }
             );
+        }
+
+        $scope.showAlert = function(msg) {
+          var alertPopup = $ionicPopup.alert({
+            title: '',
+            template: msg
+          });
         }
 
     };

@@ -12,7 +12,8 @@
     if($stateParams.reserva == null){
       $scope.reserva = {
                         dataReserva: new Date(),
-                        horaReserva: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), new Date().getHours(),new Date().getMinutes(),00)
+                        horaReserva: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate(), new Date().getHours(),new Date().getMinutes(),00),
+                        pagamento: "Transferencia - Pago"
                        };
 
       $scope.categoria = false;

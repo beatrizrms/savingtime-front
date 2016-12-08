@@ -18,7 +18,7 @@
 
         function gerarRelatorio(dataInicio, dataFinal) {
           var deferred = $q.defer();
-          $http.get(host + '/gerar/relatorio/'+dataInicio+'/'+dataFinal)
+          $http.get(host + '/gerar/relatorio/'+dataInicio+'/'+dataFinal, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {

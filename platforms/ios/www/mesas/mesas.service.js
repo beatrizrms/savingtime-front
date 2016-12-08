@@ -31,7 +31,7 @@
              url: host + 'mesarest/cadastrar/mesa',
              data: mesa,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
@@ -42,7 +42,7 @@
 
         function consultarMesas() {
           var deferred = $q.defer();
-          $http.get(host + 'mesarest/consultar/mesas')
+          $http.get(host + 'mesarest/consultar/mesas', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -60,7 +60,7 @@
              url: host + 'mesarest/alterar/mesa',
              data: mesa,
              headers: {'Content-Type': 'application/json'}
-          }).success(function (data, status, headers, config) {
+          }, {timeout: 10000}).success(function (data, status, headers, config) {
             deferred.resolve(data);
           }).error(function (data, status, headers, config) {
              deferred.reject(data);
@@ -71,7 +71,7 @@
 
         function consultarMesasCapacidade(capacidade) {
           var deferred = $q.defer();
-          $http.get(host + 'mesarest/consultar/mesas/capacidade/'+capacidade)
+          $http.get(host + 'mesarest/consultar/mesas/capacidade/'+capacidade, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -83,7 +83,7 @@
 
         function consultarMesasStatus(status){
           var deferred = $q.defer();
-          $http.get(host + 'mesarest/consultar/mesas/status/'+status)
+          $http.get(host + 'mesarest/consultar/mesas/status/'+status, {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
@@ -95,7 +95,7 @@
 
         function consultarStatusMesa(){
           var deferred = $q.defer();
-          $http.get(host + 'mesarest/get/status/mesa')
+          $http.get(host + 'mesarest/get/status/mesa', {timeout: 10000})
           .success(function(data) {
             deferred.resolve(data);
           }).error(function(data) {
